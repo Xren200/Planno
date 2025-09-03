@@ -859,17 +859,18 @@ class PlanningController extends BaseController
                             $class_tmp[]='activite_'.strtolower(removeAccents(str_replace(array('/',' ',), '_', $a)));
                         }
                     }
-                    $classe[$i]=implode(" ", $class_tmp);
 
                     // Color the logged in agent.
-                    $color[$i] = null;
+                    $currentUser = null;
                     if (!empty($this->config('Affichage-Agent')) and $elem['perso_id'] == $_SESSION['login_id']) {
-                        $color[$i] = filter_var($this->config('Affichage-Agent'), FILTER_CALLBACK, ['options' => 'sanitize_color']);
-                        $color[$i] = "style='background-color:{$color[$i]};'";
+                        $currentUser = 'current-user-cell';
+                        $class_tmp[] = $currentUser;
                     }
 
+                    $classe[$i]=implode(" ", $class_tmp);
+
                     // Création d'une balise span avec les classes cellSpan, et agent_ de façon à les repérer et agir dessus à partir de la fonction JS bataille_navale.
-                    $span="<span class='cellSpan agent_{$elem['perso_id']}' title='$title' >$resultat</span>";
+                    $span="<span class='cellSpan $currentUser agent_{$elem['perso_id']}' title='$title' >$resultat</span>";
 
                     $resultats[$i]=array("text"=>$span, "perso_id"=>$elem['perso_id']);
                     $i++;
@@ -887,7 +888,7 @@ class PlanningController extends BaseController
                 data-perso-id='{$resultats[$i]['perso_id']}'>{$resultats[$i]['text']}</div>";
         }
 
-        $cellule .= '<a class="pl-icon arrow-right" role="button"></a>';
+        $cellule .= "<div id='cellule{$this->cellId}_$i' class='cellDiv {$classe[$i]} pl-cellule-perso-{$resultats[$i]['perso_id']}'
         $cellule .= "</td>\n";
 
         return $cellule;
