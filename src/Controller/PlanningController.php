@@ -879,11 +879,11 @@ class PlanningController extends BaseController
 
         $this->cellId++;
 
-        $cellule = "<td id='td{$this->cellId}' colspan='$colspan' style='text-align:center;' class='menuTrigger' oncontextmenu='cellule={$this->cellId}' 
+        $cellule = "<td id='td{$this->cellId}' colspan='$colspan' style='text-align:center;' class='menuTrigger' oncontextmenu='cellule={$this->cellId}'
             data-start='$debut' data-end='$fin' data-situation='$poste' data-cell='{$this->cellId}' data-perso-id='0'>";
 
         for ($i=0;$i<count($resultats);$i++) {
-            $cellule .= "<div id='cellule{$this->cellId}_$i' class='cellDiv {$classe[$i]} pl-cellule-perso-{$resultats[$i]['perso_id']}' {$color[$i]} 
+            $cellule .= "<div id='cellule{$this->cellId}_$i' class='cellDiv {$classe[$i]} pl-cellule-perso-{$resultats[$i]['perso_id']}'
                 data-perso-id='{$resultats[$i]['perso_id']}'>{$resultats[$i]['text']}</div>";
         }
 
@@ -892,6 +892,7 @@ class PlanningController extends BaseController
 
         return $cellule;
     }
+
 
     private function createPlannings($request, $view)
     {
