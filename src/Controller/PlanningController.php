@@ -1375,7 +1375,7 @@ class PlanningController extends BaseController
                 break;
         }
 
-        $messages_infos = null;
+        $messages_infos = array();
 
         $db = new \db();
         $start = $db->escapeString($start);
@@ -1386,9 +1386,7 @@ class PlanningController extends BaseController
             foreach ($db->result as $elem) {
                 $messages_infos[] = $elem['texte'];
             }
-            $messages_infos = implode(' - ', $messages_infos);
         }
-
         return $messages_infos;
     }
 
@@ -1560,16 +1558,16 @@ class PlanningController extends BaseController
         // Parameters for planning's menu
         // (Calendar widget, days, week and action icons)
         $this->templateParams(array(
-            'affSem'            => $affSem,
-            'autorisationN1'    => $autorisationN1,
-            'content_planning'  => true,
-            'date'              => $date,
-            'dates'             => $dates,
-            'day'               => $jour,
-            'messages_infos'    => $messages_infos,
-            'public_holiday'    => jour_ferie($date),
-            'site'              => $site,
-            'week_view'         => $weekView,
+            'affSem'             => $affSem,
+            'autorisationN1'     => $autorisationN1,
+            'content_planning'   => true,
+            'date'               => $date,
+            'dates'              => $dates,
+            'day'                => $jour,
+            'informationMessages'=> $messages_infos,
+            'public_holiday'     => jour_ferie($date),
+            'site'               => $site,
+            'week_view'          => $weekView,
         ));
 
         return array(
