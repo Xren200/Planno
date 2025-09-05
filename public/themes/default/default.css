@@ -1813,7 +1813,7 @@ table.dataTable tbody tr.odd>.dtfc-fixed-left, table.dataTable tbody tr>.dtfc-fi
 }
 
 #reset-login-form.ui-dialog-content {
-padding: 1.5em 1em 0.5em 1em;
+  padding: 1.5em 1em 0.5em 1em;
 }
 
 .ui-dialog-titlebar {
