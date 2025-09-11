@@ -631,9 +631,11 @@ class HolidayController extends BaseController
             'reliquat_jours'        => $reliquat_jours,
             'recuperation'          => $recuperation,
             'recuperation_prev'     => $balance[4],
-            'balance0'              => dateFr($balance[0]),
-            'balance1'              => heure4($balance[1], true),
-            'balance4'              => heure4($balance[4], true),
+            //TEST TODO
+            'balance_date'          => dateFr($balance[0]),
+            'balance_before'        => heure4($balance[1]),
+            'recup4'                => heure4($balance[1], true),
+            'balance2_before'       => heure4($balance[4], true),
             'credit'                => $credit,
             'credit2'               => $holiday_helper->HumanReadableDuration($credit),
             'credit_jours'          => $credit_jours,
@@ -652,6 +654,18 @@ class HolidayController extends BaseController
             'selected_agent_id'     => $perso_id,
             'sites_select'          => $sites_select,
             'show_allday'           => $show_allday,
+            //TESE TODO
+            'hre_debut'             => '',
+            'hre_fin'               => '',
+            'halfday'               => '',
+            'debut'                 => '',
+            'fin'                   => '',
+            'start_halfday'         => '',
+            'debit'                 => '',
+            'valide'                => '',
+            'commentaires'          => '',
+            'displayRefus'          => '',
+
         );
 
         $this->templateParams($templateParams);
@@ -671,7 +685,7 @@ class HolidayController extends BaseController
 
         $this->templateParams(array('holiday_info' => $holiday_info));
 
-        return $this->output('conges/add.html.twig');
+        return $this->output('conges/edit.html.twig');
     }
 
     #[Route(path: '/holiday/accounts', name: 'holiday.accounts', methods: ['GET'])]
