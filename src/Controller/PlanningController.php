@@ -865,7 +865,7 @@ class PlanningController extends BaseController
                         $class_tmp[] = 'current-user-cell';
                     }
 
-                    $classe[$i]=implode(" ", $class_tmp);
+                    $classe[$i]=implode(' ', $class_tmp);
 
                     // Création d'une balise span avec les classes cellSpan, et agent_ de façon à les repérer et agir dessus à partir de la fonction JS bataille_navale.
                     $span="<span class='cellSpan agent_{$elem['perso_id']}' title='$title' >$resultat</span>";
@@ -886,7 +886,7 @@ class PlanningController extends BaseController
         }
 
         $cellule .= "</td>\n";
-
+        $cellule .= '<a class="pl-icon arrow-right" role="button"></a>';
         return $cellule;
     }
 
