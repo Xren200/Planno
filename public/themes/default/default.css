@@ -744,6 +744,12 @@ select
   display:none;
 }
 
+.cellDiv {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
 /*
 table #tabsemaine1 .tabsemaine1
     -----------------------------------------------------------------------------------------------------
@@ -839,6 +845,10 @@ class cellule = cellule par défaut
 /* tabsemaine1 est un div sur la page semaine.php : permet l'affichage des tableaux masqués */
 div#tabsemaine1{
   margin: 20px 0 0 0;
+}
+
+#tabsemaine1, .tabsemaine1 {
+border-collapse: collapse;
 }
 
 .tr_horaires, .tr_separation, .tr_horaires a{

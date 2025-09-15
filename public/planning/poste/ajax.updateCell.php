@@ -329,7 +329,10 @@ for ($i=0;$i<count($tab);$i++) {
     // Color the logged in agent.
     $currentUser = null;
     if (!empty($config['Affichage-Agent']) and $tab[$i]['perso_id'] == $_SESSION['login_id']) {
-        $currentUser = 'current-user-cell';
+        $tab[$i]["is_current_user"] = 1;
+    }
+    else{
+        $tab[$i]["is_current_user"] = 0;
     }
 
     // Ajout des Sans Repas (SR)
