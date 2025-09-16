@@ -1718,10 +1718,8 @@ function verif_categorieA(){
   });
 }
 
-function showInformationMessages(informationMessages){
-  //const messages = JSON.parse(informationMessages);
-
-  for(let message of informationMessages){
-    alert(message);
+function showInformationMessages(messages){
+  for (let msg of messages) {
+    alert(msg);
   }
 }

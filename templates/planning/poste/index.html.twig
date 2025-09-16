@@ -11,8 +11,9 @@
         refresh_poste();
       }
     });
-
-    showInformationMessages('{{ informationMessages }}');
+    window.addEventListener('load', () => {
+      showInformationMessages({{ informationMessages|json_encode|raw }});
+    });
   </script>
 {% endblock %}
 

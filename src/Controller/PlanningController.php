@@ -1386,9 +1386,8 @@ class PlanningController extends BaseController
             foreach ($db->result as $elem) {
                 $messages_infos[] = $elem['texte'];
             }
-            //$messages_infos = implode(' - ', $messages_infos);
         }
-        return json_encode($messages_infos);
+        return $messages_infos;
     }
 
     private function getLockData(String $date = null)
