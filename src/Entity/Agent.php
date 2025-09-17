@@ -580,6 +580,7 @@ class Agent
         $working_hours->valide = false;
         $working_hours->fetch();
 
+
         if (empty($working_hours->elements)) {
             return array();
         }
