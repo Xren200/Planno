@@ -237,7 +237,7 @@ class planningHebdo
         $date=date("Y-m-d");
         if ($debut) {
             $fin=$fin?$fin:$date;
-            //$filter.=" AND `debut`<='$fin' AND `fin`>='$debut'";
+            $filter.=" AND `debut`<='$fin' AND `fin`>='$debut'";
         } else {
             $filter.=" AND `fin`>='$date'";
         }
