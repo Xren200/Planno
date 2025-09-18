@@ -73,8 +73,7 @@ class PlanningController extends BaseController
         $view = 'default';
 
         list($site, $date, $d, $semaine, $dates, $autorisationN1, $autorisationN2, $autorisationNotes, $comments) = $this->initPlanning($request, $view);
-        $agents = json_decode($request->get('agents'));
-        //if(!$agents) dd(gettype($agents));
+
         // Index page only
         $currentFramework = $this->getCurrentFramework($date, $site);
         $show_framework_select = 0;

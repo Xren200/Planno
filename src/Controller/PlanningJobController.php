@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Psr\Log\LoggerInterface;
 
 require_once(__DIR__ . '/../../public/conges/class.conges.php');
 require_once(__DIR__ . '/../../public/include/function.php');
@@ -56,14 +55,6 @@ class PlanningJobController extends BaseController
         $end = $request->get('to');
         $agents = json_decode($request->get('agents'));
 
-        $this->logger->info('____checkCopy called____', [
-            'date' => $date,
-            'start' => $start,
-            'end'   => $end,
-            'agents' => $agents
-        ]);
-
-
         $availables = array();
         $unavailables = array();
         $errors = array();
@@ -72,9 +63,6 @@ class PlanningJobController extends BaseController
 
             try {
                 $agent = $this->entityManager->find(Agent::class, $agent_id);
-                $this->logger->info('checkCopy called', [
-                    'agent' => $agent
-                ]);
                 $fullname = $agent->getFirstname() . ' ' . $agent->getLastname();
                 $available = true;
 
