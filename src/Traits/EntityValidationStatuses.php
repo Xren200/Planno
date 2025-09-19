@@ -7,16 +7,13 @@ use App\Entity\Agent;
 
 trait EntityValidationStatuses
 {
-    public function setStatusesParams($agent_ids, $module, $entity_id = null)
+    public function setStatusesParams($agent_ids, $module,$entity_state,$needsValidationL1)
     {
         if (!$agent_ids) {
             throw new \Exception("EntityValidationStatuses::setStatusesParams: No agent");
         }
 
         $show_select = false;
-
-        $entity = new ValidationAwareEntity($module, $entity_id);
-        list($entity_state, $entity_state_desc) = $entity->status();
 
         // At this point, overtime entities
         // and holiday are treated the same.
@@ -47,7 +44,9 @@ trait EntityValidationStatuses
         }
 
         // Prevent user without right L1 to directly validate l2
-        if (!$adminN1 && $entity_state == 0 && $entity->needsValidationL1()) {
+        //TEST TODO
+        //if (!$adminN1 && $entity_state == 0 && $entity->needsValidationL1()) {
+        if (!$adminN1 && $entity_state == 0 && $needsValidationL1) {
             $show_select = 0;
         }
 
@@ -57,7 +56,6 @@ trait EntityValidationStatuses
         }
 
         $this->templateParams(array(
-            'entity_state_desc' => $entity_state_desc,
             'entity_state'      => $entity_state,
             'show_select'       => $show_select,
             'show_n1'           => $show_n1,

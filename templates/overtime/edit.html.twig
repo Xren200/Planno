@@ -119,7 +119,11 @@
                 </select>
               </td>
             {% else %}
-              <td>{{ entity_state_desc }}</td>
+              {% if entity_state == 0 %}
+                <span>Demandée</span>
+              {% else %}
+                <span>En attente de validation hiérarchique</span>
+              {% endif %}
             {% endif %}
           </tr>
 

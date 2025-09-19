@@ -699,7 +699,8 @@ class AbsenceController extends BaseController
         $module = $request->get('module');
         $entity_id = $request->get('id');
 
-        $this->setStatusesParams($agent_ids, $module, $entity_id);
+
+        $this->setStatusesParams($agent_ids, $module, null, $GLOBALS['config']['Absences-Validation-N2'] ?? null);
 
         return $this->output('/common/validation-statuses.html.twig');
     }

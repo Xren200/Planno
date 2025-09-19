@@ -195,14 +195,14 @@ class WorkingHourController extends BaseController
             // Validation niveau 1
             if ($elem['valide_n1'] > 0) {
                 $validation_date = dateFr($elem['validation_n1'], true);
-                $validation = $lang['work_hours_dropdown_accepted_pending'];
+                $validation = $lang['work_hours_table_accepted_pending'];
                 // 99999 : ID cron : donc pas de nom a afficher
                 if ($elem['valide_n1'] != 99999) {
                     $validation .= ", ".nom($elem['valide_n1'], 'nom p', $agents);
                 }
             } elseif ($elem['valide_n1'] < 0) {
                 $validation_date = dateFr($elem['validation_n1'], true);
-                $validation = $lang['work_hours_dropdown_refused_pending'];
+                $validation = $lang['work_hours_table_refused_pending'];
                 // 99999 : ID cron : donc pas de nom a afficher
                 if ($elem['valide_n1'] != 99999) {
                     $validation.=", ".nom(-$elem['valide_n1'], 'nom p', $agents);
@@ -269,14 +269,28 @@ class WorkingHourController extends BaseController
         $id = null;
         $action = "ajout";
 
+        $entity_id = $request->get('id');
+
+        //TEST TODO que ren yi xia ke bu ke yi new yi ge xin db
+        $ph_id = $request->get('ph_id');
+        if ($ph_id != null) {
+            $p = new \planningHebdo();
+            $p->id = $entity_id;
+            $p->fetch();
+            //dd($p->elements);
+            $this->workinghours = $p->elements[0];
+            //dd($this->workinghours);
+            $entity_state=array($this->workinghours['valide_n1'],$this->workinghours['valide']);
+        }
+
         // Sécurité
         list($adminN1, $adminN2) = $this->entityManager
             ->getRepository(Agent::class)
             ->setModule('workinghour')
             ->forAgent($perso_id)
             ->getValidationLevelFor($session->get('loginId'));
-
-        $this->setStatusesParams(array($perso_id), 'workinghour');
+        $this->config = $GLOBALS['config'];
+        $this->setStatusesParams(array($perso_id), 'workinghour', 0,$this->config['PlanningHebdo-Validation-N2']);
 
         $notAdmin = !($adminN1 or $adminN2);
         $admin = ($adminN1 or $adminN2);
@@ -405,6 +419,7 @@ class WorkingHourController extends BaseController
         $temps = $p->elements[0]['temps'];
         $breaktime = $p->elements[0]['breaktime'];
         $thisNbSemaine = !empty($p->elements[0]['nb_semaine']) ? $p->elements[0]['nb_semaine'] : 1;
+        $entity_state=array($p->elements[0]['valide_n1'],$p->elements[0]['valide']);
 
         // Sécurité
         list($this->adminN1, $this->adminN2) = $this->entityManager
@@ -413,8 +428,9 @@ class WorkingHourController extends BaseController
             ->forAgent($perso_id)
             ->getValidationLevelFor($session->get('loginId'));
         $admin = ($this->adminN1 or $this->adminN2);
+        $this->config = $GLOBALS['config'];
 
-        $this->setStatusesParams(array($perso_id), 'workinghour', $id);
+        $this->setStatusesParams(array($perso_id), 'workinghour',  $entity_state, $this->config['PlanningHebdo-Validation-N2']);
 
         if (!$admin && $perso_id != $session->get('loginId')) {
             return $this->redirectToRoute('access-denied');
