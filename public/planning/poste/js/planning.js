@@ -1718,8 +1718,12 @@ function verif_categorieA(){
   });
 }
 
+var currentIndex = 0;
 function showInformationMessages(messages){
-  for (let msg of messages) {
-    alert(msg);
-  }
+  var msg = messages[currentIndex];
+  CJInfo(msg,null,null,3000,null);
+  currentIndex = (currentIndex + 1) % messages.length;
+  setTimeout(function() {
+    showInformationMessages(messages);
+  }, 3000);
 }
