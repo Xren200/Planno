@@ -200,9 +200,9 @@
         <td>Récupération :</td>
         <td>
           {% if recup_agent == 1 %}
-            <textarea name='recup' style='width:400px' cols='10' rows='4'>{{ recup }}</textarea>
+            <textarea name='comp_time' style='width:400px' cols='10' rows='4'>{{ recup }}</textarea>
           {% elseif recup_agent == 2 %}
-            <select name='recup' style='width:400px'>
+            <select name='comp_time' style='width:400px'>
               <option value=''>&nbsp;</option>
               {% for elem in recupAgents %}
                 {% if elem == recup %}

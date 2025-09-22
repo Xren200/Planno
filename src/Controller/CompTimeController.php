@@ -203,6 +203,6 @@ class CompTimeController extends BaseController
 
         $session->getFlashBag()->add('notice', 'La demande de récupération a été enregistrée');
 
-        return $this->redirectToRoute('holiday.index', array('recup' => 1));
+        return $this->redirectToRoute('holiday.index', array('comp_time' => 1));
     }
 }

@@ -190,7 +190,7 @@ $tables = array (
             'password',
             'postes',
             'prenom',
-            'recup',
+            'comp_time',
             'service',
             'sites',
             'statut',

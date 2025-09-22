@@ -32,7 +32,7 @@ class HolidayController extends BaseController
         $perso_id = $request->get('perso_id');
         $reset = $request->get('reset');
         $supprimes = $request->get('supprimes');
-        $voir_recup = $request->get('recup');
+        $voir_recup = $request->get('comp_time');
 
         $lang = $GLOBALS['lang'];
 
@@ -341,7 +341,7 @@ class HolidayController extends BaseController
                 $session->getFlashBag()->add($type, $msg2);
             }
 
-            return $this->redirectToRoute("holiday.index", array('recup' => $recover));
+            return $this->redirectToRoute("holiday.index", array('comp_time' => $recover));
         }
 
         list($adminN1, $adminN2) = $this->entityManager

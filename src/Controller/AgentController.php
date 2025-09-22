@@ -340,7 +340,7 @@ class AgentController extends BaseController
             $mailsResponsables = explode(";", html_entity_decode($db->result[0]['mails_responsables'], ENT_QUOTES|ENT_IGNORE, "UTF-8"));
             // $mailsResponsables : html_entity_decode necéssaire sinon ajoute des espaces après les accents ($mailsResponsables=implode("; ",$mailsResponsables);)
             $informations = stripslashes($db->result[0]['informations']);
-            $recup = stripslashes($db->result[0]['recup']);
+            $recup = stripslashes($db->result[0]['comp_time']);
             $sites = html_entity_decode($db->result[0]['sites'], ENT_QUOTES|ENT_IGNORE, 'UTF-8');
             $sites = $sites?json_decode($sites, true):array();
             $action = "modif";
@@ -768,7 +768,6 @@ class AgentController extends BaseController
     {
 
         $params = $request->request->all();
-
         $arrivee = $request->get('arrivee');
         $depart = $request->get('depart');
         $CSRFToken = $request->get('CSRFToken');
@@ -794,7 +793,7 @@ class AgentController extends BaseController
         $nom = trim($params['nom']);
         $postes = $params['postes'] ?? null;
         $prenom = trim($params['prenom']);
-        $recup = isset($params['recup']) ? trim($params['recup']) : null;
+        $recup = isset($params['comp_time']) ? trim($params['comp_time']) : null;
         $service = $params['service'] ?? null;
         $sites = array_key_exists("sites", $params) ? $params['sites'] : null;
         $statut = $params['statut'] ?? null;
