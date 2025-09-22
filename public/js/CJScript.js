@@ -76,7 +76,7 @@ function CJInfo(message,type,top,time,myClass){
   if(top==undefined){
     top=82;
   }
-  
+
   if(time==undefined){
     time=8000;
   }
@@ -94,11 +94,14 @@ function CJInfo(message,type,top,time,myClass){
     id=$(this).attr("data-id")>=id?($(this).attr("data-id")+1):id;
     top=$(this).position().top+$(this).height()+5;
   });
-  
-  message=message.replace(/#BR#/g,"<br/>");
-  message=message.replace(/\n/g,"<br/>");
 
-  $("body").append("<div class='CJInfo noprint "+myClass+"' id='CJInfo"+id+"' data-id='"+id+"'>"+message+"</div>");
+  //message=message.replace(/#BR#/g,"<br/>");
+  //message=message.replace(/\n/g,"<br/>");
+  var escaped = $("<div>").text(message).html();
+  escaped = escaped.replace(/#BR#|\n/g, "<br/>");
+
+
+  $("body").append("<div class='CJInfo noprint "+myClass+"' id='CJInfo"+id+"' data-id='"+id+"'>"+escaped+"</div>");
   CJErrorHighlight($("#CJInfo"+id),type);
   CJPosition($("#CJInfo"+id),top,"center");
 
