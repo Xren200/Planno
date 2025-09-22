@@ -1,5 +1,7 @@
 {# common/validation-statuses.html.twig #}
-
+{% if app.debug %}
+  {{ dump(debug_evs) }}  {# Symfony debug 工具条里能看到结构化变量 #}
+{% endif %}
 {% if show_select %}
   <select name='valide' class='ui-widget-content ui-corner-all'>
     {% if entity_state == 0 %}

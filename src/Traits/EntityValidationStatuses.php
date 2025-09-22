@@ -7,14 +7,48 @@ use App\Entity\Agent;
 
 trait EntityValidationStatuses
 {
-    public function setStatusesParams($agent_ids, $module,$entity_state,$needsValidationL1)
+    public function entity_state($valide_paire)
+    {
+
+        if (empty($valide_paire)) {
+            return 0;
+        }
+
+        $valide_n2 = $valide_paire[0];
+        $valide_n1 = $valide_paire[1];
+
+
+        // Accepted level 2.
+        if ($valide_n2 > 0) {
+            return 1;
+        }
+
+        // Rejected level 2.
+        if ($valide_n2 < 0) {
+            return -1;
+        }
+
+        // Accepted level 1
+        if ($valide_n1 > 0) {
+            return 2;
+        }
+
+        // Rejected level 1
+        if ($valide_n1 < 0) {
+            return -2;
+        }
+
+        return 0;
+
+    }
+    public function setStatusesParams($agent_ids, $module,$valide_paire,$needsValidationL1)
     {
         if (!$agent_ids) {
             throw new \Exception("EntityValidationStatuses::setStatusesParams: No agent");
         }
 
         $show_select = false;
-
+        $entity_state=$this->entity_state($valide_paire);
         // At this point, overtime entities
         // and holiday are treated the same.
         // This was not the cas in ValidationAwareEntity.
@@ -55,11 +89,25 @@ trait EntityValidationStatuses
             $show_select = 0;
         }
 
-        $this->templateParams(array(
+        $this->templateParams([
             'entity_state'      => $entity_state,
             'show_select'       => $show_select,
             'show_n1'           => $show_n1,
             'show_n2'           => $show_n2,
-        ));
+            'debug_evs'    => [
+                'module'       => $module,
+                'entity_state' => $entity_state,
+                'needsL1'      => (bool)$needsValidationL1,
+                'adminN1'      => (bool)$adminN1,
+                'adminN2'      => (bool)$adminN2,
+                'show_select'  => (bool)$show_select,
+                'N1'           => $N1,
+                'N2'           => $this->entityManager
+                ->getRepository(Agent::class)
+                ->setModule($module)
+                ->forAgent($id)
+                ->getValidationLevelFor($_SESSION['login_id'])
+            ],
+        ]);
     }
 }
