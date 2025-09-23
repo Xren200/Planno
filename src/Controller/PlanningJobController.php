@@ -13,15 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-require_once(__DIR__ . '/../../public/conges/class.conges.php');
+require_once(__DIR__ . '/../../legacy/class/class.conges.php');
 require_once(__DIR__ . '/../../public/include/function.php');
 require_once(__DIR__ . '/../../public/include/horaires.php');
-require_once(__DIR__ . '/../../public/absences/class.absences.php');
-require_once(__DIR__ . '/../../public/personnel/class.personnel.php');
+require_once(__DIR__ . '/../../legacy/class/class.absences.php');
+require_once(__DIR__ . '/../../legacy/class/class.personnel.php');
 require_once(__DIR__ . '/../../public/planning/poste/fonctions.php');
-require_once(__DIR__ . '/../../public/planning/poste/class.planning.php');
-require_once(__DIR__ . '/../../public/planning/volants/class.volants.php');
-require_once(__DIR__ . '/../../public/planningHebdo/class.planningHebdo.php');
+require_once(__DIR__ . '/../../legacy/class/class.planning.php');
+require_once(__DIR__ . '/../../legacy/class/class.volants.php');
+require_once(__DIR__ . '/../../legacy/class/class.planningHebdo.php');
 
 class PlanningJobController extends BaseController
 {

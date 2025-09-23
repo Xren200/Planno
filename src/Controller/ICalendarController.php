@@ -11,9 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
-require_once(__DIR__.'/../../public/conges/class.conges.php');
-require_once(__DIR__.'/../../public/personnel/class.personnel.php');
-require_once(__DIR__.'/../../public/postes/class.postes.php');
+require_once(__DIR__.'/../../legacy/class/class.conges.php');
+require_once(__DIR__.'/../../legacy/class/class.personnel.php');
+require_once(__DIR__.'/../../legacy/class/class.postes.php');
 
 class ICalendarController extends BaseController
 {

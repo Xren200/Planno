@@ -9,7 +9,7 @@ Fichier inclus par ldap/auth.php
 $version = $GLOBALS['version'] ?? null;
 
 if (!isset($version)) {
-    include_once "../include/accessDenied.php";
+    include_once "../public/include/accessDenied.php";
 }
 
 function authCAS($logger)

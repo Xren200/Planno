@@ -381,8 +381,8 @@ class planning
     public function notifications()
     {
         $version="ajax";
-        require_once "../../personnel/class.personnel.php";
-        require_once "../../postes/class.postes.php";
+        require_once "/class.personnel.php";
+        require_once "/class.postes.php";
         $config=$GLOBALS['config'];
     
         // Liste des agents actifs

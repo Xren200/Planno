@@ -2,9 +2,9 @@
 
 namespace App\PlanningBiblio;
 
-require_once(__DIR__ . '/../../public/absences/class.absences.php');
-require_once(__DIR__ . '/../../public/conges/class.conges.php');
-require_once(__DIR__ . '/../../public/planningHebdo/class.planningHebdo.php');
+require_once(__DIR__ . '/../../legacy/class/class.absences.php');
+require_once(__DIR__ . '/../../legacy/class/class.conges.php');
+require_once(__DIR__ . '/../../legacy/class/class.planningHebdo.php');
 
 class ValidationAwareEntity
 {

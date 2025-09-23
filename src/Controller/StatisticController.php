@@ -18,15 +18,15 @@ use App\PlanningBiblio\PresentSet;
 
 $version = 'symfony';
 
-include_once __DIR__ . "/../../public/conges/class.conges.php";
+include_once __DIR__ . "/../../legacy/class/class.conges.php";
 include_once __DIR__ . "/../../public/include/function.php";
 require_once __DIR__ . "/../../public/include/db.php";
 require_once __DIR__ . "/../../public/include/horaires.php";
-include_once __DIR__ . '/../../public/statistiques/class.statistiques.php';
-include_once __DIR__ . '/../../public/absences/class.absences.php';
-include_once __DIR__ . '/../../public/planningHebdo/class.planningHebdo.php';
-include_once __DIR__ . '/../../public/postes/class.postes.php';
-include_once __DIR__ . '/../../public/personnel/class.personnel.php';
+include_once __DIR__ . '/../../legacy/class/class.statistiques.php';
+include_once __DIR__ . '/../../legacy/class/class.absences.php';
+include_once __DIR__ . '/../../legacy/class/class.planningHebdo.php';
+include_once __DIR__ . '/../../legacy/class/class.postes.php';
+include_once __DIR__ . '/../../legacy/class/class.personnel.php';
 
 class StatisticController extends BaseController
 {

@@ -7,8 +7,8 @@ Cette page est appelée par la page planning/volants/index.php
 */
 
 
-require_once __DIR__.'/../../include/function.php';
-require_once __DIR__.'/../../personnel/class.personnel.php';
+require_once __DIR__.'/../../public/include/function.php';
+require_once __DIR__.'/class.personnel.php';
 
 class volants
 {
