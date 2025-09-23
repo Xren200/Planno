@@ -1,15 +1,5 @@
 <?php
 /**
-Planning Biblio, Version 2.7
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : postes/class.postes.php
-Création : 29 novembre 2012
-Dernière modification : 22 juin 2017
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Classe postes contenant la fonction postes::fetch permettant de rechercher les postes dans la base de données
 

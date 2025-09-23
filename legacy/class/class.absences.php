@@ -1,15 +1,5 @@
 <?php
 /**
-Planning Biblio, Version 2.8
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : absences/class.absences.php
-Création : mai 2011
-Dernière modification : 30 avril 2018
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Classe absences : contient les fonctions de recherches des absences
 

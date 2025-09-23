@@ -1,14 +1,5 @@
 <?php
 /**
-Planning Biblio
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-@file ics/class.ics.php
-Création : 29 mai 2016
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Classe permettant le traitement des fichiers ICS
 */

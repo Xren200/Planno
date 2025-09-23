@@ -1,13 +1,5 @@
 <?php
 /**
-Planning Biblio
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-
-@file public/conges/class.conges.php
-@author Jérôme Combes <jerome@planningbiblio.fr>
-@author Etienne Cavalié
-
 Description :
 Fichier regroupant les fonctions utiles à la gestion des congés
 Inclus dans les autres fichiers PHP du dossier conges

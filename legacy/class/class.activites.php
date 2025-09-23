@@ -1,15 +1,5 @@
 <?php
 /**
-Planning Biblio, Version 2.7
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : activites/class.activites.php
-Création : mai 2011
-Dernière modification : 22 juin 2017
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Classe activites : contient les fonctions de recherches des activites
 Page appelée par les pages du dossier activites

@@ -1,15 +1,5 @@
 <?php
 /**
-Planning Biblio, Version 2.8.1
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : personnel/class.personnel.php
-Création : 16 janvier 2013
-Dernière modification : 24 mai 2018
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Classe personnel : contient la fonction personnel::fetch permettant de rechercher les agents.
 personnel::fetch prend en paramètres $tri (nom de la colonne), $actif (string), $name (string, nom ou prenom de l'agent)

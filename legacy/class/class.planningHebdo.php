@@ -1,15 +1,5 @@
 <?php
 /**
-Planning Biblio, Version 2.8.05
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : planningHebdo/class.planningHebdo.php
-Création : 23 juillet 2013
-Dernière modification : 6 décembre 2018
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Fichier regroupant le fonctions planningHebdo.
 Appelé par les autres fichiers du dossier planningHebdo
