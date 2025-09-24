@@ -95,13 +95,10 @@ function CJInfo(message,type,top,time,myClass){
     top=$(this).position().top+$(this).height()+5;
   });
 
-  //message=message.replace(/#BR#/g,"<br/>");
-  //message=message.replace(/\n/g,"<br/>");
-  var escaped = $("<div>").text(message).html();
-  escaped = escaped.replace(/#BR#|\n/g, "<br/>");
+  message=message.replace(/#BR#/g,"<br/>");
+  message=message.replace(/\n/g,"<br/>");
 
-
-  $("body").append("<div class='CJInfo noprint "+myClass+"' id='CJInfo"+id+"' data-id='"+id+"'>"+escaped+"</div>");
+  $("body").append("<div class='CJInfo noprint "+myClass+"' id='CJInfo"+id+"' data-id='"+id+"'>"+message+"</div>");
   CJErrorHighlight($("#CJInfo"+id),type);
   CJPosition($("#CJInfo"+id),top,"center");
 
