@@ -36,8 +36,8 @@ use App\PlanningBiblio\Framework;
 
 require_once(__DIR__ . '/../../../public/include/config.php');
 require_once(__DIR__ . '/../../../public/include/function.php');
-require_once(__DIR__ . '/../../legacy/class/class.absences.php');
-require_once(__DIR__ . '/../../legacy/class/class.postes.php');
+require_once(__DIR__ . '/../../../legacy/class/class.absences.php');
+require_once(__DIR__ . '/../../../legacy/class/class.postes.php');
 
 
 // Génération d'un CSRF Token
