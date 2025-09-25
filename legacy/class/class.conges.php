@@ -962,6 +962,7 @@ class conges
         $this->responsables=$responsables;
     }
 
+    /*
     public function getSaturday()
     {
         // Liste des samedis des 2 derniers mois
@@ -1000,6 +1001,7 @@ class conges
         }
         $this->samedis=$samedis;
     }
+    */
 
 
     /**
@@ -1263,7 +1265,7 @@ class conges
         return $new_id;
     }
 
-
+/*
     public function updateCETCredits()
     {
         $data=$this->data;
@@ -1278,6 +1280,7 @@ class conges
       // Les afficher dans le tableau si demande validée
         }
     }
+    */
 
     public function all($from, $to, $rejected = 0, $sites = [])
     {
