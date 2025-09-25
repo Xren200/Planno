@@ -24,7 +24,7 @@ trait EntityValidationStatuses
         // This was not the cas in ValidationAwareEntity.
         $module = $module == 'overtime' ? 'holiday' : $module;
 
-        if ($module == 'absence') {
+        if ($module == 'absence' && $entity_id) {
             $absence = $this->entityManager->getRepository(Absence::class)->find($entity_id);
             $statuses = [$absence->getValidLevel1(), $absence->getValideLevel2()];
         }
@@ -64,12 +64,19 @@ trait EntityValidationStatuses
             $show_select = 0;
         }
 
-        $this->templateParams(array(
+        $this->templateParams([
             'entity_state_desc' => $entity_state_desc,
             'entity_state'      => $entity_state,
             'show_select'       => $show_select,
             'show_n1'           => $show_n1,
             'show_n2'           => $show_n2,
-        ));
+            'debug_evs'    => [
+                'module'       => $module,
+                'entity_state' => $statuses,
+                'show_select'  => (bool)$show_select,
+                'N1'           => $N1,
+                'N2'           => $this->entityManager
+            ],
+        ]);
     }
 }
