@@ -9,12 +9,12 @@ Inclus dans les autres fichiers PHP du dossier conges
 $version = $GLOBALS['version'] ?? null;
 
 if (!isset($version) and php_sapi_name() != 'cli') {
-    include_once __DIR__."/../public/include/accessDenied.php";
+    include_once __DIR__."/../../public/include/accessDenied.php";
 }
 
-require_once __DIR__."/class.planningHebdo.php";
-require_once __DIR__."/class.personnel.php";
-require_once __DIR__."/class.absences.php";
+require_once __DIR__.'/class.planningHebdo.php';
+require_once __DIR__.'/class.personnel.php';
+require_once __DIR__.'/class.absences.php';
 
 use App\PlanningBiblio\WorkingHours;
 use App\PlanningBiblio\ClosingDay;
@@ -897,7 +897,7 @@ class conges
                 // Emploi du temps si plugin planningHebdo
                 if ($GLOBALS['config']['PlanningHebdo']) {
                     $version = $GLOBALS['version'];
-                    include_once __DIR__."/class.planningHebdo.php";
+                    include_once __DIR__.'/class.planningHebdo.php';
                     $p=new planningHebdo();
                     $p->perso_id=$perso_id;
                     $p->debut=$date;

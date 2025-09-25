@@ -9,7 +9,7 @@ Page appelée par les pages du dossier activites
 $version = $GLOBALS['version'] ?? null;
 
 if (!isset($version) and php_sapi_name() != 'cli') {
-    include_once "../public/include/accessDenied.php";
+    include_once __DIR__.'/../../public/include/accessDenied.php';
 }
 
 class activites

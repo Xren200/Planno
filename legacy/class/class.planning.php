@@ -14,7 +14,7 @@ use App\Entity\Position;
 $version = $GLOBALS['version'] ?? null;
 
 if (!isset($version)) {
-    include_once "../../include/accessDenied.php";
+    include_once (__DIR__. '/../../public/include/accessDenied.php');
 }
 
 
@@ -381,8 +381,8 @@ class planning
     public function notifications()
     {
         $version="ajax";
-        require_once "/class.personnel.php";
-        require_once "/class.postes.php";
+        require_once __DIR__.'/class.personnel.php';
+        require_once __DIR__.'/class.postes.php';
         $config=$GLOBALS['config'];
     
         // Liste des agents actifs

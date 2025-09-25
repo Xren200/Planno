@@ -395,7 +395,7 @@ function calculHeuresSP($date, $CSRFToken)
         $version='ajax';
     }
     require_once "horaires.php";
-    require_once __DIR__."/../../legacy/class/class.personnel.php";
+    require_once __DIR__.'/../../legacy/class/class.personnel.php';
 
     $d=new datePl($date);
     $dates=$d->dates;
@@ -415,7 +415,7 @@ function calculHeuresSP($date, $CSRFToken)
 
     // Recherche des heures de SP avec le module planningHebdo
     if ($config['PlanningHebdo']) {
-        require_once(__DIR__."/../../legacy/class/class.planningHebdo.php");
+        require_once(__DIR__.'/../../legacy/class/class.planningHebdo.php');
 
         // Vérifie si la table planning_hebdo a été mise à jour depuis le dernier calcul
         $p=new planningHebdo();
