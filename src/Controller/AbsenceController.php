@@ -31,6 +31,7 @@ class AbsenceController extends BaseController
         $fin = $request->get('fin');
         $reset = $request->get('reset');
         $droits = $GLOBALS['droits'];
+        $lang = $GLOBALS['lang'];
 
         if (!$debut) {
             $debut = $_SESSION['oups']['absences_debut'] ?? null;
@@ -143,11 +144,11 @@ class AbsenceController extends BaseController
                 $elem['nom_n1b'] = $elem['valide_n1'] != -99999 ? nom(-$elem['valide_n1'], 'nom p', $agents).", " : null;
                 $elem['nom_n2a'] = $elem['valide'] != 99999 ? nom($elem['valide'], 'nom p', $agents).", " : null;
                 $elem['nom_n2b'] = $elem['valide'] != -99999 ? nom(-$elem['valide'], 'nom p', $agents).", " : null;
-                $etat="Demandée";
-                $etat=$elem['valide_n1']>0?"En attente de validation hiérarchique, {$elem['nom_n1a']}".dateFr($elem['validation_n1'], true):$etat;
-                $etat=$elem['valide_n1']<0?"En attente de validation hiérarchique, {$elem['nom_n1b']}".dateFr($elem['validation_n1'], true):$etat;
-                $etat=$elem['valide']>0?"Validée, {$elem['nom_n2a']}".dateFr($elem['validation'], true):$etat;
-                $etat=$elem['valide']<0?"Refusée, {$elem['nom_n2b']}".dateFr($elem['validation'], true):$etat;
+                $etat=$lang['Applying'];
+                $etat=$elem['valide_n1']>0?"{$lang['absence_table_accepted_pending']}, {$elem['nom_n1a']}".dateFr($elem['validation_n1'], true):$etat;
+                $etat=$elem['valide_n1']<0?"{$lang['absence_table_refused_pending']}, {$elem['nom_n1b']}".dateFr($elem['validation_n1'], true):$etat;
+                $etat=$elem['valide']>0?"{$lang['absence_table_accepted']}, {$elem['nom_n2a']}".dateFr($elem['validation'], true):$etat;
+                $etat=$elem['valide']<0?"{$lang['absence_table_refused']}, {$elem['nom_n2b']}".dateFr($elem['validation'], true):$etat;
                 $etatStyle=$elem['valide']==0?"font-weight:bold;":null;
                 $etatStyle=$elem['valide']<0?"color:red;":$etatStyle;
                 $elem['status'] = $etat;

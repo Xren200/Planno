@@ -190,7 +190,7 @@ class WorkingHourController extends BaseController
             // Validation
             $validation_class = 'bold';
             $validation_date = dateFr($elem['saisie'], true);
-            $validation = 'Demandé';
+            $validation = $lang['Applying'];
 
             // Validation niveau 1
             if ($elem['valide_n1'] > 0) {

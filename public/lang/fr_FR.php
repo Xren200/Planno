@@ -30,6 +30,7 @@ $lang['edit_selected_users'] = "Modification des agents sélectionnés";
 // Congés
 /** @note the label "comp_time" is used for "Récupérations", the label "overtime" must be used for "Heures supplémentaires"
 */
+$lang['Applying'] = 'Demandée';
 $lang['leave_dropdown_accepted'] = 'Accepté';
 $lang['leave_dropdown_refused'] = 'Refusé';
 $lang['leave_dropdown_accepted_pending'] = 'Accepté (En attente de validation hiérarchique)';
@@ -48,3 +49,12 @@ $lang['overtime_subject_accepted'] = 'Demande d\'heures supplémentaires accept�
 $lang['overtime_subject_refused'] = 'Demande d\'heures supplémentaires refusée';
 $lang['overtime_subject_accepted_pending'] = 'Demande d\'heures supplémentaires en attente de validation hiérarchique';
 $lang['overtime_subject_refused_pending'] = 'Demande d\'heures supplémentaires en attente de validation hiérarchique';
+
+$lang['absence_dropdown_accepted'] = 'Accepté';
+$lang['absence_dropdown_refused'] = 'Refusé';
+$lang['absence_dropdown_accepted_pending'] = 'Accepté (En attente de validation hiérarchique)';
+$lang['absence_dropdown_refused_pending'] = 'Refusé (En attente de validation hiérarchique)';
+$lang['absence_table_accepted_pending'] = 'En attente de validation hiérarchique';
+$lang['absence_table_refused_pending'] = 'En attente de validation hiérarchique';
+$lang['absence_table_accepted'] = 'Validé';
+$lang['absence_table_refused'] = 'Refusé';
