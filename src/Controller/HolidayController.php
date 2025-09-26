@@ -423,6 +423,7 @@ class HolidayController extends BaseController
             $credit_jours       = $holiday_helper->hoursToDays($conges_credit,       $perso_id, null, true, '/ ');
             $reliquat_jours     = $holiday_helper->hoursToDays($conges_reliquat,     $perso_id, null, true, '/ ');
         }
+        else $hoursPerDayInHoursMinutes=null;
 
         $templateParams = array(
             'id'                    => $id,

@@ -2,8 +2,11 @@
 
 namespace App\Traits;
 
-use App\PlanningBiblio\ValidationAwareEntity;
+//use App\PlanningBiblio\ValidationAwareEntity;
 use App\Entity\Absence;
+use App\Entity\Overtime;
+use App\Entity\Holiday;
+use App\Entity\WorkingHour;
 use App\Entity\Agent;
 
 trait EntityValidationStatuses
@@ -12,8 +15,8 @@ trait EntityValidationStatuses
     {
         if (empty($valide_paire)) return 0;
 
-        $valide_n2 = $valide_paire[0];
-        $valide_n1 = $valide_paire[1];
+        $valide_n1 = $valide_paire[0];
+        $valide_n2 = $valide_paire[1];
 
         // Accepted level 2.
         if ($valide_n2 > 0) return 1;
@@ -37,9 +40,10 @@ trait EntityValidationStatuses
         }
 
         $show_select = false;
+        $statuses   = null;
 
-        $entity = new ValidationAwareEntity($module, $entity_id);
-        list($entity_state, $entity_state_desc) = $entity->status();
+        //$entity = new ValidationAwareEntity($module, $entity_id);
+        //list($entity_state, $entity_state_desc) = $entity->status();
 
         // At this point, overtime entities
         // and holiday are treated the same.
@@ -49,6 +53,21 @@ trait EntityValidationStatuses
         if ($module == 'absence' && $entity_id) {
             $absence = $this->entityManager->getRepository(Absence::class)->find($entity_id);
             $statuses = [$absence->getValidLevel1(), $absence->getValidLevel2()];
+            $entity_state = $this->entity_state($statuses);
+        }
+        if ($module == 'holiday' && $entity_id) {
+            $holiday = $this->entityManager->getRepository(Holiday::class)->find($entity_id);
+            $statuses = [$holiday->getValidLevel1(), $holiday->getValidLevel2()];
+            $entity_state = $this->entity_state($statuses);
+        }
+        if ($module == 'workinghour' && $entity_id) {
+            $workinghour = $this->entityManager->getRepository(Workinghour::class)->find($entity_id);
+            $statuses = [$workinghour->getValidLevel1(), $workinghour->getValidLevel2()];
+            $entity_state = $this->entity_state($statuses);
+        }
+        if ($module == 'overtime' && $entity_id) {
+            $overtime = $this->entityManager->getRepository(Overtime::class)->find($entity_id);
+            $statuses = [$overtime->getValidLevel1(), $overtime->getValidLevel2()];
             $entity_state = $this->entity_state($statuses);
         }
 
@@ -65,7 +84,7 @@ trait EntityValidationStatuses
             $adminN2 = $N2 ? $adminN2 : false;
         }
 
-        $entity->setAdminFlags($adminN1, $adminN2);
+        //$entity->setAdminFlags($adminN1, $adminN2);
 
         $show_select = $adminN1 || $adminN2;
         $show_n1 = $adminN1 || $adminN2;
@@ -78,7 +97,7 @@ trait EntityValidationStatuses
         }
 
         // Prevent user without right L1 to directly validate l2
-        if (!$adminN1 && $entity_state == 0 && $entity->needsValidationL1()) {
+        if (!$adminN1 && $entity_state == 0 && $needsValidationL1) {
             $show_select = 0;
         }
 
@@ -89,7 +108,7 @@ trait EntityValidationStatuses
 
         if($statuses){
             $this->templateParams([
-                'entity_state_desc' => $entity_state_desc,
+                //'entity_state_desc' => $entity_state_desc,
                 'entity_state'      => $entity_state,
                 'show_select'       => $show_select,
                 'show_n1'           => $show_n1,
@@ -108,7 +127,7 @@ trait EntityValidationStatuses
         }
         else{
             $this->templateParams([
-                'entity_state_desc' => $entity_state_desc,
+                //'entity_state_desc' => $entity_state_desc,
                 'entity_state'      => $entity_state,
                 'show_select'       => $show_select,
                 'show_n1'           => $show_n1,
