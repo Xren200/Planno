@@ -19,8 +19,8 @@ class ValidationAwareEntity
             -1 => 'Refusée',
             2 => 'Acceptée (En attente de validation hiérarchique)',
             -2 => 'Refusée (En attente de validation hiérarchique)',
-            3 => 'En attente de validation hiérarchique',
-            -3 => 'En attente de validation hiérarchique',
+            //3 => 'En attente de validation hiérarchique',
+            //-3 => 'En attente de validation hiérarchique',
         ),
         'male' => array(
             0 => 'Demandé',
@@ -28,8 +28,8 @@ class ValidationAwareEntity
             -1 => 'Refusé',
             2 => 'Accepté (En attente de validation hiérarchique)',
             -2 => 'Refusé (En attente de validation hiérarchique)',
-            3 => 'En attente de validation hiérarchique',
-            -3 => 'En attente de validation hiérarchique',
+            //3 => 'En attente de validation hiérarchique',
+            //-3 => 'En attente de validation hiérarchique',
         ),
     );
 
@@ -133,17 +133,19 @@ class ValidationAwareEntity
 
         // Accepted level 1
         if ($valide_n1 > 0) {
-            if( !$adminN1 ){
+            /*
+            if( !$this->adminN1 ){
                 return array(1, $this->status_desc[$mode][3]);
-            }
+            }*/
             return array(2, $this->status_desc[$mode][2]);
         }
 
         // Rejected level 1
         if ($valide_n1 < 0) {
-            if( !$adminN1 ){
+            /*
+            if( !$this->adminN1 ){
                 return array(1, $this->status_desc[$mode][-3]);
-            }
+            }*/
             return array(-2, $this->status_desc[$mode][-2]);
         }
 

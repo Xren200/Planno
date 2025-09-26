@@ -8,7 +8,29 @@ use App\Entity\Agent;
 
 trait EntityValidationStatuses
 {
-    public function setStatusesParams($agent_ids, $module, $entity_id = null)
+    public function entity_state($valide_paire)
+    {
+        if (empty($valide_paire)) return 0;
+
+        $valide_n2 = $valide_paire[0];
+        $valide_n1 = $valide_paire[1];
+
+        // Accepted level 2.
+        if ($valide_n2 > 0) return 1;
+
+        // Rejected level 2.
+        if ($valide_n2 < 0) return -1;
+
+        // Accepted level 1
+        if ($valide_n1 > 0) return 2;
+
+        // Rejected level 1
+        if ($valide_n1 < 0) return -2;
+
+        return 0;
+    }
+
+    public function setStatusesParams($agent_ids, $module, $entity_id = null, $needsValidationL1)
     {
         if (!$agent_ids) {
             throw new \Exception("EntityValidationStatuses::setStatusesParams: No agent");
@@ -26,7 +48,8 @@ trait EntityValidationStatuses
 
         if ($module == 'absence' && $entity_id) {
             $absence = $this->entityManager->getRepository(Absence::class)->find($entity_id);
-            $statuses = [$absence->getValidLevel1(), $absence->getValideLevel2()];
+            $statuses = [$absence->getValidLevel1(), $absence->getValidLevel2()];
+            $entity_state = $this->entity_state($statuses);
         }
 
         $adminN1 = true;
@@ -64,19 +87,41 @@ trait EntityValidationStatuses
             $show_select = 0;
         }
 
-        $this->templateParams([
-            'entity_state_desc' => $entity_state_desc,
-            'entity_state'      => $entity_state,
-            'show_select'       => $show_select,
-            'show_n1'           => $show_n1,
-            'show_n2'           => $show_n2,
-            'debug_evs'    => [
+        if($statuses){
+            $this->templateParams([
+                'entity_state_desc' => $entity_state_desc,
+                'entity_state'      => $entity_state,
+                'show_select'       => $show_select,
+                'show_n1'           => $show_n1,
+                'show_n2'           => $show_n2,
+
+                'debug_evs'    => [
+                    'module'       => $module,
+                    'entity_state' => $entity_state,
+                    'statuses' => $statuses,
+                    'show_select'  => (bool)$show_select,
+                    'N1'           => $N1,
+                    'N2'           => $N2,
+                    'adminN2'      => $adminN2
+                ],
+            ]);
+        }
+        else{
+            $this->templateParams([
+                'entity_state_desc' => $entity_state_desc,
+                'entity_state'      => $entity_state,
+                'show_select'       => $show_select,
+                'show_n1'           => $show_n1,
+                'show_n2'           => $show_n2,
+
+                'debug_evs'    => [
                 'module'       => $module,
-                'entity_state' => $statuses,
                 'show_select'  => (bool)$show_select,
                 'N1'           => $N1,
-                'N2'           => $this->entityManager
-            ],
-        ]);
+                'N2'           => $N2,
+                'adminN2'      => $adminN2
+                ],
+            ]);
+        }
     }
 }

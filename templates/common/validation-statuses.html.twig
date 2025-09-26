@@ -41,5 +41,9 @@
     {% endif %}
   </select>
 {% else %}
-  <span>{{ entity_state_desc }}</span>
+    {% if entity_state == 0 %}
+      <span>Demandée</span>
+    {% else %}
+      <span>En attente de validation hiérarchique</span>
+    {% endif %}
 {% endif %}
