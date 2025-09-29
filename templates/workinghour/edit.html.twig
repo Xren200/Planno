@@ -81,6 +81,7 @@
             <input type='hidden' name='remplace' value='{{ remplace }}' />
             <input type='hidden' name='exception' value='{{ exception_id }}' >
             <input type='hidden' name='copy' value='{{ copy }}' >
+            <input type="hidden" name="perso_id" id="perso_id" value="{{ perso_id }}">
             {% if thisNbSemaine is defined %}
             <input type='hidden' name='this_number_of_weeks' id='this_number_of_weeks' value='{{ thisNbSemaine }}' />
             {% endif %}
@@ -111,7 +112,9 @@
                 </p>
               {% endif %}
             </div> <!-- id=informations -->
+            {#
             {% if cle is null or cle == "" %}
+
               {% if show_select == true %}
                 <p>
                   <label for='validation'>Validation</label>
@@ -154,6 +157,12 @@
                 </p>
               {% endif %}
             {% endif %}
+              #}
+              <tr id="validation-line">
+                <td class="textAlignRight"><label>Validation</label></td>
+                <td id="validation-statuses"></td>
+              </tr>
+
             <div id='boutons' style='padding-top:50px;'>
               <input type='button' value='Retour' onclick='location.href="{{ retour }}";' class='ui-button ui-button-type2' />
               {% if ((adminN1 == true or adminN2 == true  or modifAutorisee == true ) and (not request_exception and not is_exception and not copy and not is_new)) %}

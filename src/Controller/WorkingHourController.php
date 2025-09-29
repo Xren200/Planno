@@ -257,6 +257,19 @@ class WorkingHourController extends BaseController
         return $this->output('/workinghour/index.html.twig');
     }
 
+    #[Route(path: '/workinghour-statuses', name: 'workinghour.statuses', methods: ['GET'])]
+    public function workinghour_validation_statuses(Request $request)
+    {
+
+        $agent_ids = $request->get('ids') ?? array();
+        $module = $request->get('module');
+        $entity_id = $request->get('id');
+
+        $this->setStatusesParams($agent_ids, $module, $entity_id, $GLOBALS['config']['PlanningHebdo-Validation-N2']);
+
+        return $this->output('/common/validation-statuses.html.twig');
+    }
+
     #[Route(path: '/workinghour/add/{agent_id<\d+>?}', name: 'workinghour.add', methods: ['GET'])]
     public function add(Request $request, Session $session) {
         // Initialisation des variables

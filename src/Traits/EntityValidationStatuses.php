@@ -40,7 +40,8 @@ trait EntityValidationStatuses
         }
 
         $show_select = false;
-        $statuses   = null;
+        $statuses = null;
+        $entity_state = null;
 
         //$entity = new ValidationAwareEntity($module, $entity_id);
         //list($entity_state, $entity_state_desc) = $entity->status();

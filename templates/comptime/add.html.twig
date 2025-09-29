@@ -46,7 +46,7 @@
                       </select>
                     {% else %}
                       <input type="hidden" name="perso_id" id="perso_id" value="{{ managed[0].id }}" />
-                      {{ managed[0].nom }} {{ managed[0].prenom }}
+                      {{ managed[0].getLastname() }} {{ managed[0].getFirstname() }}
                     {% endif %}
                   </td>
                 </tr>
