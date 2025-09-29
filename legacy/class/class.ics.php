@@ -32,8 +32,8 @@ Classe permettant le traitement des fichiers ICS
  
 use ICal\ICal;
 
-require_once(__DIR__.'/../../public/include/config.php');
-require_once(__DIR__.'/class.personnel.php');
+require_once __DIR__ . '/../../public/include/config.php';
+require_once 'class.personnel.php';
 
 class CJICS
 {

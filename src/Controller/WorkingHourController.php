@@ -11,8 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use App\Entity\Agent;
 
-require_once(__DIR__. '/../../legacy/class/class.planningHebdo.php');
-require_once(__DIR__. '/../../legacy/class/class.personnel.php');
+require_once(__DIR__ . '/../../legacy/class/class.planningHebdo.php');
+require_once(__DIR__ . '/../../legacy/class/class.personnel.php');
 
 class WorkingHourController extends BaseController
 {

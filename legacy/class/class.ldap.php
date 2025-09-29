@@ -6,11 +6,6 @@ Fichier inclus par ldap/auth.php
 */
 
 // pas de $version=acces direct aux pages de ce dossier => Accès refusé
-$version = $GLOBALS['version'] ?? null;
-
-if (!isset($version)) {
-    include_once (__DIR__. '/../../public/include/accessDenied.php');
-}
 
 function authCAS($logger)
 {

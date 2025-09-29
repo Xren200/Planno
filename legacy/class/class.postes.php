@@ -8,11 +8,6 @@ Utilisée par les fichiers du dossier "postes"
 
 // pas de $version=acces direct aux pages de ce dossier => Accès refusé
 
-$version = $GLOBALS['version'] ?? null;
-if (!isset($version)) {
-    include_once (__DIR__.'/../../public/include/accessDenied.php');
-}
-
 class postes
 {
     public $CSRFToken = null;
