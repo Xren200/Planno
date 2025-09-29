@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 
-include_once(__DIR__ . '/../../legacy/class/class.conges.php');
+include_once(__DIR__ . '/../../legacy/Class/class.conges.php');
 
 class CompTimeController extends BaseController
 {

@@ -29,8 +29,8 @@ $version=$argv[0];
 chdir(__DIR__ . '/../../../public/');
 
 require_once __DIR__ . '/../../../public/include/config.php';
-require_once __DIR__ . '/../../../legacy/class/class.ics.php';
-require_once __DIR__ . '/../../../legacy/class/class.personnel.php';
+require_once __DIR__ . '/../../../legacy/Class/class.ics.php';
+require_once __DIR__ . '/../../../legacy/Class/class.personnel.php';
 
 $CSRFToken = CSRFToken();
 

@@ -16,9 +16,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
-require_once(__DIR__ . '/../../legacy/class/class.conges.php');
-require_once(__DIR__ . '/../../legacy/class/class.personnel.php');
-require_once(__DIR__ . '/../../legacy/class/class.planningHebdo.php');
+require_once(__DIR__ . '/../../legacy/Class/class.conges.php');
+require_once(__DIR__ . '/../../legacy/Class/class.personnel.php');
+require_once(__DIR__ . '/../../legacy/Class/class.planningHebdo.php');
 
 class HolidayController extends BaseController
 {

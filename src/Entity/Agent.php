@@ -8,8 +8,8 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-require_once(__DIR__ . '/../../legacy/class/class.absences.php');
-require_once(__DIR__ . '/../../legacy/class/class.conges.php');
+require_once(__DIR__ . '/../../legacy/Class/class.absences.php');
+require_once(__DIR__ . '/../../legacy/Class/class.conges.php');
 require_once(__DIR__ . '/../../public/include/db.php');
 
 #[ORM\Entity(repositoryClass: AgentRepository::class)]

@@ -16,7 +16,7 @@ Ce script est appelé par la fonction JS personnel/js/index.js : agent_list
 */
 
 require_once(__DIR__ . '/../../init/init_ajax.php');
-require_once(__DIR__ . '/../../legacy/class/class.personnel.php');
+require_once(__DIR__ . '/../../legacy/Class/class.personnel.php');
 
 $list = $request->get('list');
 $CSRFToken = $request->get('CSRFToken');
