@@ -1,12 +1,4 @@
 /**
-Planning Biblio
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-
-@file public/conges/js/script.conges.js
-@author Jérôme Combes <jerome@planningbiblio.fr>
-@author Etienne Cavalié <etienne.cavalie@unice.fr>
-
 Description :
 Fichier regroupant les fonctions JavaScript utiles à la gestion des congés
 */

@@ -1,14 +1,4 @@
 /**
-Planning Biblio, Version 2.8
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-@copyright 2011-2018 Jérôme Combes
-
-Fichier : planningHebdo/js/script.planningHebdo.js
-Création : 26 août 2013
-Dernière modification : 4 mai 2018
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Fichier regroupant les fonctions JavaScript utiles à la gestion des plannings de présence
 */
