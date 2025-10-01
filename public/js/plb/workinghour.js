@@ -37,7 +37,7 @@ function update_validation_statuses() {
     // So only the logged in
     // is in the form.
     if (perso_ids.length == 0) {
-        perso_ids.push($('input[name="valide"]').val());
+        perso_ids.push($('input[name="login_id"]').val());
     }
 
     const agent_id = $('input[name="perso_id"]').val() || perso_ids[0];

@@ -191,7 +191,7 @@ class WorkingHourController extends BaseController
             $validation_class = 'bold';
             $validation_date = dateFr($elem['saisie'], true);
             $validation = $lang['Applying'];
-
+            //dd($elem['valide_n1'],$elem['valide']);
             // Validation niveau 1
             if ($elem['valide_n1'] > 0) {
                 $validation_date = dateFr($elem['validation_n1'], true);
@@ -261,10 +261,10 @@ class WorkingHourController extends BaseController
     public function workinghour_validation_statuses(Request $request)
     {
 
-        $agent_ids = $request->get('ids') ?? array();
+        $agent_ids = $request->get('ids');
         $module = $request->get('module');
         $entity_id = $request->get('id');
-
+        dd($agent_ids,$module,$entity_id );
         $this->setStatusesParams($agent_ids, $module, $entity_id, $GLOBALS['config']['PlanningHebdo-Validation-N2']);
 
         return $this->output('/common/validation-statuses.html.twig');
@@ -375,7 +375,6 @@ class WorkingHourController extends BaseController
         $pause2_enabled = $this->config('PlanningHebdo-Pause2');
         $nbSemaine = $this->config('nb_semaine');
         $nbSites = $this->config('Multisites-nombre');
-        $validation = "";
         $sites = array();
         $multisites = array();
         for ($i = 1; $i < $nbSites+1; $i++) {
@@ -477,37 +476,7 @@ class WorkingHourController extends BaseController
             ->setModule('workinghour')
             ->getManagedFor($session->get('loginId'));
 
-        // The followings variables are only used when $cle is defined, but we need to initialize them to avoid errors.
-        $selected1 = false;
-        $selected2 = false;
-        $selected3 = false;
-        $selected4 = false;
 
-        if (!$cle) {
-            if ($modifAutorisee) {
-                $selected1 = isset($valide_n1) && $valide_n1 > 0 ? true : false;
-                $selected2 = isset($valide_n1) && $valide_n1 < 0 ? true : false;
-                $selected3 = isset($valide_n2) && $valide_n2 > 0 ? true : false;
-                $selected4 = isset($valide_n2) && $valide_n2 < 0 ? true : false;
-                // Si pas admin, affiche le niveau en validation en texte simple
-            } else {
-                $selected1 = false;
-                $selected2 = false;
-                $selected3 = false;
-                $selected4 = false;
-
-                $validation = "Demandé";
-                if ($valide_n2 > 0) {
-                    $validation = $lang['work_hours_dropdown_accepted'];
-                } elseif ($valide_n2 < 0) {
-                    $validation = $lang['work_hours_dropdown_refused'];
-                } elseif ($valide_n1 > 0) {
-                    $validation = $lang['work_hours_dropdown_accepted_pending'];
-                } elseif ($valide_n1 < 0) {
-                    $validation = $lang['work_hours_dropdown_refused_pending'];
-                }
-            }
-        }
         $this->templateParams(
             array(
                 "action"             => $action,
@@ -537,14 +506,9 @@ class WorkingHourController extends BaseController
                 "managed"            => $managed,
                 "temps"              => $temps,
                 "thisNbSemaine"      => $thisNbSemaine,
-                "selected1"          => $selected1,
-                "selected2"          => $selected2,
-                "selected3"          => $selected3,
-                "selected4"          => $selected4,
                 "sites"              => $sites,
                 "valide_n1"          => $valide_n1,
                 "valide_n2"          => $valide_n2,
-                "validation"         => $validation
             )
         );
         return $this->output('/workinghour/edit.html.twig');
@@ -567,6 +531,8 @@ class WorkingHourController extends BaseController
               $post['breaktime'][$index] = $this->time_to_decimal($time);
             }
         }
+
+        //dd($post);
 
         switch ($post["action"]) {
             case "ajout":

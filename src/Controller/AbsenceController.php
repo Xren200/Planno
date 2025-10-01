@@ -360,24 +360,6 @@ class AbsenceController extends BaseController
             $absence['editable'] = false;
         }
 
-        $absence['status'] = 'ASKED';
-        $absence['status_editable'] = ($adminN1 or $adminN2) ? true : false;
-        if ($valide == 0 && $valideN1 > 0) {
-            $absence['status'] = 'ACCEPTED_N1';
-        }
-        if ($valide > 0) {
-            $absence['status'] = 'ACCEPTED_N2';
-            $absence['status_editable'] = $adminN2 ? true : false;
-            $absence['editable'] = $adminN2 ? true : false;
-        }
-        if ($valide == 0 && $valideN1 < 0) {
-            $absence['status'] = 'REJECTED_N1';
-        }
-        if ($valide < 0) {
-            $absence['status'] = 'REJECTED_N2';
-            $absence['status_editable'] = $adminN2 ? true : false;
-            $absence['editable'] = $adminN2 ? true : false;
-        }
 
         // Sécurité
         // Droit 6 = modification de ses propres absences
@@ -699,6 +681,7 @@ class AbsenceController extends BaseController
         $agent_ids = $request->get('ids') ?? array();
         $module = $request->get('module');
         $entity_id = $request->get('id');
+        dd($agent_ids,$module,$entity_id );
 
         $this->setStatusesParams($agent_ids, $module, $entity_id, $GLOBALS['config']['Absences-Validation-N2']);
 
