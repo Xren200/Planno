@@ -1,6 +1,6 @@
 /**
 Description :
-Fichier regroupant les fonctions JavaScript utiles à l'ajout et la modification des agents (modif.php)
+Fichier regroupant les fonctions JavaScript utiles à l'ajout et la modification des agents
 */
 $(function() {
 
@@ -145,62 +145,6 @@ function deleteAgent() {
          }
   });
 }
-
-$(document).ready(function(){
-
-  $('.delete-agent').on('click',function(){
-    var agentId = $(this).data('id');
-    var agentName = $(this).data('name');
-
-    $('#agentId').val(agentId);
-    $('#deleteDialog').dialog('open');
-
-    if ($('#showAgentSelect').val() != 'Supprimé') {
-      $('#permanentDelete').val(0);
-      $('#c-text').text("Êtes-vous sûr(e) de vouloir supprimer " + agentName.toString() + " ?");
-    } else {
-      $('#permanentDelete').val(1);
-      $('#c-text').text("Êtes-vous sûr(e) de vouloir supprimer définitivement " + agentName.toString() + " ?");
-    }
-  });
-
-  $('#deleteDialog').dialog({
-    autoOpen: false,
-    modal: true,
-    width: 400,
-    height: 260,
-    buttons: {
-      Non: function() {
-        $(this).dialog('close');
-      },
-      Oui: function(e) {
-        e.preventDefault();
-
-        if ($('#permanentDelete').val() == 0) {
-          $("#deleteDialog").dialog('close');
-          $("#deleteStep2Dialog").dialog('open');
-        } else {
-          deleteAgent();
-        }
-      }
-    }
-  });
-
-  $('#deleteStep2Dialog').dialog({
-    autoOpen: false,
-    modal: true,
-    width: 400,
-    height: 260,
-    buttons: {
-      Annuler: function() {
-        $(this).dialog('close');
-      },
-      Supprimer: function() {
-        deleteAgent();
-      }
-    }
-  });
-});
 
 function changeSelectSites(){
   // Tous les sites
@@ -780,5 +724,58 @@ $(document).ready(function(){
   });
   $("#post_form_agent").click(function() {
     verif_form_agent();
+  });
+
+  $('.delete-agent').on('click',function(){
+    var agentId = $(this).data('id');
+    var agentName = $(this).data('name');
+
+    $('#agentId').val(agentId);
+    $('#deleteDialog').dialog('open');
+
+    if ($('#showAgentSelect').val() != 'Supprimé') {
+      $('#permanentDelete').val(0);
+      $('#c-text').text("Êtes-vous sûr(e) de vouloir supprimer " + agentName.toString() + " ?");
+    } else {
+      $('#permanentDelete').val(1);
+      $('#c-text').text("Êtes-vous sûr(e) de vouloir supprimer définitivement " + agentName.toString() + " ?");
+    }
+  });
+
+  $('#deleteDialog').dialog({
+    autoOpen: false,
+    modal: true,
+    width: 400,
+    height: 260,
+    buttons: {
+      Non: function() {
+        $(this).dialog('close');
+      },
+      Oui: function(e) {
+        e.preventDefault();
+
+        if ($('#permanentDelete').val() == 0) {
+          $("#deleteDialog").dialog('close');
+          $("#deleteStep2Dialog").dialog('open');
+        } else {
+          deleteAgent();
+        }
+      }
+    }
+  });
+
+  $('#deleteStep2Dialog').dialog({
+    autoOpen: false,
+    modal: true,
+    width: 400,
+    height: 260,
+    buttons: {
+      Annuler: function() {
+        $(this).dialog('close');
+      },
+      Supprimer: function() {
+        deleteAgent();
+      }
+    }
   });
 });

@@ -1,6 +1,6 @@
 /**
 Description :
-Fichier regroupant les fonctions JavaScript utiles à l'ajout et la modification des agents (modif.php) et l'affichage des absences (voir.php)
+Fichier regroupant les fonctions JavaScript utiles à l'affichage, à l'ajout et à la modification des absences
 */
 
 $(function() {
@@ -573,6 +573,43 @@ $(function() {
 
   });
 
+  $(".absences-pj input[type=checkbox]").click(function(){
+    var tmp=$(this).attr("id").split("-");
+    var pj=tmp[0];
+    var id=tmp[1];
+    var checked=$(this).prop("checked")?1:0;
+    var CSRFToken=$('#CSRFSession').val();
+
+    $.ajax({
+      url: url('absences/ajax.piecesJustif.php'),
+            data: "id="+id+"&pj="+pj+"&checked="+checked+"&CSRFToken="+CSRFToken,
+            success: function(){
+              information("Modification enregistr&eacute;e","highlight");
+            },
+            error: function(){
+              information("Attention, la modification n&apos;a pas pu &ecirc;tre enregistr&eacute;e","error");
+            }
+    });
+  });
+
+  $("#absencesListForm").submit(function( event ) {
+    var start = $("#debut").datepicker("getDate");
+    var end = $("#fin").datepicker("getDate");
+    if (start || end) {
+      if (!start) {
+        start = new Date();
+      }
+      if (!end) {
+        end = new Date();
+      }
+      var number_of_days = (end - start) / (1000 * 60 * 60 * 24);
+      if (number_of_days > 367 || start > end) {
+        end.setTime(start.getTime() +  (365 * 24 * 60 * 60 * 1000));
+        $('#fin').val(end.toLocaleDateString());
+      }
+    }
+  });
+
 });
 
 
@@ -1104,46 +1141,6 @@ function supprimeAgent(id){
   // Mise à jour des status disponible.
   update_validation_statuses();
 }
-
-$(function(){
-  $(".absences-pj input[type=checkbox]").click(function(){
-    var tmp=$(this).attr("id").split("-");
-    var pj=tmp[0];
-    var id=tmp[1];
-    var checked=$(this).prop("checked")?1:0;
-    var CSRFToken=$('#CSRFSession').val();
-
-    $.ajax({
-      url: url('absences/ajax.piecesJustif.php'),
-           data: "id="+id+"&pj="+pj+"&checked="+checked+"&CSRFToken="+CSRFToken,
-           success: function(){
-             information("Modification enregistr&eacute;e","highlight");
-           },
-           error: function(){
-             information("Attention, la modification n&apos;a pas pu &ecirc;tre enregistr&eacute;e","error");
-           }
-    });
-  });
-
-  $("#absencesListForm").submit(function( event ) {
-    var start = $("#debut").datepicker("getDate");
-    var end = $("#fin").datepicker("getDate");
-    if (start || end) {
-      if (!start) {
-        start = new Date();
-      }
-      if (!end) {
-        end = new Date();
-      }
-      var number_of_days = (end - start) / (1000 * 60 * 60 * 24);
-      if (number_of_days > 367 || start > end) {
-        end.setTime(start.getTime() +  (365 * 24 * 60 * 60 * 1000));
-        $('#fin').val(end.toLocaleDateString());
-      }
-    }
-  });
-
-});
 
 function absences_reinit(){
   // TODO : réinitialiser le filtre du tableau
