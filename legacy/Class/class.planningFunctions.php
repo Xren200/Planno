@@ -1,12 +1,5 @@
 <?php
 /**
-Planning Biblio
-Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.md et LICENSE
-
-@file public/planning/poste/fonctions.php
-@author Jérôme Combes <jerome@planningbiblio.fr>
-
 Description :
 Fonctions utilisées par les pages des dossiers planning/poste et planning/postes_cgf
 */
