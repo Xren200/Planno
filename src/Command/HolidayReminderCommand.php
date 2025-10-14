@@ -109,9 +109,11 @@ Exemple à ajouter en crontab :
 
         $agents = [];
         foreach ($agentRepository as $a) {
-            $a->notification_level1 = [];
-            $a->notification_level2 = [];
-            $agents[$a->getId()] = $a;
+            $agents[$a->getId()] = [
+                'entity' => $a,
+                'notification_level1' => [],
+                'notification_level2' => [],
+            ];
         }
 
         // Look for managers when the validation scheme is enabled (config: Absences-notifications-agent-par-agent
@@ -121,12 +123,13 @@ Exemple à ajouter en crontab :
 
             foreach ($agents as &$a) {
                 foreach ($manager as $m) {
-                    if ($a->getId() == $m->getUser()->getId()) {
+                    if ($a['entity']->getId() == $m->getUser()->getId()) {
+
                         if ($m->getLevel1Notification()) {
-                            $a->notification_level1[] = $m->getManager()->getMail();
+                            $agents[$a['entity']->getId()]['notification_level1'][] = $m->getManager()->getMail();
                         }
                         if ($m->getLevel2Notification()) {
-                            $a->notification_level2[] = $m->getManager()->getMail();
+                            $agents[$a['entity']->getId()]['notification_level2'][] = $m->getManager()->getMail();
                         }
                     }
                 }
@@ -140,17 +143,19 @@ Exemple à ajouter en crontab :
         foreach ($holidays as $elem) {
             $agent = $agents[$elem->getUser()];
 
-            $tmp = $elem;
-            $tmp->lastname = $agent->getLastname();
-            $tmp->firstname = $agent->getFirstname();
-            $tmp->recipients = [];
+            $row = [
+                'entity'     => $elem,
+                'firstname'   => $agent['entity']->getFirstname(),
+                'lastname'    => $agent['entity']->getLastname(),
+                'recipients'  => [],
+            ];
 
             // Consider the validation scheme (config Absences-notifications-agent-par-agent)
             if ($config['Absences-notifications-agent-par-agent']) {
                 if ($elem->getValidLevel1() == 0) {
-                    $tmp->recipients = $agent->notification_level1;
-                } else { 
-                    $tmp->recipients = $agent->notification_level2;
+                    $row['recipients'] = $agent['notification_level1'];
+                } else {
+                    $row['recipients'] = $agent['notification_level2'];
                 }
 
             } else {
@@ -161,10 +166,10 @@ Exemple à ajouter en crontab :
 
                     if (is_array($destN1)) {
                         if (in_array('Mail-Planning', $destN1)) {
-                            $tmp->recipients = array_merge($tmp->recipients, $agent->get_planning_unit_mails());
+                            $row['recipients'] = array_merge($row['recipients'], $agent['entity']->get_planning_unit_mails());
                         }
                         if (in_array('mails_responsables', $destN1)) {
-                            $tmp->recipients = array_merge($tmp->recipients, $agent->get_manager_emails());
+                            $row['recipients'] = array_merge($row['recipients'], $agent['entity']->get_manager_emails());
                         }
                     }
                 }
@@ -175,24 +180,24 @@ Exemple à ajouter en crontab :
                     $destN2 = json_decode(html_entity_decode($config['Conges-Rappels-N2'], ENT_QUOTES|ENT_IGNORE, 'UTF-8'));
                     if (is_array($destN2)) {
                         if (in_array('Mail-Planning', $destN2)) {
-                            $tmp->recipients = array_merge($tmp->recipients, $agent->get_planning_unit_mails());
+                            $row['recipients'] = array_merge($row['recipients'], $agent['entity']->get_planning_unit_mails());
                         }
                         if (in_array('mails_responsables', $destN2)) {
-                            $tmp->recipients = array_merge($tmp->recipients, $agent->get_manager_emails());
+                            $row['recipients'] = array_merge($row['recipients'], $agent['entity']->get_manager_emails());
                         }
                     }
                 }
             }
 
             // Regroupe les informations par destinaire pour des envois uniques
-            $tmp->recipients = array_unique($tmp->recipients);
-            $tmp->recipients = array_map('trim', $tmp->recipients);
+            $row['recipients'] = array_unique($row['recipients']);
+            $row['recipients'] = array_map('trim', $row['recipients']);
 
-            foreach ($tmp->recipients as $dest) {
+            foreach ($row['recipients'] as $dest) {
                 if (!isset($data[$dest])) {
                     $data[$dest] = array('recipient' => $dest);
                 }
-                $data[$dest][] = $tmp;
+                $data[$dest][] = $row;
             }
         }
 
@@ -212,14 +217,14 @@ Exemple à ajouter en crontab :
             // Affichage de tous les congés non validé le concernant
             $msg .= "<ul>\n";
             foreach ($dest as $conge) {
-                $link = $config['URL'] . '/holiday/edit/' . $conge->getId();
+                $link = $config['URL'] . '/holiday/edit/' . $conge['entity']->getId();
 
                 $msg .= "<li style='margin-bottom:15px;'>\n";
-                $msg .= "<strong>{$conge->lastname} {$conge->firstname}</strong><br/>\n";
-                $msg .= '<strong>Du ' . $conge->getStart()->format('d/m/Y H:i') . ' à ' .  $conge->getEnd()->format('d/m/Y H:i') . "</strong><br/><br/>\n";
-                $msg .= 'Demandé le ' . $conge->getEntryDate()->format('d/m/Y h:i') . ' par ' . nom($conge->getEntry(), $agents) . "<br/>\n";
-                if ($conge->getValidLevel1() > 0) {
-                    $msg .= 'Validation niveau 1 : Accepté le ' . $conge->getValidLevel1Date()->format('d/m/Y H:i') . ' par ' . nom($conge->getValidLevel1(), $agents) . "<br/>\n";
+                $msg .= "<strong>{$conge['lastname']} {$conge['firstname']}</strong><br/>\n";
+                $msg .= '<strong>Du ' . $conge['entity']->getStart()->format('d/m/Y H:i') . ' à ' .  $conge['entity']->getEnd()->format('d/m/Y H:i') . "</strong><br/><br/>\n";
+                $msg .= 'Demandé le ' . $conge['entity']->getEntryDate()->format('d/m/Y h:i') . ' par ' . nom($conge['entity']->getEntry(), $agents) . "<br/>\n";
+                if ($conge['entity']->getValidLevel1() > 0) {
+                    $msg .= 'Validation niveau 1 : Accepté le ' . $conge['entity']->getValidLevel1Date()->format('d/m/Y H:i') . ' par ' . nom($conge['entity']->getValidLevel1(), $agents) . "<br/>\n";
                 }
                 $msg .= "<a href='$link' target='_blank'>$link</a>\n";
                 $msg .= "</li>\n";
