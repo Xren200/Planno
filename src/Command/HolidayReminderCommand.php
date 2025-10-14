@@ -121,7 +121,7 @@ Exemple à ajouter en crontab :
             $manager = $this->entityManager->getRepository(Manager::class)
                 ->findAll();
 
-            foreach ($agents as &$a) {
+            foreach ($agents as $a) {
                 foreach ($manager as $m) {
                     if ($a['entity']->getId() == $m->getUser()->getId()) {
 
