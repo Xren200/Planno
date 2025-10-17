@@ -157,6 +157,11 @@ class AbsenceImportICSCommand extends Command
                 if (!$agent["ics_$i"]) {
                     logs("Agent #{$agent['id']} : Check ICS $i is disabled", "ICS", $CSRFToken);
 
+                    if (!$url) {
+                        logs("Agent #{$agent['id']} : Impossible de constituer une URL valide. Purge abandonnÃe", 'ICS', $CSRFToken);
+                        continue;
+                    }
+
                     $ics=new CJICS();
                     $ics->src = $url;
                     $ics->number = $i;
@@ -196,6 +201,10 @@ class AbsenceImportICSCommand extends Command
                 }
 
                 logs("Agent #{$agent['id']} : Importation du fichier $url", "ICS", $CSRFToken);
+
+                if (!$url) {
+                    continue;
+                }
 
                 $ics=new CJICS();
                 $ics->src=$url;

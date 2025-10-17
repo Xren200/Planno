@@ -75,9 +75,9 @@ class AbsenceImportCSVCommand extends Command
             } else {
                 $message = 'Lock file is less than 10 minutes old. Exit !';
                 logs($message, 'Hamac', $CSRFToken);
-                $io->warning($message);
+                $io->error($message);
 
-                return Command::SUCCESS;
+                return Command::FAILURE;
             }
         } else {
             if ($debug) {
@@ -171,9 +171,9 @@ class AbsenceImportCSVCommand extends Command
 
             $message = 'Le fichier n\'existe pas.';
             logs($message, 'Hamac', $CSRFToken);
-            $io->warning($message);
+            $io->error($message);
 
-            return Command::SUCCESS;
+            return Command::FAILURE;
         }
 
         // Status à importer
@@ -207,7 +207,8 @@ class AbsenceImportCSVCommand extends Command
         $absences_file = array();
         $absences_db = array();
 
-        if (is_integer($days_before)) {
+        if (is_numeric($days_before)) {
+            $days_before = (int) $days_before;
             $end = date('Y-m-d 00:00:00', strtotime("- $days_before days"));
             $dbx = new \db();
             $dbx->CSRFToken = $CSRFToken;
