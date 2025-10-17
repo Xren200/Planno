@@ -4,6 +4,7 @@ namespace App\Command;
 
 use App\Entity\Config;
 use App\Entity\AbsenceDocument;
+use App\PlanningBiblio\Logger;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -45,8 +46,9 @@ class AbsenceDeleteDocumentsCommand extends Command
         $CSRFToken = CSRFToken();
 
         if (empty($delay)) {
-            $message = 'Suppression des anciens documents d\'absences désactivée';
-            \logs($message, 'Absences-DelaiSuppressionDocuments', $CSRFToken);
+            $message = 'Suppression des anciens documents d\'absences désactivée.';
+            $logger = new Logger($this->entityManager);
+            $logger->log($message, 'AbsenceDeleteDocuments');
 
             if ($output->isVerbose()) {
                 $io->warning($message);
