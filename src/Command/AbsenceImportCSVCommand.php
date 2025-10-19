@@ -17,7 +17,7 @@ require_once( __DIR__ . '/../../legacy/Class/class.personnel.php');
 
 #[AsCommand(
     name: 'app:absence:import-csv',
-    description: 'Imports employee absences from a CSV file based on configured statuses, inserting/updating records and pruning deleted entries (with locking).',
+    description: 'Import absences from a CSV file',
 )]
 class AbsenceImportCSVCommand extends Command
 {

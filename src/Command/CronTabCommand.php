@@ -17,7 +17,7 @@ use Symfony\Component\HttpKernel\KernelInterface;
 
 #[AsCommand(
     name: 'app:crontab',
-    description: 'Executes all enabled scheduled cron jobs defined in the database and updates their last run time.',
+    description: 'Execute enabled scheduled cron jobs defined in the database and updates their last run time',
 )]
 class CronTabCommand extends Command
 {

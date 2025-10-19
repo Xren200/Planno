@@ -33,8 +33,6 @@ class HolidayReminderCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('arg1', InputArgument::OPTIONAL, 'Argument description')
-            ->addOption('option1', null, InputOption::VALUE_NONE, 'Option description')
             ->setHelp('
 Envoie un mail aux N+1 pour les informer des congés non validés à venir.
 Nombre de jours ouvrés à contrôler paramétrable dans Administration / Configuration fonctionnelle / Congés

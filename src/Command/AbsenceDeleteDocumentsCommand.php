@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../legacy/Class/class.personnel.php';
 
 #[AsCommand(
     name: 'app:absence:delete-documents',
-    description: 'Supprime les anciens documents d\'absence en fonction de la configuration.',
+    description: 'Delete old absence documents according to the time limit defined in the configuration',
 )]
 class AbsenceDeleteDocumentsCommand extends Command
 {

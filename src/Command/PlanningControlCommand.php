@@ -20,7 +20,7 @@ require_once(__DIR__ . '/../../legacy/Class/class.postes.php');
 
 #[AsCommand(
     name: 'app:planning:control',
-    description: 'Scans upcoming site schedules, flags unvalidated or unfilled shifts, and emails a summary report',
+    description: 'Check upcoming schedules and sends a report to the planning team',
 )]
 class PlanningControlCommand extends Command
 {
