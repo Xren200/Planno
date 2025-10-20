@@ -37,6 +37,12 @@ class PlanningControlCommand extends Command
 
     protected function configure(): void
     {
+        $this->addOption(
+            'not-really',
+            null,
+            InputOption::VALUE_NONE,
+            'Do not send email but print it (for testing)'
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
@@ -245,20 +251,25 @@ class PlanningControlCommand extends Command
 
         $subject="Plannings du ".dateFr($dates[0])." au ".dateFr($dates[count($dates)-1]);
         $to=explode(";", $config['Mail-Planning']);
+        if (!$input->getOption('not-really')) {
+            $m=new \CJMail();
+            $m->to=$to;
+            $m->subject=$subject;
+            $m->message=$msg;
+            $m->send();
 
-        $m=new \CJMail();
-        $m->to=$to;
-        $m->subject=$subject;
-        $m->message=$msg;
-        $m->send();
+            if ($m->error) {
+                $logger->log($m->error, 'PlanningControl');
 
-        if ($m->error) {
-            $this->log($m->error, 'PlanningControl');
+            }
 
-        }
-
-        if ($output->isVerbose()) {
-            $io->success('Planning check completed successfully; notification email sent.');
+            if ($output->isVerbose()) {
+                $io->success('Planning check completed successfully; notification email sent.');
+            }
+        } else {    
+            $io->text("To: " . implode(',', $to));
+            $io->text("Subject: " . $subject);
+            $io->text("Message: " . $msg);
         }
 
         return Command::SUCCESS;
