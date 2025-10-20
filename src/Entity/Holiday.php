@@ -415,4 +415,90 @@ class Holiday
 
         return $this;
     }
+
+    public function getModification(): ?\DateTime
+    {
+        return $this->modification;
+    }
+
+    public function setModification(?\DateTime $modification): static
+    {
+        $this->modification = $modification;
+
+        return $this;
+    }
+
+    public function getDeleteDate(): ?\DateTime
+    {
+        return $this->suppr_date;
+    }
+
+    public function setDeleteDate(?\DateTime $suppr_date): static
+    {
+        $this->suppr_date = $suppr_date;
+
+        return $this;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->commentaires;
+    }
+
+    public function setComment(?string $comment): static
+    {
+        $this->commentaires = $comment;
+
+        return $this;
+    }
+
+    public function getRefusal(): ?string
+    {
+        return $this->refus;
+    }
+
+    public function setRefusal(?string $refusal): static
+    {
+        $this->refus = $refusal;
+
+        return $this;
+    }
+    
+    public function getDateInfo(): ?\DateTime
+    {
+        return $this->info_date;
+    }
+
+    public function setDateInfo(?\DateTime $info_date): static
+    {
+        $this->info_date = $info_date;
+
+        return $this;
+    }
+
+    public function getRegulationId(): ?int
+    {
+        return $this->regul_id;
+    }
+
+    public function setRegulationId(?int $regulation_id): static
+    {
+        $this->regul_id = $regulation_id;
+
+        return $this;
+    }
+
+    public function getOrigin_id(): ?int
+    {
+        return $this->origin_id;
+    }
+
+    public function setOrigin_id(?int $origin_id): static
+    {
+        $this->origin_id = $origin_id;
+
+        return $this;
+    }
+
+
 }
