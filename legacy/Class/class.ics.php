@@ -278,6 +278,9 @@ class CJICS
         $events_with_recurrence_id = array();
 
         foreach ($events as $elem) {
+            if (empty($elem['UID'])) {
+                continue; 
+            }
             // Add LAST-MODIFIED = Now, if this attribute doesn't exist (missing in Hamac)
             if (empty($elem['LAST-MODIFIED'])) {
                 $elem['LAST-MODIFIED'] = $now;

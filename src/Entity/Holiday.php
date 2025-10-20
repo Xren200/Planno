@@ -415,4 +415,28 @@ class Holiday
 
         return $this;
     }
+
+    public function getModification(): ?\DateTime
+    {
+        return $this->modification;
+    }
+
+    public function setModification(?\DateTime $modification): static
+    {
+        $this->modification = $modification;
+
+        return $this;
+    }
+
+    public function getDeleteDate(): ?\DateTime
+    {
+        return $this->suppr_date;
+    }
+
+    public function setDeleteDate(?\DateTime $suppr_date): static
+    {
+        $this->suppr_date = $suppr_date;
+
+        return $this;
+    }
 }

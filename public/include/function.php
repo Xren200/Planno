@@ -179,6 +179,7 @@ class CJMail implements NotificationTransporterInterface
     public $failedAddresses=array();
     public $notReally = false;
     public $successAddresses=array();
+    public static $lastMail = null;
 
     public function __construct()
     {
@@ -327,7 +328,11 @@ class CJMail implements NotificationTransporterInterface
 
         $this->error = implode("\n", $errors);
         $this->error_CJInfo = str_replace("\n", '#BR#', $this->error);
-
+        self::$lastMail = [
+            'to' => $this->to,
+            'subject' => $this->subject,
+            'message' => $this->message,
+        ];
         return true;
     }
 }
