@@ -2,10 +2,20 @@
 
 namespace App\Tests\Command;
 
-use Symfony\Component\Panther\PantherTestCase;
+use App\Entity\Agent;
+use App\Entity\Absence;
+use Tests\PLBWebTestCase;
 
-class AbsenceDeleteDocumentsCommandTest extends PantherTestCase
+class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 {
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->builder->delete(Agent::class);
+    }
+
     public function testSomething(): void
     {
         $client = static::createPantherClient();
