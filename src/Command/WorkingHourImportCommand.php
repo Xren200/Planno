@@ -110,7 +110,7 @@ class WorkingHourImportCommand extends Command
                 if ($i>1) {
                     if (isset($cells[$i]) and $cells[$i]) {
                         // supprime les h et les : de façon à traiter tous les formats de de la même façon (formats acceptés : 0000, 00h00, 00:00, 000, 0h00, 0:00)
-                        $cells[$i] = str_replace(array("h",":"), [], $cells[$i]);
+                        $cells[$i] = str_replace(array("h",":"), "", $cells[$i]);
                         $min = substr($cells[$i], -2);
                         $hre = sprintf("%02s", substr($cells[$i], 0, -2));
                         $cells[$i] = $hre.":$min:00";
