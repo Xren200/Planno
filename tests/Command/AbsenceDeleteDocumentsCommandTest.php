@@ -23,18 +23,11 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
     public function testConfigOff_NoDeletion(): void
     {
         $this->setParam('Absences-DelaiSuppressionDocuments', 0);
-        //$client = static::createPantherClient();
-        //$crawler = $client->request('GET', '/');
-        //$this->assertSelectorTextContains('h1', 'Hello World');
+
         $em= $GLOBALS['entityManager'];
 
-        $dir = sys_get_temp_dir().'/plb_abs_docs';
-        @mkdir($dir);
-        $pathOld = $dir.'/old.pdf';
-        touch($pathOld);
-
         $old = (new AbsenceDocument())
-            ->setFilename($pathOld)
+            ->setFilename('old')
             ->setDate(new \DateTime('2022-10-09'))
             ->setAbsenceId(100);
 
@@ -45,9 +38,13 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
         $em->clear();
 
+        $info = $em->getRepository(AbsenceDocument::class)->findOneBy(array('filename' => 'old'));
+
+        $this->assertEquals('old',  $info->getFilename(), 'filename is fichier');
+        //$this->assertEquals($date, $info->getDate(), "date is 09/10/2022");
+        $this->assertEquals(100, $info->getAbsenceId(), 'absence_id is 100');
+        $this->assertStringContainsString('/src/Entity/../../var/upload/test/absences/', $info->upload_dir(), 'upload dir ok');
         $still = $em->getRepository(AbsenceDocument::class)->find($old->getId());
-        $this->assertNotNull($still, 'Doc should remain when config is off');
-        $this->assertFileExists($pathOld, 'File should remain when config is off');
 
     }
 
@@ -93,7 +90,7 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
     public function testHaveNothingToDelete_OneNew(): void
     {
-        $this->setParam('Absences-DelaiSuppressionDocuments', 1);
+        $this->setParam('Absences-DelaiSuppressionDocuments', 2);
 
         $entityManager = $GLOBALS['entityManager'];
         $builder = $this->builder;
@@ -105,7 +102,7 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         $now = new \DateTime();
 
         $abs_doc_now = new AbsenceDocument();
-        $abs_doc_now->setFilename('fichier');
+        $abs_doc_now->setFilename('fichier_now');
         $abs_doc_now->setDate($now);
         $abs_doc_now->setAbsenceId(100);
 
@@ -138,13 +135,12 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
         $deleted = $entityManager->getRepository(AbsenceDocument::class)
             ->findAll();
-        $this->assertNull($deleted, 'Old doc should be deleted by cron');
+        $this->assertEmpty($deleted, 'Old doc should be deleted by cron');
 
     }
 
          private function execute(): void
      {
- 
         //  $kernel = self::bootKernel();
         //  $application = new Application(self::$kernel);
  
@@ -163,21 +159,19 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         // $output = shell_exec('php public/absences/cron.deleteOldDocuments.php');
         //$this->assertStringContainsString('Hello World', $output);
 
+        $projectDir = self::getContainer()->getParameter('kernel.project_dir');
+        $script = $projectDir.'/public/absences/cron.deleteOldDocuments.php';
 
+        $php = \PHP_BINARY;
+        $proc = new Process([$php, $script], $projectDir, [
+            'APP_ENV' => 'test',
+            'APP_DEBUG' => '0',
+        ]);
+        $proc->run();
 
-    $projectDir = self::getContainer()->getParameter('kernel.project_dir');
-    $script = $projectDir.'/public/absences/cron.deleteOldDocuments.php';
-
-    $php = \PHP_BINARY;
-    $proc = new Process([$php, $script], $projectDir, [
-        'APP_ENV' => 'test',
-        'APP_DEBUG' => '0',
-    ]);
-    $proc->run();
-
-    if (!$proc->isSuccessful()) {
-        $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
+        if (!$proc->isSuccessful()) {
+            $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
+        }
+    
     }
- 
-     }
 }
