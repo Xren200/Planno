@@ -139,8 +139,8 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
     }
 
-         private function execute(): void
-     {
+    private function execute(): void
+    {
         //  $kernel = self::bootKernel();
         //  $application = new Application(self::$kernel);
  
