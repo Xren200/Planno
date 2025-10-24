@@ -77,6 +77,11 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
             'APP_DEBUG' => '0',
         ]);
         $proc->run();
+        echo "STDOUT:\n" . $proc->getOutput() . "\n";
+        echo "STDERR:\n" . $proc->getErrorOutput() . "\n";
+        /* STDERR:
+        PHP Warning:  Undefined global variable $CSRFSession in /home/planno/www/planno/src/Cron/Legacy/cron.holiday_reset_comp_time.php on line 18
+        */
 
         if (!$proc->isSuccessful()) {
             $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
