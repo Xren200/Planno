@@ -19,7 +19,7 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
     {
         parent::setUp();
 
-        $this->lockFile = sys_get_temp_dir() . '/tests/data/absences.csv';
+        $this->lockFile = sys_get_temp_dir() . 'xxxx.lock';//test todo
         if (file_exists($this->lockFile)) {
             @unlink($this->lockFile);
         }
@@ -32,7 +32,7 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
             'Hamac-motif' => 'Hamac',
             'Hamac-id' => 'mail',
             'Hamac-status' => '2,3,5',
-            'Hamac-csv' => '',
+            'Hamac-csv' => __DIR__ . '/../data/absences.csv',
         ];
 
         foreach ($params as $k => $v) {
@@ -129,46 +129,21 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
 
     }
 
-        private function execute(): void
+    private function execute(): void
     {
-        //  $kernel = self::bootKernel();
-        //  $application = new Application(self::$kernel);
+         $application = new Application(self::$kernel);
  
-        //  $entityManager = $GLOBALS['entityManager'];
+         $entityManager = $GLOBALS['entityManager'];
  
-        //  $command = $application->find('app:absence:delete-documents');
-        //  $commandTester = new CommandTester($command);
-        //  $commandTester->execute([
-        //      'command'  => $command->getName()
-        //  ], [
-        //      'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-        //  ]);
-        //  $commandTester->assertCommandIsSuccessful();
-        //  $output = $commandTester->getDisplay();
+         $command = $application->find('app:absence:delete-documents');
+         $commandTester = new CommandTester($command);
+         $commandTester->execute([
+             'command'  => $command->getName()
+         ], [
+             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+         ]);
+         $commandTester->assertCommandIsSuccessful();
 
-        // $output = shell_exec('php public/absences/cron.deleteOldDocuments.php');
-        //$this->assertStringContainsString('Hello World', $output);
-
-        $projectDir = self::getContainer()->getParameter('kernel.project_dir');
-        $script = $projectDir.'/src/Cron/Legacy/cron.hamac.php';
-
-        if (!is_file($script) || !is_readable($script)) {
-            $this->fail("Cron script not found or not readable: {$script}");
-        }
-
-        $php = \PHP_BINARY;
-        $proc = new Process([$php, $script], $projectDir, [
-            'APP_ENV' => 'test',
-            'APP_DEBUG' => '0',
-        ]);
-        $proc->run();
-        echo "STDOUT:\n" . $proc->getOutput() . "\n";
-        echo "STDERR:\n" . $proc->getErrorOutput() . "\n";
-
-        if (!$proc->isSuccessful()) {
-            $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
-        }
-    
     }
     
 }

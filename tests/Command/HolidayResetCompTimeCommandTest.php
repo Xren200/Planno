@@ -3,9 +3,10 @@
 namespace App\Tests\Command;
 
 use App\Entity\Agent;
-use Symfony\Component\Process\Process;
 use Tests\PLBWebTestCase;
-
+use Symfony\Component\Console\Tester\CommandTester;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Output\OutputInterface;
 class HolidayResetCompTimeCommandTest extends PLBWebTestCase
 {
     protected function setUp(): void
@@ -16,6 +17,7 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
 
     public function testSomething(): void
     {
+
         $this->setUpPantherClient();
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
@@ -34,7 +36,7 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
         $repo = $entityManager->getRepository(Agent::class);
         $agent = $repo->findOneBy(['login' => 'jduponttt']);
         $this->assertNotNull($agent, 'Agent should exist in database');
-        $this->assertSame('1.9', (string)$agent->getCompTime(), 'comp_time should be 1.9');
+        $this->assertEquals(1.9, (float)$agent->getCompTime(), 'comp_time should be 1.9');
         $this->execute();
         $entityManager->clear();
         $repo = $entityManager->getRepository(Agent::class);
@@ -46,47 +48,23 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
 
     private function execute(): void
     {
-        //  $kernel = self::bootKernel();
-        //  $application = new Application(self::$kernel);
+         $application = new Application(self::$kernel);
  
-        //  $entityManager = $GLOBALS['entityManager'];
+         $entityManager = $GLOBALS['entityManager'];
  
-        //  $command = $application->find('app:absence:delete-documents');
-        //  $commandTester = new CommandTester($command);
-        //  $commandTester->execute([
-        //      'command'  => $command->getName()
-        //  ], [
-        //      'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-        //  ]);
-        //  $commandTester->assertCommandIsSuccessful();
-        //  $output = $commandTester->getDisplay();
+         $command = $application->find('app:holiday:reset:comp-time');
+         $commandTester = new CommandTester($command);
+         $commandTester->execute([
+             'command'  => $command->getName()
+         ], [
+             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+         ]);
 
-        // $output = shell_exec('php public/absences/cron.deleteOldDocuments.php');
-        //$this->assertStringContainsString('Hello World', $output);
+         $commandTester->assertCommandIsSuccessful();
+         $output = $commandTester->getDisplay();
 
-        $projectDir = self::getContainer()->getParameter('kernel.project_dir');
-        $script = $projectDir.'/src/Cron/Legacy/cron.holiday_reset_comp_time.php';
+        $this->assertStringContainsString('Reset the compensatory time for holiday successfully', $output);
 
-        if (!is_file($script) || !is_readable($script)) {
-            $this->fail("Cron script not found or not readable: {$script}");
-        }
-
-        $php = \PHP_BINARY;
-        $proc = new Process([$php, $script], $projectDir, [
-            'APP_ENV' => 'test',
-            'APP_DEBUG' => '0',
-        ]);
-        $proc->run();
-        echo "STDOUT:\n" . $proc->getOutput() . "\n";
-        echo "STDERR:\n" . $proc->getErrorOutput() . "\n";
-        /* STDERR:
-        PHP Warning:  Undefined global variable $CSRFSession in /home/planno/www/planno/src/Cron/Legacy/cron.holiday_reset_comp_time.php on line 18
-        */
-
-        if (!$proc->isSuccessful()) {
-            $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
-        }
-    
     }
     
 }

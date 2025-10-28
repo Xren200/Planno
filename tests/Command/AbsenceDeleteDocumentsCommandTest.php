@@ -74,6 +74,17 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         $entityManager->persist($abs_doc_past);
         $entityManager->persist($abs_doc_now);
         $entityManager->flush();
+
+        foreach ([$abs_doc_now, $abs_doc_past] as $doc) {
+            $projectDir = self::getContainer()->getParameter('kernel.project_dir');
+            $alt = $projectDir . '/var/upload/test/absences/' . $doc->getAbsenceId() . '/' . $doc->getId() . '/' . $doc->getFilename();
+            if (!is_dir(dirname($alt))) {
+                mkdir(dirname($alt), 0777, true);
+            }
+            
+            file_put_contents($alt, 'dummy');
+        }
+
         $this->execute();
 
         $entityManager->clear();
@@ -141,37 +152,18 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
     private function execute(): void
     {
-        //  $kernel = self::bootKernel();
-        //  $application = new Application(self::$kernel);
+         $application = new Application(self::$kernel);
  
-        //  $entityManager = $GLOBALS['entityManager'];
+         $entityManager = $GLOBALS['entityManager'];
  
-        //  $command = $application->find('app:absence:delete-documents');
-        //  $commandTester = new CommandTester($command);
-        //  $commandTester->execute([
-        //      'command'  => $command->getName()
-        //  ], [
-        //      'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-        //  ]);
-        //  $commandTester->assertCommandIsSuccessful();
-        //  $output = $commandTester->getDisplay();
+         $command = $application->find('app:absence:delete-documents');
+         $commandTester = new CommandTester($command);
+         $commandTester->execute([
+             'command'  => $command->getName()
+         ], [
+             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+         ]);
+         $commandTester->assertCommandIsSuccessful();
 
-        // $output = shell_exec('php public/absences/cron.deleteOldDocuments.php');
-        //$this->assertStringContainsString('Hello World', $output);
-
-        $projectDir = self::getContainer()->getParameter('kernel.project_dir');
-        $script = $projectDir.'/public/absences/cron.deleteOldDocuments.php';
-
-        $php = \PHP_BINARY;
-        $proc = new Process([$php, $script], $projectDir, [
-            'APP_ENV' => 'test',
-            'APP_DEBUG' => '0',
-        ]);
-        $proc->run();
-
-        if (!$proc->isSuccessful()) {
-            $this->fail("Cron failed\nEXIT={$proc->getExitCode()}\nSTDOUT:\n{$proc->getOutput()}\nSTDERR:\n{$proc->getErrorOutput()}");
-        }
-    
     }
 }
