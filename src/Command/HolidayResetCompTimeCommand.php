@@ -40,6 +40,14 @@ class HolidayResetCompTimeCommand extends Command
             return Command::SUCCESS;
         }
 
+        $message_confirm='Do you really want to delete compansatory time credits ? All users will be affected !';
+        $confirm = $io->confirm($message_confirm, false);
+
+        if (!$confirm) {
+            $io->warning('Operation cancelled.');
+            return Command::SUCCESS;
+        }
+
         $CSRFToken = CSRFToken();
 
         $p = new \personnel();

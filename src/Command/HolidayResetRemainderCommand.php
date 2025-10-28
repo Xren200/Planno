@@ -39,6 +39,14 @@ class HolidayResetRemainderCommand extends Command
             return Command::SUCCESS;
         }
 
+        $message_confirm='Do you really want to delete remainders credits ? All users will be affected !';
+        $confirm = $io->confirm($message_confirm, false);
+
+        if (!$confirm) {
+            $io->warning('Operation cancelled.');
+            return Command::SUCCESS;
+        }
+
         $CSRFToken = CSRFToken();
 
         // Ajout d'une ligne d'information dans le tableau des congés

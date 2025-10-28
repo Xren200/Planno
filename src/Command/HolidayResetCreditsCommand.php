@@ -44,6 +44,14 @@ class HolidayResetCreditsCommand extends Command
             return Command::SUCCESS;
         }
 
+        $message_confirm='Do you really want to delete holidays credits ? All users will be affected !';
+        $confirm = $io->confirm($message_confirm, false);
+
+        if (!$confirm) {
+            $io->warning('Operation cancelled.');
+            return Command::SUCCESS;
+        }
+
         $config = $this->entityManager->getRepository(Config::class)->getAll();
         $transferCompTime = (bool) !empty($config['Conges-transfer-comp-time']);
 
