@@ -1,5 +1,5 @@
 <?php
- // Tests in conflict with others
+ // fini
  
  namespace App\Tests\Command;
  

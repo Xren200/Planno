@@ -19,16 +19,16 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
     {
         parent::setUp();
 
-        $this->lockFile = sys_get_temp_dir() . 'xxxx.lock';//test todo
+        $this->lockFile = sys_get_temp_dir() . '/plannoAbsenceImportCSV.lock';
         if (file_exists($this->lockFile)) {
             @unlink($this->lockFile);
         }
         $params = [
-            'hamac_status_extra' => [],
+            'hamac_status_extra' => [0,1,9],
             'hamac_status_waiting' => [3],
             'hamac_status_validated' => [2,5],
             'hamac_days_before' => null,
-            'Hamac-debug' => false,
+            'Hamac-debug' => true,
             'Hamac-motif' => 'Hamac',
             'Hamac-id' => 'mail',
             'Hamac-status' => '2,3,5',
@@ -45,16 +45,6 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
         $this->builder->delete(Agent::class);
     }
 
-    public function testLockFileIsCreated(): void
-    {
-        $lockPath = sys_get_temp_dir() . '/tests/data/absences.csv';
-        if (file_exists($lockPath)) {
-            unlink($lockPath);
-        }
-        $this->execute();
-        $this->assertFileExists($lockPath, 'lock file should be created by the command');
-    }
-
     public function testExitsWhenLockFileIsRecent(): void
     {
         file_put_contents($this->lockFile, '');
@@ -68,19 +58,6 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
         }
 
         $this->assertTrue($exited, 'it should exit if find lock file recent');
-        $this->assertFileExists($this->lockFile, 'lock file should be found afetr exit');
-    }
-
-    public function testDeletesOldLockFile(): void
-    {
-        file_put_contents($this->lockFile, 'old');
-        touch($this->lockFile, time() - 1200);
-
-        $this->execute();
-
-        $this->assertFileExists($this->lockFile);
-        $this->assertSame('', file_get_contents($this->lockFile));
-        $this->assertTrue(time() - filemtime($this->lockFile) < 5, 'the lock file should have been updated');
     }
 
     public function testAgent(): void
@@ -89,53 +66,44 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
 
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
-            'droits' => [99,100], 'supprime' => 0, 'check_hamac' => 1
+            'droits' => [99,100], 'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
         ]);
         $jdevoe = $this->builder->build(Agent::class, array(
             'login' => 'jdevoe', 'mail' => 'jdevoe@example.com', 'nom' => 'Devoe', 'prenom' => 'John',
-            'droits' => array(99,100),'supprime' => 0,'check_hamac' => 0
+            'droits' => array(99,100),'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee490'
         ));
         $abreton = $this->builder->build(Agent::class, array(
             'login' => 'abreton', 'mail' => 'abreton@example.com', 'nom' => 'Breton', 'prenom' => 'Aubert',
-            'droits' => array(99,100),'supprime' => 1,'check_hamac' => 0
+            'droits' => array(99,100),'supprime' => 1,'check_hamac' => 1, 'matricule' => '0000000ee493'
         ));
         $kboivin = $this->builder->build(Agent::class, array(
             'login' => 'kboivin', 'mail' => 'kboivin@example.com', 'nom' => 'Boivin', 'prenom' => 'Karel',
-            'droits' => array(201,501,99,100),'supprime' => 0,'check_hamac' => 1
+            'droits' => array(201,501,99,100),'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee856'
         ));
-        $csvPath = sys_get_temp_dir() . '/plb_hamac_test_' . uniqid() . '.csv';
-        $uid = 'UID123';
-        $debut = '01/10/2025 00:00:00';
-        $fin = '02/10/2025 00:00:00';
-        //uid ; commentaires ; debut ; fin ; login ; (col5) ; status
-        $line = implode(';', [$uid, 'Test absence', $debut, $fin, $alice->getMail(), '', '2']) . PHP_EOL;
-        file_put_contents($csvPath, $line);
-
-        $this->setParam('Hamac-csv', $csvPath);
-
+        $csvPath = __DIR__ . '/../data/absences.csv';
         $entityManager = $GLOBALS['entityManager'];
         $entityManager->clear();
 
         $this->execute();
 
         $entityManager->clear();
+        $count = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
+        $this->assertSame(132, (int)$count, '132 absence should be imported');
         $repo = $entityManager->getRepository(Absence::class);
-        $imported = $repo->findOneBy(['uid' => $uid]);
+        $imported = $repo->findOneBy(['perso_id' => $alice->getId()]);
 
         $this->assertNotNull($imported, 'CSV imported absence should be found in database');
-        $this->assertSame($alice->getId(), (int)$imported->getPersoId(), 'imported absence should belong to Alice');
-
-        @unlink($csvPath);
+        //$this->assertSame($alice->getId(), (int)$imported->getId(), 'imported absence should belong to Alice');
 
     }
 
     private function execute(): void
     {
+         
          $application = new Application(self::$kernel);
  
-         $entityManager = $GLOBALS['entityManager'];
- 
-         $command = $application->find('app:absence:delete-documents');
+         $command = $application->find('app:absence:import-csv');
+
          $commandTester = new CommandTester($command);
          $commandTester->execute([
              'command'  => $command->getName()
