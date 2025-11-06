@@ -75,7 +75,6 @@ class HolidayResetRemainderCommand extends Command
         $personnel = $this->entityManager->getRepository(Agent::class)->findAll();
         foreach ($personnel as $p) {
             $p->setRemainder(0.00);
-            $this->entityManager->persist($p);
         }
         
         $this->entityManager->flush();
