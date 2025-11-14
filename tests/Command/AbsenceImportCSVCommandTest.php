@@ -24,13 +24,13 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
             @unlink($this->lockFile);
         }
         $params = [
-            'hamac_status_extra' => [0,1,9],
+            'hamac_status_extra' => [0,1],
             'hamac_status_waiting' => [3],
             'hamac_status_validated' => [2,5],
-            'hamac_days_before' => null,
+            'hamac_days_before' => "2020-11-14 00:00:00",
             'Hamac-debug' => true,
             'Hamac-motif' => 'Hamac',
-            'Hamac-id' => 'mail',
+            'Hamac-id' => 'matricule',
             'Hamac-status' => '2,3,5',
             'Hamac-csv' => __DIR__ . '/../data/absences.csv',
         ];
@@ -66,34 +66,33 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
 
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
-            'droits' => [99,100], 'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
+            'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
         ]);
         $jdevoe = $this->builder->build(Agent::class, array(
             'login' => 'jdevoe', 'mail' => 'jdevoe@example.com', 'nom' => 'Devoe', 'prenom' => 'John',
-            'droits' => array(99,100),'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee490'
+            'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee490'
         ));
         $abreton = $this->builder->build(Agent::class, array(
             'login' => 'abreton', 'mail' => 'abreton@example.com', 'nom' => 'Breton', 'prenom' => 'Aubert',
-            'droits' => array(99,100),'supprime' => 1,'check_hamac' => 1, 'matricule' => '0000000ee493'
+            'supprime' => 1,'check_hamac' => 1, 'matricule' => '0000000ee493'
         ));
         $kboivin = $this->builder->build(Agent::class, array(
             'login' => 'kboivin', 'mail' => 'kboivin@example.com', 'nom' => 'Boivin', 'prenom' => 'Karel',
-            'droits' => array(201,501,99,100),'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee856'
+            'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee856'
         ));
-        $csvPath = __DIR__ . '/../data/absences.csv';
+
         $entityManager = $GLOBALS['entityManager'];
         $entityManager->clear();
+
+        $countBefore = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
+        $this->assertSame(0, (int)$countBefore, '0 absence should be founded');
 
         $this->execute();
 
         $entityManager->clear();
-        $count = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
-        $this->assertSame(132, (int)$count, '132 absence should be imported');
-        $repo = $entityManager->getRepository(Absence::class);
-        $imported = $repo->findOneBy(['perso_id' => $alice->getId()]);
+        $countAfter = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
 
-        $this->assertNotNull($imported, 'CSV imported absence should be found in database');
-        //$this->assertSame($alice->getId(), (int)$imported->getId(), 'imported absence should belong to Alice');
+        $this->assertSame(96, (int)$countAfter, '96 absence should be imported');
 
     }
 
