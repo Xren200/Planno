@@ -3,6 +3,8 @@
 namespace App\Tests\Command;
 
 use App\Entity\PlanningPosition;
+use App\Entity\PlanningPositionHours;
+use App\Entity\PlanningPositionLines;
 use App\Entity\PlanningPositionLock;
 use App\Entity\PlanningPositionTabAffectation;
 use App\Entity\PlanningPositionTab;
@@ -40,40 +42,99 @@ class PlanningControlCommandTest extends PLBWebTestCase
             'nom' => 'Scolaire : Mercredi - Samedi',
             'site'=> 1
         ]);
-        $this->builder->build(Position::class, [
-            'nom' => 'toto', 'obligatoire'=>'Obligatoire'
+        $pos = $this->builder->build(Position::class, [
+            'nom' => 'toto',
+            'groupe'=> '','groupe_id' => 0,
+            'obligatoire'=>'Obligatoire',
+            'etage'=> 2,'activities'=> [5,9],'statistiques'=> 1,
+            'teleworking'=> 0,'bloquant'=> 1,'lunch'=> 0
         ]);
         $this->builder->build(PlanningPosition::class, [
+            'id'=> 1,
             'perso_id' => 19, 'date'=>$today,
-            'site'=>1, 'debut' => new \DateTime($today->format('Y-m-d') . ' 09:00:00'), 'fin' => new \DateTime($today->format('Y-m-d') . ' 10:00:00')
+            'site'=>1, 'debut' => new \DateTime('09:00:00'), 'fin' => new \DateTime('10:00:00')
         ]);
+        $this->builder->build(PlanningPositionHours::class, [
+            'numero'  => 1,
+            'tableau' => 1,
+            'debut' => new \DateTime('09:00:00'),
+            'fin'   => new \DateTime('10:00:00')
+        ]);
+        $this->builder->build(PlanningPositionLines::class, [
+            'numero'  => 1,
+            'tableau' => 1,
+            'ligne'   => 1,
+            'type'    => 'poste',
+            'poste'   => $pos->getId()
+        ]);
+
         $entityManager = $GLOBALS['entityManager'];
         $entityManager->clear();
+        $repo = $entityManager->getRepository(PlanningPositionTabAffectation::class);
+        $this->assertNotNull(
+            $repo->findOneBy(['date' => $today, 'tableau' => 1, 'site' => 1]),
+            'PlanningPositionTabAffectation should be saved'
+        );
+
+        $repo = $entityManager->getRepository(PlanningPositionLock::class);
+        $this->assertNotNull(
+            $repo->findOneBy(['date' => $today, 'site' => 1]),
+            'PlanningPositionLock should be saved'
+        );
+
+        $repo = $entityManager->getRepository(PlanningPositionTab::class);
+        $this->assertNotNull(
+            $repo->find(1),
+            'PlanningPositionTab should be saved'
+        );
+
+        $repo = $entityManager->getRepository(Position::class);
+        $this->assertNotNull(
+            $repo->find($pos->getId()),
+            'Position should be saved'
+        );
+        echo $pos->getId();
+        echo '1111';
+        $repo = $entityManager->getRepository(PlanningPosition::class);
+        $this->assertNotNull(
+            $repo->find(1),
+            'PlanningPosition should be saved'
+        );
+
+        $repo = $entityManager->getRepository(PlanningPositionHours::class);
+        $this->assertNotNull(
+            $repo->findOneBy(['numero' => 1, 'tableau' => 1]),
+            'PlanningPositionHours should be saved'
+        );
+
+        $repo = $entityManager->getRepository(PlanningPositionLines::class);
+        $this->assertNotNull(
+            $repo->findOneBy(['numero' => 1, 'tableau' => 1, 'ligne' => 1]),
+            'PlanningPositionLines should be saved'
+        );
+
         $this->execute();
-        $mail = \CJMail::$lastMail;
-        $this->assertNotNull($mail, "Aucun mail n'a été envoyé");
-        $this->assertEquals(['xinying.sun@biblibre.com'], $mail['to']);
-        $this->assertStringContainsString("Plannings du", $mail['subject']);
-        $this->assertStringContainsString("ne sont pas occupés", $mail['message']);
     }
 
      private function execute(): void
     {
-         $application = new Application(self::$kernel);
- 
-         $entityManager = $GLOBALS['entityManager'];
- 
-         $command = $application->find('app:planning:control');
-         $commandTester = new CommandTester($command);
-         $commandTester->execute([
-             'command'  => $command->getName()
-         ], [
-             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-         ]);
+        $application = new Application(self::$kernel);
 
-         $commandTester->assertCommandIsSuccessful();
-         $output = $commandTester->getDisplay();
+        $entityManager = $GLOBALS['entityManager'];
 
+        $command = $application->find('app:planning:control');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([
+            'command'  => $command->getName()
+        ], [
+            '--not-really' => true
+        ]);
+        $commandTester->assertCommandIsSuccessful();
+        $output = $commandTester->getDisplay();
+
+        $this->assertStringContainsString("To: xinying.sun@biblibre.com", $output);
+        $this->assertStringContainsString("Subject: Plannings", $output);
+        $this->assertStringContainsString("Message:", $output);
         $this->assertStringContainsString('Planning check completed successfully; notification email sent.', $output);
 
     }

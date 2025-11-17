@@ -1,5 +1,5 @@
 <?php
-//no idea
+
 namespace App\Tests\Command;
 
 use App\Entity\Agent;
@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use Tests\PLBWebTestCase;
 
-class AbsenceImportCSVCommandTest extends PLBWebTestCase
+class AbsenceImportICSCommandTest extends PLBWebTestCase
 {
     private string $lockFile;
     protected function setUp(): void
