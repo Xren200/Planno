@@ -58,7 +58,6 @@ class AbsenceImportICSCommandTest extends PLBWebTestCase
 
     public function testAgent(): void
     {
-        $this->setUpPantherClient();
 
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',

@@ -1,0 +1,113 @@
+<?php
+
+namespace App\Tests\Command;
+
+use Tests\PLBWebTestCase;
+use App\Entity\Agent;
+use App\Entity\Holiday;
+use Symfony\Component\Console\Tester\CommandTester;
+use Symfony\Bundle\FrameworkBundle\Console\Application;
+use Symfony\Component\Console\Output\OutputInterface;
+
+class HolidayResetRemainderCommandTest extends PLBWebTestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->builder->delete(Agent::class);
+        $this->builder->delete(Holiday::class);
+
+    }
+    public function testSomething(): void
+    {
+        $entityManager = $GLOBALS['entityManager'];
+
+        $alice = new Agent();
+        $alice->setLogin('alice');
+        $alice->setLogin('alice');
+        $alice->setMail('alice@example.com');
+        $alice->setFirstname('Doe');
+        $alice->setLastname('Alice');
+        $alice->setStatus('');
+        $alice->setCategory('Titulaire');
+        $alice->setService('');
+        $alice->setArrival(new \DateTime('2021-12-12 00:00:00'));
+        $alice->setDeparture(new \DateTime('2028-12-12 00:00:00'));
+        $alice->setSkills('');
+        $alice->setActive('Actif');
+        $alice->setACL([1,1,1]);
+        $alice->setPassword('password');
+        $alice->setComments('111');
+        $alice->setLastLogin(new \DateTime(''));
+        $alice->setWeeklyServiceHours(0);
+        $alice->setWeeklyWorkingHours(0);
+        $alice->setSites('["3"]' );
+        $alice->setWorkingHours(' [["09:00:00","12:00:00","13:00:00","17:00:00"],["09:00:00","12:00:00","13:00:00","17:00:00"],["09:00:00","12:00:00","13:00:00","17:00:00"],["09:00:00","12:00:00","13:00:00","17:00:00"],["09:00:00","12:00:00","13:00:00","17:00:00"],["","","",""]] ');
+        $alice->setInformations('');
+        $alice->setRecovery('');
+        $alice->setMailsResponsables('');
+        $alice->setCheckHamac(1);
+        $alice->setCheckMsGraph(0);
+        $alice->setDeletion(0);
+        $alice->setHolidayCredit(11);
+        $alice->setCompTime(22);
+        $alice->setAnticipation(33);
+        $entityManager->persist($alice);
+        $entityManager->flush();
+        $entityManager->clear();
+
+        $repo = $entityManager->getRepository(Agent::class);
+        $this->assertNotNull($repo->findOneBy(['id'=>$alice->getId()]), '');
+
+
+        $this->execute();
+
+        $repo = $entityManager->getRepository(Holiday::class);
+        $this->assertEquals(
+            11,
+            $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualCredit(),
+            ''
+        );
+        $this->assertEquals(
+            22,
+            $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualCompTime(),
+            ''
+        );
+        $this->assertEquals(
+            33,
+            $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualAnticipation(),
+            ''
+        );
+        $this->assertEquals(
+            0,
+            $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualRemainder(),
+            ''
+        );
+        $repo = $entityManager->getRepository(Agent::class);
+        foreach ($repo->findAll() as $agent)
+        $this->assertEquals(
+            0.00,
+            $agent->getRemainder(),
+            ''
+        );
+    }
+
+    private function execute(): void
+    {
+        $application = new Application(self::$kernel);
+
+        $entityManager = $GLOBALS['entityManager'];
+
+        $command = $application->find('app:holiday:reset:remainder');
+        $commandTester = new CommandTester($command);
+         $commandTester->execute([
+             'command'  => $command->getName()
+         ], [
+             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+         ]);
+        $commandTester->assertCommandIsSuccessful();
+        $output = $commandTester->getDisplay();
+
+        $this->assertStringContainsString("Reset the remainders successfully !", $output);
+    }
+}
