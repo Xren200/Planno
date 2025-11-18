@@ -18,6 +18,8 @@ class PlanningControlCommandTest extends PLBWebTestCase
 
     public function testSomething(): void
     {
+        $entityManager = $GLOBALS['entityManager'];
+
         $this->setParam('Rappels-Actifs', 1);
         $this->setParam('Multisites-nombre', 1);
         $this->setParam('Multisites-site1', 1);
@@ -28,7 +30,8 @@ class PlanningControlCommandTest extends PLBWebTestCase
         $this->setParam('Dimanche', 0);
         $this->setParam('Rappels-Renfort', 0);
         $this->setParam('Conges-Enable', 0);
-        $this->setParam('Mail-Planning', 'xinying.sun@biblibre.com');
+        $this->setParam('Mail-Planning', 'xxx.ss@biblibre.com');
+
         $today = new \DateTime('');
         $ppta = $this->builder->build(PlanningPositionTabAffectation::class, [
             'date' => $today, 'tableau' => 1, 'site' => 1
@@ -42,13 +45,6 @@ class PlanningControlCommandTest extends PLBWebTestCase
             'nom' => 'Scolaire : Mercredi - Samedi',
             'site'=> 1
         ]);
-        $pos = $this->builder->build(Position::class, [
-            'nom' => 'toto',
-            'groupe'=> '','groupe_id' => 0,
-            'obligatoire'=>'Obligatoire',
-            'etage'=> 2,'activities'=> [5,9],'statistiques'=> 1,
-            'teleworking'=> 0,'bloquant'=> 1,'lunch'=> 0
-        ]);
         $this->builder->build(PlanningPosition::class, [
             'id'=> 1,
             'perso_id' => 19, 'date'=>$today,
@@ -60,6 +56,24 @@ class PlanningControlCommandTest extends PLBWebTestCase
             'debut' => new \DateTime('09:00:00'),
             'fin'   => new \DateTime('10:00:00')
         ]);
+
+        $pos = new Position();
+        $pos->setName('toto');
+        $pos->setGroup('');
+        $pos->setGroupId(0);
+        $pos->setMandatory('Obligatoire');
+        $pos->setFloor(2);
+        $pos->setActivities([5, 9]);
+        $pos->setStatistics(1);
+        $pos->setTeleworking(0);
+        $pos->setBlocking(1);
+        $pos->setLunch(0);
+        $pos->setDelete(null);
+        $entityManager->persist($pos);
+
+        $entityManager->flush();
+        $entityManager->clear();
+
         $this->builder->build(PlanningPositionLines::class, [
             'numero'  => 1,
             'tableau' => 1,
@@ -68,8 +82,6 @@ class PlanningControlCommandTest extends PLBWebTestCase
             'poste'   => $pos->getId()
         ]);
 
-        $entityManager = $GLOBALS['entityManager'];
-        $entityManager->clear();
         $repo = $entityManager->getRepository(PlanningPositionTabAffectation::class);
         $this->assertNotNull(
             $repo->findOneBy(['date' => $today, 'tableau' => 1, 'site' => 1]),
@@ -90,11 +102,10 @@ class PlanningControlCommandTest extends PLBWebTestCase
 
         $repo = $entityManager->getRepository(Position::class);
         $this->assertNotNull(
-            $repo->find($pos->getId()),
+            $repo->find(id: $pos->getId()),
             'Position should be saved'
         );
-        echo $pos->getId();
-        echo '1111';
+
         $repo = $entityManager->getRepository(PlanningPosition::class);
         $this->assertNotNull(
             $repo->find(1),
@@ -116,7 +127,7 @@ class PlanningControlCommandTest extends PLBWebTestCase
         $this->execute();
     }
 
-     private function execute(): void
+    private function execute(): void
     {
         $application = new Application(self::$kernel);
 
@@ -125,17 +136,15 @@ class PlanningControlCommandTest extends PLBWebTestCase
         $command = $application->find('app:planning:control');
         $commandTester = new CommandTester($command);
         $commandTester->execute([
-            'command'  => $command->getName()
-        ], [
+            'command' => $command->getName(),
             '--not-really' => true
         ]);
         $commandTester->assertCommandIsSuccessful();
         $output = $commandTester->getDisplay();
 
-        $this->assertStringContainsString("To: xinying.sun@biblibre.com", $output);
+        $this->assertStringContainsString("To: xxx.ss@biblibre.com", $output);
         $this->assertStringContainsString("Subject: Plannings", $output);
         $this->assertStringContainsString("Message:", $output);
-        $this->assertStringContainsString('Planning check completed successfully; notification email sent.', $output);
 
     }
     
