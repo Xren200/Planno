@@ -7,24 +7,31 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
 use App\Entity\Agent;
+use App\Entity\Config;
 use Tests\PLBWebTestCase;
 
 class WorkingHourExportCommandTest extends PLBWebTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->builder->delete(WorkingHour::class);
+        $this->builder->delete(Agent::class);
+
+    }
     public function testSomething(): void
     {
-        $entityManager = $GLOBALS['entityManager'];
-        
-        $this->setParam('PlanningHebdo-ExportFile','/tmp/export-planno-edt.csv');
-        $this->setParam('PlanningHebdo-ExportDaysBefore',15);
-        $this->setParam('PlanningHebdo-ExportDaysAfter',60);
-        $this->setParam('PlanningHebdo-ExportAgentId','matricule');
+
+        $this->addConfig('PlanningHebdo-ExportFile', '/tmp/test-export.csv');
+        $this->addConfig('PlanningHebdo-ExportDaysBefore', '1');
+        $this->addConfig('PlanningHebdo-ExportDaysAfter', '1');
+        $this->addConfig('PlanningHebdo-ExportAgentId', 'matricule');
         $this->setParam('EDTSamedi',1);
         $this->setParam('PlanningHebdo',1);
+        $this->entityManager->flush();
 
         $alice = new Agent();
-        $alice->setLogin('alice');
-        $alice->setLogin('alice');
+        $alice->setLogin('alice_test');
         $alice->setMail('alice@example.com');
         $alice->setFirstname('Doe');
         $alice->setLastname('Alice');
@@ -52,10 +59,64 @@ class WorkingHourExportCommandTest extends PLBWebTestCase
         $alice->setHolidayCredit(11);
         $alice->setCompTime(22);
         $alice->setAnticipation(33);
-        $entityManager->persist($alice);
-        $entityManager->flush();
-        $entityManager->clear();
+        $alice->setMatricule('0000000ff040');
+        $this->entityManager->persist($alice);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
+
+        $workinghour = new WorkingHour();
+        $workinghour->setId(100);
+        $workinghour->setUser($alice->getId());
+        $workinghour->setStart(new \DateTime(''));
+        $workinghour->setEnd(new \DateTime(''));
+        $workinghour->setTime('[["09:00:00","","","19:00:00","1"],["09:00:00","","","19:00:00","1"],["09:00:00","","","19:00:00","1"],["09:00:00","","","19:00:00","1"],["09:00:00","","","19:00:00","1"],["09:00:00","","","19:00:00","1"],["","","","",""]]');
+        $workinghour->setBreaktime([1,1,1,1,1,1,0]);
+        $workinghour->setEntry(new \DateTime('2024-12-12 00:00:00'));
+        $workinghour->setChange(1);
+        $workinghour->setChangeDate(new \DateTime('2023-12-12 00:00:00'));
+        $workinghour->setValideLevel1(0);
+        $workinghour->setValideLevel2(1);
+        $workinghour->setDateValideLevel2(new \DateTime('2024-12-12 00:00:00'));
+        $workinghour->setCurrent(1);
+        $workinghour->setReplace(0);
+        $workinghour->setException(0);
+        $this->entityManager->persist($workinghour);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
+
+        $this->execute();
 
 
+        $this->assertFileExists('/tmp/test-export.csv');
+        $contents = file_get_contents('/tmp/test-export.csv');
+        $this->assertStringContainsString('0000000ff040', $contents);
+    }
+
+    private function execute(): void
+    {
+        $application = new Application(self::$kernel);
+ 
+        $command = $application->find('app:workinghour:export');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([
+            'command' => $command->getName(),
+            '--not-really' => true
+        ]);
+
+        $commandTester->assertCommandIsSuccessful();
+        $output = $commandTester->getDisplay();
+    }
+
+    private function addConfig($key, $value) {
+        $c = new Config();
+        $c->setName($key);
+        $c->setValue($value);
+        $c->setType('text');
+        $c->setComment('');
+        $c->setCategory('test');
+        $c->setValues('');
+        $c->setTechnical(0);
+        $c->setOrder(0);
+        $this->entityManager->persist($c);
     }
 }

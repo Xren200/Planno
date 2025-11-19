@@ -511,6 +511,18 @@ class Agent
         return $this;
     }
 
+    public function getMatricule(): ?string
+    {
+        return $this->matricule;
+    }
+
+    public function setMatricule(?string $matricule): static
+    {
+        $this->matricule = $matricule;
+
+        return $this;
+    }
+
     public function __construct() {
         $this->managers = new ArrayCollection();
         $this->managed = new ArrayCollection();
