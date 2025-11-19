@@ -108,7 +108,6 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         $builder->delete(Agent::class);
         $agent = $builder->build(Agent::class, array('login' => 'jdevoe'));
         $builder->delete(AbsenceDocument::class);
-        $this->logInAgent($agent, array(100));
 
         $now = new \DateTime();
 
@@ -138,7 +137,6 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         $builder->delete(Agent::class);
         $agent = $builder->build(Agent::class, array('login' => 'jdevoe'));
         $builder->delete(AbsenceDocument::class);
-        $this->logInAgent($agent, array(100));
 
         $this->execute();
 
@@ -153,8 +151,6 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
     private function execute(): void
     {
          $application = new Application(self::$kernel);
- 
-         $entityManager = $GLOBALS['entityManager'];
  
          $command = $application->find('app:absence:delete-documents');
          $commandTester = new CommandTester($command);
