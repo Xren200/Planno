@@ -95,17 +95,17 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
     private function execute(): void
     {
          
-         $application = new Application(self::$kernel);
+        $application = new Application(self::$kernel);
  
-         $command = $application->find('app:absence:import-csv');
+        $command = $application->find('app:absence:import-csv');
 
-         $commandTester = new CommandTester($command);
-         $commandTester->execute([
-             'command'  => $command->getName()
-         ], [
-             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-         ]);
-         $commandTester->assertCommandIsSuccessful();
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([
+            'command'  => $command->getName()
+        ], [
+            'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+        ]);
+        $commandTester->assertCommandIsSuccessful();
 
     }
     

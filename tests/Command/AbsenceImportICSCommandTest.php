@@ -2,6 +2,7 @@
 //TO BE CONTINUED
 namespace App\Tests\Command;
 
+use App\Entity\Absence;
 use App\Entity\Agent;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
@@ -15,7 +16,7 @@ class AbsenceImportICSCommandTest extends PLBWebTestCase
     {
         parent::setUp();
 
-        $this->lockFile = sys_get_temp_dir() . '/plannoAbsenceImportCSV.lock';
+        $this->lockFile = sys_get_temp_dir() . '/plannoAbsenceImportICS.lock';
         if (file_exists($this->lockFile)) {
             @unlink($this->lockFile);
         }
@@ -59,33 +60,47 @@ class AbsenceImportICSCommandTest extends PLBWebTestCase
     public function testAgent(): void
     {
 
-        $alice = $this->builder->build(Agent::class, [
+        $alice = $this->builder->build(Agent::class, array(
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
             'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
-        ]);
+        ));
         $jdevoe = $this->builder->build(Agent::class, array(
             'login' => 'jdevoe', 'mail' => 'jdevoe@example.com', 'nom' => 'Devoe', 'prenom' => 'John',
             'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee490'
         ));
         $abreton = $this->builder->build(Agent::class, array(
             'login' => 'abreton', 'mail' => 'abreton@example.com', 'nom' => 'Breton', 'prenom' => 'Aubert',
-            'supprime' => 1,'check_hamac' => 1, 'matricule' => '0000000ee493'
+            'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee493'
         ));
         $kboivin = $this->builder->build(Agent::class, array(
             'login' => 'kboivin', 'mail' => 'kboivin@example.com', 'nom' => 'Boivin', 'prenom' => 'Karel',
             'supprime' => 0,'check_hamac' => 1, 'matricule' => '0000000ee856'
         ));
 
-        $entityManager = $GLOBALS['entityManager'];
-        $entityManager->clear();
+        $ics1=new \CJICS();
+        $ics1->src = $url;
+        $ics1->number = $i;
+        $ics1->perso_id = $agent["id"];
+        $ics1->table = "absences";
+        $ics1->logs = true;
 
-        $countBefore = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
-        // $this->assertSame(0, (int)$countBefore, '0 absence should be founded');
+        $ics2=new \CJICS();
+        $ics2->src=$url;
+        $ics2->perso_id=$agent["id"];
+        $ics2->pattern = $config["ICS-Pattern$i"];
+        $ics2->status = $config["ICS-Status$i"];
+        $ics2->desc = $config["ICS-Description$i"];
+        $ics2->number = $i;
+        $ics2->table="absences";
+        $ics2->logs=true;
+
+        $abs = $this->entityManager->getRepository(Absence::class)->find(["cal_name"=> "$calName","perso_id"=>$perso_id]);
+        $this->assertNotNull( $abs, '');
 
         $this->execute();
 
-        $entityManager->clear();
-        $countAfter = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
+        $abs = $this->entityManager->getRepository(Absence::class)->find(["cal_name"=> "$calName","perso_id"=>$perso_id]);
+        $this->assertNull( $abs, '');
 
         // $this->assertSame(96, (int)$countAfter, '96 absence should be imported');
 
