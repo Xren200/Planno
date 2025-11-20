@@ -15,13 +15,14 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
     {
         parent::setUp();
         $this->builder->delete(Agent::class);
+        $this->builder->delete(Holiday::class);
+
     }
     public function testConfigOn(): void
     {
         $this->setParam('Conges-transfer-comp-time', 1);
         $this->setUpPantherClient();
         $jdupont = $this->builder->build(Agent::class, array(
-            'id' => 100,
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
             'sites' => '["1"]',
@@ -31,52 +32,25 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
             'comp_time' => "44",
             'conges_annuel' => "55",
         ));
-        $conge_j = $this->builder->build(Holiday::class, array(
-            'perso_id' => 100,
-            'debut' => new \DateTime('2023-01-01'),
-            'fin' => new \DateTime('2023-12-31'),
-            'solde_prec' => 0,
-            'recup_prec' => 1,
-            'reliquat_prec' => 2,
-            'anticipation_prec' => 3,
-            'solde_actuel' => 4,
-            'recup_actuel' => 5,
-            'reliquat_actuel' => 6,
-            'anticipation_actuel' => 7,
-        ));
 
-        $entityManager = $GLOBALS['entityManager'];
-        $entityManager->clear();
-
-        $agentBefore = $entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
+        $agentBefore = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
         $this->assertEquals(11, $agentBefore->getHolidayCredit(), 'Before Agent conges_credit');
         $this->assertEquals(22, $agentBefore->getRemainder(), 'Before Agent conges_reliquat');
         $this->assertEquals(33, $agentBefore->getAnticipation(), 'Before Agent conges_anticipation');
         $this->assertEquals(44, $agentBefore->getCompTime(), 'Before Agent comp_time');
         $this->assertEquals(55, $agentBefore->getAnnualCredit(), 'Before Agent conges_annuel');
 
-        
-        $congeBefore = $entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' => 100]);
-        $this->assertEquals(0, $congeBefore->getPreviousCredit(), 'Before Holiday solde_prec');
-        $this->assertEquals(1, $congeBefore->getPreviousCompTime(), 'Before Holiday recup_prec');
-        $this->assertEquals(2, $congeBefore->getPreviousRemainder(), 'Before Holiday reliquat_prec');
-        $this->assertEquals(3, $congeBefore->getPreviousAnticipation(), 'Before Holiday anticipation_prec');
-        $this->assertEquals(4, $congeBefore->getActualCredit(), 'Before Holiday solde_actuel');
-        $this->assertEquals(5, $congeBefore->getActualCompTime(), 'Before Holiday recup_actuel');
-        $this->assertEquals(6, $congeBefore->getActualRemainder(), 'Before Holiday reliquat_actuel');
-        $this->assertEquals(7, $congeBefore->getActualAnticipation(), 'Before Holiday anticipation_actuel');
-
         $this->execute();
-        $entityManager->clear();
+        $this->entityManager->clear();
 
-        $agentAfter = $entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
+        $agentAfter = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
         $this->assertEquals(22, $agentAfter->getHolidayCredit(), 'After Agent conges_credit');
         $this->assertEquals(55, $agentAfter->getRemainder(), 'After Agent conges_reliquat');
         $this->assertEquals(0, $agentAfter->getAnticipation(), 'After Agent conges_anticipation');
         $this->assertEquals(0, $agentAfter->getCompTime(), 'After Agent comp_time');
         $this->assertEquals(55, $agentAfter->getAnnualCredit(), 'After Agent conges_annuel');
 
-        $congeAfter = $entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' => 100]);
+        $congeAfter = $this->entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' => $jdupont->getId()]);
         $this->assertEquals(11, $congeAfter->getPreviousCredit(), 'After Holiday solde_prec');
         $this->assertEquals(44, $congeAfter->getPreviousCompTime(), 'After Holiday recup_prec');
         $this->assertEquals(22, $congeAfter->getPreviousRemainder(), 'After Holiday reliquat_prec');
@@ -94,7 +68,6 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
         $this->setParam('Conges-transfer-comp-time', 0);
         $this->setUpPantherClient();
         $jdupont = $this->builder->build(Agent::class, array(
-            'id' => 100,
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
             'sites' => '["1"]',
@@ -104,51 +77,25 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
             'comp_time' => "44",
             'conges_annuel' => "55",
         ));
-        $conge_j = $this->builder->build(Holiday::class, array(
-            'perso_id' => 100,
-            'debut' => new \DateTime('2023-01-01'),
-            'fin' => new \DateTime('2023-12-31'),
-            'solde_prec' => 0,
-            'recup_prec' => 1,
-            'reliquat_prec' => 2,
-            'anticipation_prec' => 3,
-            'solde_actuel' => 4,
-            'recup_actuel' => 5,
-            'reliquat_actuel' => 6,
-            'anticipation_actuel' => 7,
-        ));
 
-        $entityManager = $GLOBALS['entityManager'];
-        $entityManager->clear();
-
-        $agentBefore = $entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
+        $agentBefore = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
         $this->assertEquals(11, $agentBefore->getHolidayCredit(), 'Before Agent conges_credit');
         $this->assertEquals(22, $agentBefore->getRemainder(), 'Before Agent conges_reliquat');
         $this->assertEquals(33, $agentBefore->getAnticipation(), 'Before Agent conges_anticipation');
         $this->assertEquals(44, $agentBefore->getCompTime(), 'Before Agent comp_time');
         $this->assertEquals(55, $agentBefore->getAnnualCredit(), 'Before Agent conges_annuel');
 
-        $congeBefore = $entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' => 100]);
-        $this->assertEquals(0, $congeBefore->getPreviousCredit(), 'Before Holiday solde_prec');
-        $this->assertEquals(1, $congeBefore->getPreviousCompTime(), 'Before Holiday recup_prec');
-        $this->assertEquals(2, $congeBefore->getPreviousRemainder(), 'Before Holiday reliquat_prec');
-        $this->assertEquals(3, $congeBefore->getPreviousAnticipation(), 'Before Holiday anticipation_prec');
-        $this->assertEquals(4, $congeBefore->getActualCredit(), 'Before Holiday solde_actuel');
-        $this->assertEquals(5, $congeBefore->getActualCompTime(), 'Before Holiday recup_actuel');
-        $this->assertEquals(6, $congeBefore->getActualRemainder(), 'Before Holiday reliquat_actuel');
-        $this->assertEquals(7, $congeBefore->getActualAnticipation(), 'Before Holiday anticipation_actuel');
-
         $this->execute();
-        $entityManager->clear();
+        $this->entityManager->clear();
 
-        $agentAfter = $entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
+        $agentAfter = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'jduponttt']);
         $this->assertEquals(22, $agentAfter->getHolidayCredit(), 'After Agent conges_credit');
         $this->assertEquals(11, $agentAfter->getRemainder(), 'After Agent conges_reliquat');
         $this->assertEquals(0, $agentAfter->getAnticipation(), 'After Agent conges_anticipation');
         $this->assertEquals(44, $agentAfter->getCompTime(), 'After Agent comp_time');
         $this->assertEquals(55, $agentAfter->getAnnualCredit(), 'After Agent conges_annuel');
 
-        $congeAfter = $entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' => 100]);
+        $congeAfter = $this->entityManager->getRepository(Holiday::class)->findOneBy(['perso_id' =>$jdupont->getId()]);
         $this->assertEquals(11, $congeAfter->getPreviousCredit(), 'After Holiday solde_prec');
         $this->assertEquals(44, $congeAfter->getPreviousCompTime(), 'After Holiday recup_prec');
         $this->assertEquals(22, $congeAfter->getPreviousRemainder(), 'After Holiday reliquat_prec');
@@ -160,12 +107,9 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
    
     }
 
-
     private function execute(): void
     {
          $application = new Application(self::$kernel);
- 
-         $entityManager = $GLOBALS['entityManager'];
  
          $command = $application->find('app:holiday:reset:credits');
          $commandTester = new CommandTester($command);
