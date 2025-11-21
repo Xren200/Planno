@@ -523,6 +523,18 @@ class Agent
         return $this;
     }
 
+    public function getIcs(): ?string
+    {
+        return $this->check_ics;
+    }
+
+    public function setIcs(?string $check_ics): static
+    {
+        $this->check_ics = $check_ics;
+
+        return $this;
+    }
+
     public function __construct() {
         $this->managers = new ArrayCollection();
         $this->managed = new ArrayCollection();
