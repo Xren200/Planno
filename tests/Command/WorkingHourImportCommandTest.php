@@ -13,27 +13,35 @@ use Tests\PLBWebTestCase;
 
 class WorkingHourImportCommandTest extends PLBWebTestCase
 {
-    public function testSomething(): void
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->builder->delete(Agent::class);
+        $this->builder->delete(WorkingHour::class);
+
+    }
+
+    public function testLogin(): void
     {
         $this->addConfig('PlanningHebdo-ImportAgentId', 'login');
-        $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport.csv');
+        $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_login.csv');
         $this->setParam('Multisites-nombre', 1);
-        
+
         $alex = $this->builder->build(Agent::class, [
-            'login' => 'alex', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
-            'supprime' => 0
+            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ff040'
         ]);
         $aurelie = $this->builder->build(Agent::class, [
-            'login' => 'aurelie', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
-            'supprime' => 0
+            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ee490'
         ]);
-        $WorkingHour1 = $this->builder->build(WorkingHour::class,array(
-            'perso_id' => 1,
-            'actuel' => 0,
-            'valide' => 1,
-            'debut' => new DateTime("2000-01-01"),
-        )); 
         
+        $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
+        $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
+
+        $this->assertNull( $whAlex, '');
+        $this->assertNull( $whAurelie, '');
+
         $this->execute();
 
         $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
@@ -41,11 +49,73 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
+
+    }
+    public function testMail(): void
+    {
+        $this->setParam('PlanningHebdo-ImportAgentId', 'mail');
+        $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_mail.csv');
+        $this->setParam('Multisites-nombre', 1);
+        
+        $alex = $this->builder->build(Agent::class, [
+            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ff040'
+        ]);
+        $aurelie = $this->builder->build(Agent::class, [
+            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ee490'
+        ]);
+        
+        $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
+        $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
+
+        $this->assertNull( $whAlex, '');
+        $this->assertNull( $whAurelie, '');
+
+        $this->execute();
+
+        $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
+        $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
+
+        $this->assertNotNull( $whAlex, '');
+        $this->assertNotNull( $whAurelie, '');
+
+    }
+
+    public function testMatricule(): void
+    {
+        $this->setParam('PlanningHebdo-ImportAgentId', 'matricule');
+        $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_matricule.csv');
+        $this->setParam('Multisites-nombre', 1);
+        
+        $alex = $this->builder->build(Agent::class, [
+            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ff040'
+        ]);
+        $aurelie = $this->builder->build(Agent::class, [
+            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
+            'supprime' => 0,'matricule' => '0000000ee490'
+        ]);
+        
+        $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
+        $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
+
+        $this->assertNull( $whAlex, '');
+        $this->assertNull( $whAurelie, '');
+
+        $this->execute();
+
+        $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
+        $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
+
+        $this->assertNotNull( $whAlex, '');
+        $this->assertNotNull( $whAurelie, '');
+
     }
 
     private function execute(): void
     {
-         
+
         $application = new Application(self::$kernel);
  
         $command = $application->find('app:workinghour:import');
