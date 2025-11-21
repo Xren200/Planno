@@ -80,7 +80,7 @@ class AbsenceImportICSCommandTest extends PLBWebTestCase
         ], [
             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
         ]);
-        // $commandTester->assertCommandIsSuccessful();
+        $commandTester->assertCommandIsSuccessful();
         $output = $commandTester->getDisplay();
 
         $this->assertStringContainsString('ICS import completed: absences updated and entries from disabled calendars purged.', $output);
