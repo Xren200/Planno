@@ -428,12 +428,12 @@ class Agent
         return $this;
     }
 
-    public function getComments(): ?string
+    public function getComment(): ?string
     {
         return $this->commentaires;
     }
 
-    public function setComments(?string $commentaires): static
+    public function setComment(?string $commentaires): static
     {
         $this->commentaires = $commentaires;
 
@@ -531,6 +531,18 @@ class Agent
     public function setIcs(?string $check_ics): static
     {
         $this->check_ics = $check_ics;
+
+        return $this;
+    }
+
+    public function getUrlIcs(): ?string
+    {
+        return $this->url_ics;
+    }
+
+    public function setUrlIcs(?string $url_ics): static
+    {
+        $this->url_ics = $url_ics;
 
         return $this;
     }

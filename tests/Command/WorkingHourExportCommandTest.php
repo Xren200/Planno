@@ -44,7 +44,7 @@ class WorkingHourExportCommandTest extends PLBWebTestCase
         $alice->setActive('Actif');
         $alice->setACL([1,1,1]);
         $alice->setPassword('password');
-        $alice->setComments('111');
+        $alice->setComment('111');
         $alice->setLastLogin(new \DateTime(''));
         $alice->setWeeklyServiceHours(0);
         $alice->setWeeklyWorkingHours(0);
