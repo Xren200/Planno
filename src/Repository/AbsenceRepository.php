@@ -57,4 +57,20 @@ class AbsenceRepository extends EntityRepository
             rmdir($absenceDocument->upload_dir() . $id);
         }
     }
+
+    public function findIcalKeysBeforeStart(string $calName, $uid, string $start): array
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a.debut')
+            ->where('a.cal_name = :cal_name')
+            ->andWhere('a.uid > :uid')
+            ->andWhere('a.debut < :start')
+            ->groupBy('a.debut')
+            ->setParameter('cal_name', $calName)
+            ->setParameter('uid', $uid)
+            ->setParameter('start', $start);
+
+        return $qb->getQuery()->getScalarResult();
+    }
+
 }

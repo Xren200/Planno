@@ -674,15 +674,16 @@ class AbsenceController extends BaseController
         // Si pas de récurrence, suppression dans la table 'absences'
         } else {
             if ($groupe) {
-                $db=new \db();
-                $db->CSRFToken = $CSRFToken;
-                $db->delete("absences", array("groupe"=>$groupe));
+                $absences = $this->entityManager->getRepository(Absence::class)->findBy(['groupe' => $groupe]);
+                foreach($absences as $abs) {
+                    $this->entityManager->remove($abs);
+                }
             } else {
-                $db=new \db();
-                $db->CSRFToken = $CSRFToken;
-                $db->delete("absences", array("id"=>$id));
+                $absence = $this->entityManager->getRepository(Absence::class)->find($id);
+                $this->entityManager->remove($absence);
             }
         }
+        $this->entityManager->flush();
 
         $msg=urlencode("L'absence a été supprimée avec succès");
         $msgType="success";
@@ -752,10 +753,13 @@ class AbsenceController extends BaseController
         // we search for all absences of the same group
         // to find the one with documents.
         else {
-            $db = new \db();
-            $db->select('absences', 'id', "groupe='$groupe'");
-            $grouped_absences = $db->result;
-            if (!$grouped_absences) {
+            $absence = $this->entityManager->getRepository(Absence::class)->findBy(['groupe' => $groupe]);
+            $grouped_absences = [];
+            foreach($absence as $abs) {
+                $grouped_absences[] = $abs->getId();
+            }
+
+            if (empty($grouped_absences)) {
                 return;
             }
 
@@ -763,7 +767,7 @@ class AbsenceController extends BaseController
                 $absdocs = array_merge($absdocs,
                     $this->entityManager
                     ->getRepository(AbsenceDocument::class)
-                    ->findBy(['absence_id' => $a['id']]));
+                    ->findBy(['absence_id' => $a]));
             }
         }
 
@@ -1183,9 +1187,7 @@ class AbsenceController extends BaseController
               // Si la fin de récurrence est définie par l'attribut COUNT, il doit être adapté. Les occurences antérieures à $serie1_end doivent être déduites.
               if (strpos($rrule, 'COUNT')) {
                   // Récupération du nombre d'occurences antérieures à la date de l'événement choisi
-                  $db = new \db();
-                  $db->select2('absences', 'debut', array('cal_name' => 'LIKEPlanningBiblio-Absences%', 'uid' => $uid, 'debut' => "<$debut1"), 'GROUP BY `debut`');
-                  $nb = $db->nb;
+                  $nb = $this->entityManager->getRepository(Absence::class)->findIcalKeysBeforeStart('LIKEPlanningBiblio-Absences%', $uid, $debut1);
 
                   // Récupération de la valeur initiale de COUNT
                   preg_match('/COUNT=(\d*)/', $rrule, $matches);
@@ -1279,12 +1281,14 @@ class AbsenceController extends BaseController
             foreach ($agents as $agent) {
                 $ids[] = $agent['absence_id'];
             }
-            $ids = implode(",", $ids);
-            $where = array("id"=>"IN $ids");
 
             $db = new \db();
             $db->CSRFToken = $CSRFToken;
             $db->update("absences", $data, $where);
+            $absences = $this->entityManager->getRepository(Absence::class)->find($ids);
+            foreach($absences as $abs) {
+                $data
+            }
 
 
             // Ajout de nouvelles lignes dans la table absences si des agents ont été ajoutés
