@@ -10,16 +10,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class HolidayResetCreditsCommandTest extends CommandTestCase
 {
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->builder->delete(Agent::class);
-        $this->builder->delete(Holiday::class);
-
-    }
     public function testConfigOn(): void
     {
+        $this->backup();
         $this->setParam('Conges-transfer-comp-time', 1);
 
         $jdupont = $this->builder->build(Agent::class, array(
@@ -60,11 +53,13 @@ class HolidayResetCreditsCommandTest extends CommandTestCase
         $this->assertEquals(55, $congeAfter->getActualRemainder(), 'After Holiday reliquat_actuel');
         $this->assertEquals(0, $congeAfter->getActualAnticipation(), 'After Holiday anticipation_actuel');
 
+        $this->restore();
 
     }
 
     public function testConfigOff(): void
     {
+        $this->backup();
         $this->setParam('Conges-transfer-comp-time', 0);
 
         $jdupont = $this->builder->build(Agent::class, array(
@@ -105,21 +100,23 @@ class HolidayResetCreditsCommandTest extends CommandTestCase
         $this->assertEquals(11, $congeAfter->getActualRemainder(), 'After Holiday reliquat_actuel');
         $this->assertEquals(0, $congeAfter->getActualAnticipation(), 'After Holiday anticipation_actuel');
    
+        $this->restore();
     }
 
     private function execute(): void
     {
-         $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
  
-         $command = $application->find('app:holiday:reset:credits');
-         $commandTester = new CommandTester($command);
-         $commandTester->execute([
-             'command'  => $command->getName()
-         ], [
-             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-         ]);
-         $commandTester->assertCommandIsSuccessful();
-         $output = $commandTester->getDisplay();
+        $command = $application->find('app:holiday:reset:credits');
+        $commandTester = new CommandTester($command);
+        $commandTester->execute([
+            'command'  => $command->getName()
+        ], [
+            'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+        ]);
+        $commandTester->assertCommandIsSuccessful();
+        $output = $commandTester->getDisplay();
 
         $this->assertStringContainsString('Reset the credits for holiday successfully', $output);
 

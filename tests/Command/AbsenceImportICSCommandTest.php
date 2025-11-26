@@ -20,10 +20,6 @@ class AbsenceImportICSCommandTest extends CommandTestCase
         if (file_exists($this->lockFile)) {
             @unlink($this->lockFile);
         }
-
-        $this->builder->delete(Agent::class);
-        $this->builder->delete(Absence::class);
-
     }
 
     public function testExitsWhenLockFileIsRecent(): void
@@ -43,6 +39,8 @@ class AbsenceImportICSCommandTest extends CommandTestCase
 
     public function testAgent(): void
     {
+        $this->backup();
+
         $this->setParam('ICS-Server3',1);
 
         $alice = $this->builder->build(Agent::class, array(
@@ -62,16 +60,20 @@ class AbsenceImportICSCommandTest extends CommandTestCase
         $this->entityManager->flush();
 
         $this->execute();
+        
+        $this->entityManager->clear();
 
         $abs = $this->entityManager->getRepository(Absence::class)->findOneBy(["perso_id"=> $alice->getId()]);
         $this->assertNull( $abs, '');
+        $this->restore();
 
     }
 
     private function execute(): void
     {
 
-        $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
 
         $command = $application->find('app:absence:import-ics');
         $commandTester = new CommandTester($command);

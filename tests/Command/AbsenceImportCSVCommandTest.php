@@ -37,8 +37,6 @@ class AbsenceImportCSVCommandTest extends CommandTestCase
             } catch (\Throwable $e) {
             }
         }
-
-        $this->builder->delete(Agent::class);
     }
 
     public function testExitsWhenLockFileIsRecent(): void
@@ -58,7 +56,7 @@ class AbsenceImportCSVCommandTest extends CommandTestCase
 
     public function testAgent(): void
     {
-
+        $this->backup();
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
             'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
@@ -85,12 +83,13 @@ class AbsenceImportCSVCommandTest extends CommandTestCase
 
         $this->assertSame(96, (int)$countAfter, '96 absence should be imported');
 
+        $this->restore();
     }
 
     private function execute(): void
     {
-         
-        $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
  
         $command = $application->find('app:absence:import-csv');
 

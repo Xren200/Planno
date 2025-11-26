@@ -31,37 +31,9 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 class PurgeDataCommandTest extends CommandTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->builder->delete(Log::class);
-        $this->builder->delete(AbsenceInfo::class);
-        $this->builder->delete(AdminInfo::class);
-        $this->builder->delete(CallForHelp::class);
-        $this->builder->delete(OverTime::class);
-        $this->builder->delete(Detached::class);
-        $this->builder->delete(Holiday::class);
-        $this->builder->delete(HolidayInfo::class);
-        $this->builder->delete(SaturdayWorkingHours::class);
-        $this->builder->delete(IPBlocker::class);
-        $this->builder->delete(Log::class);
-        $this->builder->delete(PlanningNote::class);
-        $this->builder->delete(PlanningNotification::class);
-        $this->builder->delete(PlanningPosition::class);
-        $this->builder->delete(PlanningPositionLock::class);
-        $this->builder->delete(PlanningPositionTabAffectation::class);
-        $this->builder->delete(PublicHoliday::class);
-        $this->builder->delete(WorkingHour::class);
-        $this->builder->delete(Absence::class);
-        $this->builder->delete(Agent::class);
-        $this->builder->delete(PlanningPositionTab::class);
-        $this->builder->delete(Position::class);
-        $this->builder->delete(Skill::class);
-        $this->builder->delete(RecurringAbsence::class);
-    }
-
     public function testSomething(): void
     {
+        $this->backup();
 	    $date = new DateTime();
         $date->modify('-5 years');
 	    for ($i = 0; $i < 11 ; $i ++) {
@@ -118,29 +90,29 @@ class PurgeDataCommandTest extends CommandTestCase
         $countBeforePosition                        = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM postes");
         $countBeforeSkill                           = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM activites");
         $countBeforeRecurringAbsence                = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences_recurrentes");
-        $this->assertSame(11, $countBeforeAbsenceInfo                   , '11 log should be founded');
-        $this->assertSame(11, $countBeforeAdminInfo                     , '11 log should be founded');
-        $this->assertSame(11, $countBeforeCallForHelp                   , '11 log should be founded');
-        $this->assertSame(11, $countBeforeOverTime                      , '11 log should be founded');
-        $this->assertSame(11, $countBeforeDetached                      , '11 log should be founded');
-        $this->assertSame(11, $countBeforeHoliday                       , '11 log should be founded');
-        $this->assertSame(11, $countBeforeHolidayInfo                   , '11 log should be founded');
-        $this->assertSame(11, $countBeforeSaturdayWorkingHours          , '11 log should be founded');
-        $this->assertSame(11, $countBeforeIPBlocker                     , '11 log should be founded');
-        $this->assertSame(11, $countBeforeLog                           , '11 log should be founded');
-        $this->assertSame(11, $countBeforePlanningNote                  , '11 log should be founded');
-        $this->assertSame(11, $countBeforePlanningNotification          , '11 log should be founded');
-        $this->assertSame(11, $countBeforePlanningPosition              , '11 log should be founded');
-        $this->assertSame(11, $countBeforePlanningPositionLock          , '11 log should be founded');
-        $this->assertSame(11, $countBeforePlanningPositionTabAffectation, '11 log should be founded');
-        $this->assertSame(11, $countBeforePublicHoliday                 , '11 log should be founded');
-        $this->assertSame(11, $countBeforeWorkingHour                   , '11 log should be founded');
-        $this->assertSame(11, $countBeforeAbsence                       , '11 log should be founded');
-        $this->assertSame(15, $countBeforeAgent                         , '11 log should be founded');//Administrateur, Tout le monde and 2 whose supprime != 2
-        $this->assertSame(11, $countBeforePlanningPositionTab           , '11 log should be founded');
-        $this->assertSame(11, $countBeforePosition                      , '11 log should be founded');
-        $this->assertSame(11, $countBeforeSkill                         , '11 log should be founded');
-        $this->assertSame(11, $countBeforeRecurringAbsence              , '11 log should be founded');
+        $this->assertSame(11, $countBeforeAbsenceInfo                   , '11 should be founded');
+        $this->assertSame(11, $countBeforeAdminInfo                     , '11 should be founded');
+        $this->assertSame(11, $countBeforeCallForHelp                   , '11 should be founded');
+        $this->assertSame(11, $countBeforeOverTime                      , '11 should be founded');
+        $this->assertSame(11, $countBeforeDetached                      , '11 should be founded');
+        $this->assertSame(11, $countBeforeHoliday                       , '11 should be founded');
+        $this->assertSame(11, $countBeforeHolidayInfo                   , '11 should be founded');
+        $this->assertSame(11, $countBeforeSaturdayWorkingHours          , '11 should be founded');
+        $this->assertSame(11, $countBeforeIPBlocker                     , '11 should be founded');
+        $this->assertSame(11, $countBeforeLog                           , '11 should be founded');
+        $this->assertSame(11, $countBeforePlanningNote                  , '11 should be founded');
+        $this->assertSame(11, $countBeforePlanningNotification          , '11 should be founded');
+        $this->assertSame(11, $countBeforePlanningPosition              , '11 should be founded');
+        $this->assertSame(11, $countBeforePlanningPositionLock          , '11 should be founded');
+        $this->assertSame(11, $countBeforePlanningPositionTabAffectation, '11 should be founded');
+        $this->assertSame(11, $countBeforePublicHoliday                 , '11 should be founded');
+        $this->assertSame(11, $countBeforeWorkingHour                   , '11 should be founded');
+        $this->assertSame(11, $countBeforeAbsence                       , '11 should be founded');
+        $this->assertSame(15, $countBeforeAgent                         , '15 should be founded');//Administrateur, Tout le monde and 2 whose supprime != 2
+        $this->assertSame(11, $countBeforePlanningPositionTab           , '11 should be founded');
+        $this->assertSame(11, $countBeforePosition                      , '11 should be founded');
+        $this->assertSame(11, $countBeforeSkill                         , '11 should be founded');
+        $this->assertSame(11, $countBeforeRecurringAbsence              , '11 should be founded');
 
 
         $this->execute();
@@ -168,42 +140,44 @@ class PurgeDataCommandTest extends CommandTestCase
         $countAfterPosition                        = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM postes");
         $countAfterSkill                           = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM activites");
         $countAfterRecurringAbsence                = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences_recurrentes");
-        $this->assertSame(4, $countAfterAbsenceInfo                   , '11 log should be founded');
-        $this->assertSame(4, $countAfterAdminInfo                     , '11 log should be founded');
-        $this->assertSame(4, $countAfterCallForHelp                   , '11 log should be founded');
-        $this->assertSame(4, $countAfterOverTime                      , '11 log should be founded');
-        $this->assertSame(4, $countAfterDetached                      , '11 log should be founded');
-        $this->assertSame(4, $countAfterHoliday                       , '11 log should be founded');
-        $this->assertSame(4, $countAfterHolidayInfo                   , '11 log should be founded');
-        $this->assertSame(4, $countAfterSaturdayWorkingHours          , '11 log should be founded');
-        $this->assertSame(4, $countAfterIPBlocker                     , '11 log should be founded');
-        $this->assertSame(33, $countAfterLog                           , '11 log should be founded');//4 plus 29 logs from DataPurger
-        $this->assertSame(4, $countAfterPlanningNote                  , '11 log should be founded');
-        $this->assertSame(4, $countAfterPlanningNotification          , '11 log should be founded');
-        $this->assertSame(4, $countAfterPlanningPosition              , '11 log should be founded');
-        $this->assertSame(4, $countAfterPlanningPositionLock          , '11 log should be founded');
-        $this->assertSame(4, $countAfterPlanningPositionTabAffectation, '11 log should be founded');
-        $this->assertSame(8, $countAfterPublicHoliday                 , '11 log should be founded');//Purge datas older than 3 years; keep the last 3 years of data.
-        $this->assertSame(4, $countAfterWorkingHour                   , '11 log should be founded');
-        $this->assertSame(4, $countAfterAbsence                       , '11 log should be founded');
-        $this->assertSame(4, $countAfterAgent                         , '11 log should be founded');
-        $this->assertSame(4, $countAfterPlanningPositionTab           , '11 log should be founded');
-        $this->assertSame(4, $countAfterPosition                      , '11 log should be founded');
-        $this->assertSame(4, $countAfterSkill                         , '11 log should be founded');
-        $this->assertSame(4, $countAfterRecurringAbsence              , '11 log should be founded');
+        $this->assertSame(6, $countAfterAbsenceInfo                   , '6 should be founded');
+        $this->assertSame(6, $countAfterAdminInfo                     , '6 should be founded');
+        $this->assertSame(6, $countAfterCallForHelp                   , '6 should be founded');
+        $this->assertSame(6, $countAfterOverTime                      , '6 should be founded');
+        $this->assertSame(6, $countAfterDetached                      , '6 should be founded');
+        $this->assertSame(6, $countAfterHoliday                       , '6 should be founded');
+        $this->assertSame(6, $countAfterHolidayInfo                   , '6 should be founded');
+        $this->assertSame(6, $countAfterSaturdayWorkingHours          , '6 should be founded');
+        $this->assertSame(6, $countAfterIPBlocker                     , '6 should be founded');
+        $this->assertSame(35, $countAfterLog                          , '35 should be founded');//4 plus 29 logs from DataPurger
+        $this->assertSame(6, $countAfterPlanningNote                  , '6 should be founded');
+        $this->assertSame(6, $countAfterPlanningNotification          , '6 should be founded');
+        $this->assertSame(6, $countAfterPlanningPosition              , '6 should be founded');
+        $this->assertSame(6, $countAfterPlanningPositionLock          , '6 should be founded');
+        $this->assertSame(6, $countAfterPlanningPositionTabAffectation, '6 should be founded');
+        $this->assertSame(8, $countAfterPublicHoliday                 , '8 should be founded');//Purge datas older than 3 years; keep the last 3 years of data.
+        $this->assertSame(6, $countAfterWorkingHour                   , '6 should be founded');
+        $this->assertSame(6, $countAfterAbsence                       , '6 should be founded');
+        $this->assertSame(4, $countAfterAgent                         , '4 should be founded');
+        $this->assertSame(6, $countAfterPlanningPositionTab           , '6 should be founded');
+        $this->assertSame(6, $countAfterPosition                      , '6 should be founded');
+        $this->assertSame(6, $countAfterSkill                         , '6 should be founded');
+        $this->assertSame(6, $countAfterRecurringAbsence              , '6 should be founded');
 
+        $this->restore();
     }
 
     private function execute(): void
     {
          
-        $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
  
         $command = $application->find('app:purge:data');
 
         $commandTester = new CommandTester($command);
         $commandTester->execute([
-            'delay' => '1',
+            'delay' => '2',
         ]);
         $commandTester->assertCommandIsSuccessful();
 

@@ -10,14 +10,10 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 
 class PurgeLogTableCommandTest extends CommandTestCase
 {    
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->builder->delete(Log::class);
-    }
 
     public function testSomething(): void
     {
+        $this->backup();
 	    $date = new DateTime();
         $date->modify('-5 years');
 	    for ($i = 0; $i < 11 ; $i ++) {
@@ -34,12 +30,14 @@ class PurgeLogTableCommandTest extends CommandTestCase
 
         $this->assertSame(4, (int)$countAfter, '1 log should be founded');
 
+        $this->restore();
     }
 
     private function execute(): void
     {
          
-        $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
  
         $command = $application->find('app:purge:log-table');
 

@@ -11,17 +11,9 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class HolidayResetRemainderCommandTest extends CommandTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->builder->delete(Agent::class);
-        $this->builder->delete(Holiday::class);
-
-    }
     public function testSomething(): void
     {
-        $entityManager = $GLOBALS['entityManager'];
-
+        $this->backup();
         $alice = new Agent();
         $alice->setLogin('alice');
         $alice->setLogin('alice');
@@ -52,17 +44,17 @@ class HolidayResetRemainderCommandTest extends CommandTestCase
         $alice->setHolidayCredit(11);
         $alice->setCompTime(22);
         $alice->setAnticipation(33);
-        $entityManager->persist($alice);
-        $entityManager->flush();
-        $entityManager->clear();
+        $this->entityManager->persist($alice);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
 
-        $repo = $entityManager->getRepository(Agent::class);
+        $repo = $this->entityManager->getRepository(Agent::class);
         $this->assertNotNull($repo->findOneBy(['id'=>$alice->getId()]), '');
 
 
         $this->execute();
 
-        $repo = $entityManager->getRepository(Holiday::class);
+        $repo = $this->entityManager->getRepository(Holiday::class);
         $this->assertEquals(
             11,
             $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualCredit(),
@@ -83,20 +75,20 @@ class HolidayResetRemainderCommandTest extends CommandTestCase
             $repo->findOneBy(['perso_id'=>$alice->getId()])->getActualRemainder(),
             ''
         );
-        $repo = $entityManager->getRepository(Agent::class);
+        $repo = $this->entityManager->getRepository(Agent::class);
         foreach ($repo->findAll() as $agent)
         $this->assertEquals(
             0.00,
             $agent->getRemainder(),
             ''
         );
+        $this->restore();
     }
 
     private function execute(): void
     {
-        $application = new Application(self::$kernel);
-
-        $entityManager = $GLOBALS['entityManager'];
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
 
         $command = $application->find('app:holiday:reset:remainder');
         $commandTester = new CommandTester($command);

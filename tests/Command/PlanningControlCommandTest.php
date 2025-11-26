@@ -18,8 +18,7 @@ class PlanningControlCommandTest extends CommandTestCase
 
     public function testSomething(): void
     {
-        $entityManager = $GLOBALS['entityManager'];
-
+        $this->backup();
         $this->setParam('Rappels-Actifs', 1);
         $this->setParam('Multisites-nombre', 1);
         $this->setParam('Multisites-site1', 1);
@@ -69,10 +68,10 @@ class PlanningControlCommandTest extends CommandTestCase
         $pos->setBlocking(1);
         $pos->setLunch(0);
         $pos->setDelete(null);
-        $entityManager->persist($pos);
+        $this->entityManager->persist($pos);
 
-        $entityManager->flush();
-        $entityManager->clear();
+        $this->entityManager->flush();
+        $this->entityManager->clear();
 
         $this->builder->build(PlanningPositionLines::class, [
             'numero'  => 1,
@@ -82,56 +81,56 @@ class PlanningControlCommandTest extends CommandTestCase
             'poste'   => $pos->getId()
         ]);
 
-        $repo = $entityManager->getRepository(PlanningPositionTabAffectation::class);
+        $repo = $this->entityManager->getRepository(PlanningPositionTabAffectation::class);
         $this->assertNotNull(
             $repo->findOneBy(['date' => $today, 'tableau' => 1, 'site' => 1]),
             'PlanningPositionTabAffectation should be saved'
         );
 
-        $repo = $entityManager->getRepository(PlanningPositionLock::class);
+        $repo = $this->entityManager->getRepository(PlanningPositionLock::class);
         $this->assertNotNull(
             $repo->findOneBy(['date' => $today, 'site' => 1]),
             'PlanningPositionLock should be saved'
         );
 
-        $repo = $entityManager->getRepository(PlanningPositionTab::class);
+        $repo = $this->entityManager->getRepository(PlanningPositionTab::class);
         $this->assertNotNull(
             $repo->find(1),
             'PlanningPositionTab should be saved'
         );
 
-        $repo = $entityManager->getRepository(Position::class);
+        $repo = $this->entityManager->getRepository(Position::class);
         $this->assertNotNull(
             $repo->find(id: $pos->getId()),
             'Position should be saved'
         );
 
-        $repo = $entityManager->getRepository(PlanningPosition::class);
+        $repo = $this->entityManager->getRepository(PlanningPosition::class);
         $this->assertNotNull(
             $repo->find(1),
             'PlanningPosition should be saved'
         );
 
-        $repo = $entityManager->getRepository(PlanningPositionHours::class);
+        $repo = $this->entityManager->getRepository(PlanningPositionHours::class);
         $this->assertNotNull(
             $repo->findOneBy(['numero' => 1, 'tableau' => 1]),
             'PlanningPositionHours should be saved'
         );
 
-        $repo = $entityManager->getRepository(PlanningPositionLines::class);
+        $repo = $this->entityManager->getRepository(PlanningPositionLines::class);
         $this->assertNotNull(
             $repo->findOneBy(['numero' => 1, 'tableau' => 1, 'ligne' => 1]),
             'PlanningPositionLines should be saved'
         );
 
         $this->execute();
+        $this->restore();
     }
 
     private function execute(): void
     {
-        $application = new Application(self::$kernel);
-
-        $entityManager = $GLOBALS['entityManager'];
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
 
         $command = $application->find('app:planning:control');
         $commandTester = new CommandTester($command);

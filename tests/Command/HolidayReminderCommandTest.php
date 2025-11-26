@@ -278,23 +278,21 @@ class HolidayReminderCommandTest extends CommandTestCase
         $config = $this->config;
 
         $kernel = self::bootKernel();
-        $application = new Application(self::$kernel);
-
-        $entityManager = $GLOBALS['entityManager'];
+        $application = new Application($kernel);
 
         foreach ($config as $k => $v) {
-            $param = $entityManager->getRepository(Config::class)->findOneBy(['nom' => $k]);
+            $param = $this->entityManager->getRepository(Config::class)->findOneBy(['nom' => $k]);
             $param->setValue($v);
-            $entityManager->persist($param);
-            $entityManager->flush();
+            $this->entityManager->persist($param);
             $GLOBALS['config'][$k] = $v;
         }
 
-        $holiday = $entityManager->getRepository(Holiday::class)->find(1);
+        $holiday = $this->entityManager->getRepository(Holiday::class)->find(1);
         $holiday->setValidLevel1($level1);
         $holiday->setValidLevel2($level2);
-        $entityManager->persist($holiday);
-        $entityManager->flush();
+        $this->entityManager->persist($holiday);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
 
         $command = $application->find('app:holiday:reminder');
         $commandTester = new CommandTester($command);
@@ -351,8 +349,6 @@ class HolidayReminderCommandTest extends CommandTestCase
             'mail' => 'mail8@example.com', 'droits' => [99,100],
         ]);
 
-        $entityManager = $GLOBALS['entityManager'];
-
         $manager = new Manager();
         $manager->setUser($agent);
         $manager->setManager($agentLevel1);
@@ -360,8 +356,7 @@ class HolidayReminderCommandTest extends CommandTestCase
         $manager->setLevel2(0);
         $manager->setLevel1Notification(0);
         $manager->setLevel2Notification(0);
-        $entityManager->persist($manager);
-        $entityManager->flush();
+        $this->entityManager->persist($manager);
 
         $manager = new Manager();
         $manager->setUser($agent);
@@ -370,8 +365,7 @@ class HolidayReminderCommandTest extends CommandTestCase
         $manager->setLevel2(0);
         $manager->setLevel1Notification(1);
         $manager->setLevel2Notification(0);
-        $entityManager->persist($manager);
-        $entityManager->flush();
+        $this->entityManager->persist($manager);
 
         $manager = new Manager();
         $manager->setUser($agent);
@@ -380,8 +374,7 @@ class HolidayReminderCommandTest extends CommandTestCase
         $manager->setLevel2(1);
         $manager->setLevel1Notification(0);
         $manager->setLevel2Notification(0);
-        $entityManager->persist($manager);
-        $entityManager->flush();
+        $this->entityManager->persist($manager);
 
         $manager = new Manager();
         $manager->setUser($agent);
@@ -390,8 +383,7 @@ class HolidayReminderCommandTest extends CommandTestCase
         $manager->setLevel2(1);
         $manager->setLevel1Notification(0);
         $manager->setLevel2Notification(1);
-        $entityManager->persist($manager);
-        $entityManager->flush();
+        $this->entityManager->persist($manager);
 
         $now = new \DateTime();
         $start = new \DateTime('+1 day');
@@ -410,7 +402,9 @@ class HolidayReminderCommandTest extends CommandTestCase
         $holiday->setValidLevel1(0);
         $holiday->setValidLevel2(0);
 
-        $entityManager->persist($holiday);
-        $entityManager->flush();
+        $this->entityManager->persist($holiday);
+        $this->entityManager->flush();
+        $this->entityManager->clear();
+
     }
 }

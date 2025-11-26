@@ -13,16 +13,10 @@ use Tests\CommandTestCase;
 
 class WorkingHourExportCommandTest extends CommandTestCase
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->builder->delete(WorkingHour::class);
-        $this->builder->delete(Agent::class);
-
-    }
     public function testSomething(): void
     {
 
+        $this->backup();
         $this->addConfig('PlanningHebdo-ExportFile', '/tmp/test-export.csv');
         $this->addConfig('PlanningHebdo-ExportDaysBefore', '1');
         $this->addConfig('PlanningHebdo-ExportDaysAfter', '1');
@@ -30,6 +24,7 @@ class WorkingHourExportCommandTest extends CommandTestCase
         $this->setParam('EDTSamedi',1);
         $this->setParam('PlanningHebdo',1);
         $this->entityManager->flush();
+        $this->entityManager->clear();
 
         $alice = new Agent();
         $alice->setLogin('alice_test');
@@ -91,11 +86,13 @@ class WorkingHourExportCommandTest extends CommandTestCase
         $this->assertFileExists('/tmp/test-export.csv');
         $contents = file_get_contents('/tmp/test-export.csv');
         $this->assertStringContainsString('0000000ff040', $contents);
+        $this->restore();
     }
 
     private function execute(): void
     {
-        $application = new Application(self::$kernel);
+        $kernel = self::bootKernel();
+        $application = new Application($kernel);
  
         $command = $application->find('app:workinghour:export');
         $commandTester = new CommandTester($command);
