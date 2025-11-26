@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Tests\Command;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 use App\Entity\Agent;
 use App\Entity\Holiday;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class HolidayResetCreditsCommandTest extends PLBWebTestCase
+class HolidayResetCreditsCommandTest extends CommandTestCase
 {
 
     protected function setUp(): void
@@ -21,7 +21,7 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
     public function testConfigOn(): void
     {
         $this->setParam('Conges-transfer-comp-time', 1);
-        $this->setUpPantherClient();
+
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
@@ -66,7 +66,7 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
     public function testConfigOff(): void
     {
         $this->setParam('Conges-transfer-comp-time', 0);
-        $this->setUpPantherClient();
+
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),

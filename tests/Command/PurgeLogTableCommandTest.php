@@ -4,11 +4,11 @@ namespace App\Tests\Command;
 
 use DateTime;
 use App\Entity\Log;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 
-class PurgeLogTableCommandTest extends PLBWebTestCase
+class PurgeLogTableCommandTest extends CommandTestCase
 {    
     protected function setUp(): void
     {

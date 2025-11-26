@@ -7,9 +7,9 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 
-class WorkingHourDailyCommandTest extends PLBWebTestCase
+class WorkingHourDailyCommandTest extends CommandTestCase
 {
     protected function setUp(): void
     {
@@ -19,7 +19,6 @@ class WorkingHourDailyCommandTest extends PLBWebTestCase
 
     public function testSomething(): void
     {
-        $this->setUpPantherClient();
         $WorkingHour1 = $this->builder->build(WorkingHour::class,array(
             'perso_id' => 1,
             'actuel' => 0,

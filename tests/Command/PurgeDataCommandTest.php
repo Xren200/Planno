@@ -3,7 +3,7 @@
 namespace App\Tests\Command;
 
 use DateTime;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 use App\Entity\Absence;
 use App\Entity\AbsenceInfo;
 use App\Entity\AdminInfo;
@@ -29,7 +29,7 @@ use App\Entity\Skill;
 use App\Entity\WorkingHour;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-class PurgeDataCommandTest extends PLBWebTestCase
+class PurgeDataCommandTest extends CommandTestCase
 {
     protected function setUp(): void
     {

@@ -9,11 +9,11 @@ use App\Entity\PlanningPositionLock;
 use App\Entity\PlanningPositionTabAffectation;
 use App\Entity\PlanningPositionTab;
 use App\Entity\Position;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-class PlanningControlCommandTest extends PLBWebTestCase
+class PlanningControlCommandTest extends CommandTestCase
 {
 
     public function testSomething(): void

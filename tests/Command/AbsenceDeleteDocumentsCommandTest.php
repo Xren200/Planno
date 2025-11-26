@@ -10,9 +10,9 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 
-class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
+class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
 {
     protected function setUp(): void
     {
@@ -22,6 +22,8 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 
     public function testConfigOff_NoDeletion(): void
     {
+        var_dump($_SERVER['APP_ENV']);
+        self::bootKernel();
         $this->setParam('Absences-DelaiSuppressionDocuments', 0);
 
         $em= $GLOBALS['entityManager'];

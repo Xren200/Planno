@@ -6,9 +6,9 @@ use App\Entity\Agent;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-use Tests\PLBWebTestCase;
+use Tests\CommandTestCase;
 
-class AbsenceImportCSVCommandTest extends PLBWebTestCase
+class AbsenceImportCSVCommandTest extends CommandTestCase
 {
     private string $lockFile;
     protected function setUp(): void
@@ -58,7 +58,6 @@ class AbsenceImportCSVCommandTest extends PLBWebTestCase
 
     public function testAgent(): void
     {
-        $this->setUpPantherClient();
 
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',

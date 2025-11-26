@@ -8,9 +8,10 @@ use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
 use App\Entity\Agent;
 use App\Entity\Config;
-use Tests\PLBWebTestCase;
+use Tests\FixtureBuilder;
+use Tests\CommandTestCase;
 
-class WorkingHourExportCommandTest extends PLBWebTestCase
+class WorkingHourExportCommandTest extends CommandTestCase
 {
     protected function setUp(): void
     {
