@@ -10,13 +10,13 @@ use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
+class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
 {
     public function testConfigOff_NoDeletion(): void
     {
-        $this->backup();
+
         $this->setParam('Absences-DelaiSuppressionDocuments', 0);
 
         $old = (new AbsenceDocument())
@@ -36,13 +36,10 @@ class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
         $this->assertEquals('old',  $info->getFilename(), 'filename is fichier');
         $this->assertEquals(100, $info->getAbsenceId(), 'absence_id is 100');
         $this->assertStringContainsString('/src/Entity/../../var/upload/test/absences/', $info->upload_dir(), 'upload dir ok');
-        $this->restore();
     }
 
     public function testHaveOneToDeleteAndOneNo(): void
     {
-        $this->backup();
-
         $this->setParam('Absences-DelaiSuppressionDocuments', 1);
 
         $builder = $this->builder;
@@ -88,14 +85,10 @@ class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
         $kept = $this->entityManager->getRepository(AbsenceDocument::class)
             ->findOneBy(['filename' => 'fichier_now']); 
         $this->assertNotNull($kept, 'Recent doc should be kept by cron');
-        $this->restore();
-
     }
 
     public function testHaveNothingToDelete_OneNew(): void
     {
-        $this->backup();
-
         $this->setParam('Absences-DelaiSuppressionDocuments', 2);
 
         $builder = $this->builder;
@@ -119,14 +112,10 @@ class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
         $kept = $this->entityManager->getRepository(AbsenceDocument::class)
             ->findOneBy(['filename' => 'fichier_now']); 
         $this->assertNotNull($kept, 'Recent doc should be kept by cron');
-        $this->restore();
-
     }
 
     public function testHaveNothingToDelete_Nothing(): void
     {
-        $this->backup();
-
         $this->setParam('Absences-DelaiSuppressionDocuments', 1);
 
         $builder = $this->builder;
@@ -141,8 +130,6 @@ class AbsenceDeleteDocumentsCommandTest extends CommandTestCase
         $deleted = $this->entityManager->getRepository(AbsenceDocument::class)
             ->findAll();
         $this->assertEmpty($deleted, 'Old doc should be deleted by cron');
-        $this->restore();
-
     }
 
     private function execute(): void

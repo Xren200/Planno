@@ -6,9 +6,9 @@ use App\Entity\Agent;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class AbsenceImportCSVCommandTest extends CommandTestCase
+class AbsenceImportCSVCommandTest extends PLBWebTestCase
 {
     private string $lockFile;
     protected function setUp(): void
@@ -56,7 +56,7 @@ class AbsenceImportCSVCommandTest extends CommandTestCase
 
     public function testAgent(): void
     {
-        $this->backup();
+
         $alice = $this->builder->build(Agent::class, [
             'login' => 'alice', 'mail' => 'alice@example.com', 'nom' => 'Doe', 'prenom' => 'Alice',
             'supprime' => 0, 'check_hamac' => 1, 'matricule' => '0000000ff040'
@@ -82,8 +82,6 @@ class AbsenceImportCSVCommandTest extends CommandTestCase
         $countAfter = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM absences");
 
         $this->assertSame(96, (int)$countAfter, '96 absence should be imported');
-
-        $this->restore();
     }
 
     private function execute(): void

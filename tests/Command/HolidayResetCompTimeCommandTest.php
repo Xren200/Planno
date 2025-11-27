@@ -3,16 +3,15 @@
 namespace App\Tests\Command;
 
 use App\Entity\Agent;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-class HolidayResetCompTimeCommandTest extends CommandTestCase
+class HolidayResetCompTimeCommandTest extends PLBWebTestCase
 {
 
     public function testSomething(): void
     {
-        $this->backup();
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
@@ -34,8 +33,6 @@ class HolidayResetCompTimeCommandTest extends CommandTestCase
         $agentAfter = $repo->findOneBy(['login' => 'jduponttt']);
         $this->assertNotNull($agentAfter, 'Agent should still exist after cron');
         $this->assertEquals(0.0, (float)$agentAfter->getCompTime(), 'After the command comp_time should be 0');
-    
-        $this->restore();
     }
 
     private function execute(): void

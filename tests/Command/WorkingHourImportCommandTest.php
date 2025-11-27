@@ -7,16 +7,15 @@ use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
 use App\Entity\Agent;
+use DateTime;
 use App\Entity\Config;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class WorkingHourImportCommandTest extends CommandTestCase
+class WorkingHourImportCommandTest extends PLBWebTestCase
 {
 
     public function testLogin(): void
     {
-
-        $this->backup();
         $this->addConfig('PlanningHebdo-ImportAgentId', 'login');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_login.csv');
         $this->setParam('Multisites-nombre', 1);
@@ -43,12 +42,9 @@ class WorkingHourImportCommandTest extends CommandTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
-
-        $this->restore();
     }
     public function testMail(): void
     {
-        $this->backup();
         $this->setParam('PlanningHebdo-ImportAgentId', 'mail');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_mail.csv');
         $this->setParam('Multisites-nombre', 1);
@@ -75,13 +71,10 @@ class WorkingHourImportCommandTest extends CommandTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
-
-        $this->restore();
     }
 
     public function testMatricule(): void
     {
-        $this->backup();
         $this->setParam('PlanningHebdo-ImportAgentId', 'matricule');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_matricule.csv');
         $this->setParam('Multisites-nombre', 1);
@@ -108,8 +101,6 @@ class WorkingHourImportCommandTest extends CommandTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
-
-        $this->restore();
     }
 
     private function execute(): void

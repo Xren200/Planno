@@ -7,14 +7,13 @@ use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class WorkingHourDailyCommandTest extends CommandTestCase
+class WorkingHourDailyCommandTest extends PLBWebTestCase
 {
 
     public function testSomething(): void
     {
-        $this->backup();
         $WorkingHour1 = $this->builder->build(WorkingHour::class,array(
             'perso_id' => 1,
             'actuel' => 0,
@@ -67,7 +66,6 @@ class WorkingHourDailyCommandTest extends CommandTestCase
         $this->assertEquals(0, $wh11->isCurrent(), '');
         $this->assertEquals(0, $wh22->isCurrent(), '');
         $this->assertEquals(1, $wh33->isCurrent(), '');
-        $this->restore();
     }
 
     private function execute(): void

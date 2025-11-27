@@ -3,7 +3,7 @@
 namespace App\Tests\Command;
 
 use DateTime;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use App\Entity\Absence;
 use App\Entity\AbsenceInfo;
 use App\Entity\AdminInfo;
@@ -29,11 +29,10 @@ use App\Entity\Skill;
 use App\Entity\WorkingHour;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-class PurgeDataCommandTest extends CommandTestCase
+class PurgeDataCommandTest extends PLBWebTestCase
 {
     public function testSomething(): void
     {
-        $this->backup();
 	    $date = new DateTime();
         $date->modify('-5 years');
 	    for ($i = 0; $i < 11 ; $i ++) {
@@ -163,8 +162,6 @@ class PurgeDataCommandTest extends CommandTestCase
         $this->assertSame(6, $countAfterPosition                      , '6 should be founded');
         $this->assertSame(6, $countAfterSkill                         , '6 should be founded');
         $this->assertSame(6, $countAfterRecurringAbsence              , '6 should be founded');
-
-        $this->restore();
     }
 
     private function execute(): void

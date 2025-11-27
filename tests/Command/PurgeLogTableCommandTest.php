@@ -4,16 +4,15 @@ namespace App\Tests\Command;
 
 use DateTime;
 use App\Entity\Log;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 
-class PurgeLogTableCommandTest extends CommandTestCase
+class PurgeLogTableCommandTest extends PLBWebTestCase
 {    
 
     public function testSomething(): void
     {
-        $this->backup();
 	    $date = new DateTime();
         $date->modify('-5 years');
 	    for ($i = 0; $i < 11 ; $i ++) {
@@ -29,8 +28,6 @@ class PurgeLogTableCommandTest extends CommandTestCase
         $countAfter = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM log");
 
         $this->assertSame(4, (int)$countAfter, '1 log should be founded');
-
-        $this->restore();
     }
 
     private function execute(): void

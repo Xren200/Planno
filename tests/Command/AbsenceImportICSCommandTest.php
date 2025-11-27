@@ -7,9 +7,9 @@ use App\Entity\Agent;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class AbsenceImportICSCommandTest extends CommandTestCase
+class AbsenceImportICSCommandTest extends PLBWebTestCase
 {
     private string $lockFile;
     protected function setUp(): void
@@ -39,8 +39,6 @@ class AbsenceImportICSCommandTest extends CommandTestCase
 
     public function testAgent(): void
     {
-        $this->backup();
-
         $this->setParam('ICS-Server3',1);
 
         $alice = $this->builder->build(Agent::class, array(
@@ -65,8 +63,6 @@ class AbsenceImportICSCommandTest extends CommandTestCase
 
         $abs = $this->entityManager->getRepository(Absence::class)->findOneBy(["perso_id"=> $alice->getId()]);
         $this->assertNull( $abs, '');
-        $this->restore();
-
     }
 
     private function execute(): void

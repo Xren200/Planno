@@ -1,20 +1,19 @@
 <?php
 
 namespace App\Tests\Command;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use App\Entity\Agent;
 use App\Entity\Holiday;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class HolidayResetCreditsCommandTest extends CommandTestCase
+class HolidayResetCreditsCommandTest extends PLBWebTestCase
 {
     public function testConfigOn(): void
     {
-        $this->backup();
         $this->setParam('Conges-transfer-comp-time', 1);
-
+        $this->setUpPantherClient();
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
@@ -52,16 +51,12 @@ class HolidayResetCreditsCommandTest extends CommandTestCase
         $this->assertEquals(0, $congeAfter->getActualCompTime(), 'After Holiday recup_actuel');
         $this->assertEquals(55, $congeAfter->getActualRemainder(), 'After Holiday reliquat_actuel');
         $this->assertEquals(0, $congeAfter->getActualAnticipation(), 'After Holiday anticipation_actuel');
-
-        $this->restore();
-
     }
 
     public function testConfigOff(): void
     {
-        $this->backup();
         $this->setParam('Conges-transfer-comp-time', 0);
-
+        $this->setUpPantherClient();
         $jdupont = $this->builder->build(Agent::class, array(
             'login' => 'jduponttt', 'nom' => 'Duponttt', 'prenom' => 'Jean', 'temps'=>'',
             'droits' => array(3,4,5,6,9,17,20,21,22,23,25,99,100,201,202,301,302,401,402,501,502,601,602,701,801,802,901,1001,1002,1101,1201,1301),
@@ -99,8 +94,6 @@ class HolidayResetCreditsCommandTest extends CommandTestCase
         $this->assertEquals(44, $congeAfter->getActualCompTime(), 'After Holiday recup_actuel');
         $this->assertEquals(11, $congeAfter->getActualRemainder(), 'After Holiday reliquat_actuel');
         $this->assertEquals(0, $congeAfter->getActualAnticipation(), 'After Holiday anticipation_actuel');
-   
-        $this->restore();
     }
 
     private function execute(): void

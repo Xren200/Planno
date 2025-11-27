@@ -8,15 +8,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 use App\Entity\WorkingHour;
 use App\Entity\Agent;
 use App\Entity\Config;
-use Tests\FixtureBuilder;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 
-class WorkingHourExportCommandTest extends CommandTestCase
+class WorkingHourExportCommandTest extends PLBWebTestCase
 {
     public function testSomething(): void
     {
-
-        $this->backup();
         $this->addConfig('PlanningHebdo-ExportFile', '/tmp/test-export.csv');
         $this->addConfig('PlanningHebdo-ExportDaysBefore', '1');
         $this->addConfig('PlanningHebdo-ExportDaysAfter', '1');
@@ -86,7 +83,6 @@ class WorkingHourExportCommandTest extends CommandTestCase
         $this->assertFileExists('/tmp/test-export.csv');
         $contents = file_get_contents('/tmp/test-export.csv');
         $this->assertStringContainsString('0000000ff040', $contents);
-        $this->restore();
     }
 
     private function execute(): void

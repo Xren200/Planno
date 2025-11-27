@@ -9,16 +9,15 @@ use App\Entity\PlanningPositionLock;
 use App\Entity\PlanningPositionTabAffectation;
 use App\Entity\PlanningPositionTab;
 use App\Entity\Position;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
-class PlanningControlCommandTest extends CommandTestCase
+class PlanningControlCommandTest extends PLBWebTestCase
 {
 
     public function testSomething(): void
     {
-        $this->backup();
         $this->setParam('Rappels-Actifs', 1);
         $this->setParam('Multisites-nombre', 1);
         $this->setParam('Multisites-site1', 1);
@@ -124,7 +123,6 @@ class PlanningControlCommandTest extends CommandTestCase
         );
 
         $this->execute();
-        $this->restore();
     }
 
     private function execute(): void

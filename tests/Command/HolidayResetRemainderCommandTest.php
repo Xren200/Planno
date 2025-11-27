@@ -2,18 +2,17 @@
 
 namespace App\Tests\Command;
 
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use App\Entity\Agent;
 use App\Entity\Holiday;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class HolidayResetRemainderCommandTest extends CommandTestCase
+class HolidayResetRemainderCommandTest extends PLBWebTestCase
 {
     public function testSomething(): void
     {
-        $this->backup();
         $alice = new Agent();
         $alice->setLogin('alice');
         $alice->setLogin('alice');
@@ -82,7 +81,6 @@ class HolidayResetRemainderCommandTest extends CommandTestCase
             $agent->getRemainder(),
             ''
         );
-        $this->restore();
     }
 
     private function execute(): void
