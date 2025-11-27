@@ -144,4 +144,47 @@ class PLBWebTestCase extends PantherTestCase
 
         return $values;
     }
+
+    protected function restore()
+    {
+        if (!file_exists(__DIR__ . "/../.env.test.local")) {
+            throw new \RuntimeException(".env.test.local not found");
+        }
+
+        (new \Symfony\Component\Dotenv\Dotenv())
+            ->load(__DIR__ . "/../.env.test.local");
+
+        $database_url = $_ENV['DATABASE_URL'];
+
+        $pattern = '/.[^\/]*\/\/(.[^:]*):(.[^@]*)@(.[^:]*):(\d*)\/(.*)/';
+
+        $dbuser = preg_replace($pattern, '\1', $database_url);
+        $dbpass = preg_replace($pattern, '\2', $database_url);
+        $dbhost = preg_replace($pattern, '\3', $database_url);
+        $dbport = preg_replace($pattern, '\4', $database_url);
+        $dbname = preg_replace($pattern, '\5', $database_url);
+
+        $link = mysqli_init();
+        mysqli_real_connect($link, $dbhost, $dbuser, $dbpass, 'mysql');
+
+        $sqls = [];
+        $sqls[] = "DROP DATABASE IF EXISTS `$dbname`;";
+        $sqls[] = "CREATE DATABASE `$dbname` CHARACTER SET utf8 COLLATE utf8_bin;";
+        $sqls[] = "USE `$dbname`;";
+
+        include __DIR__ . '/../legacy/migrations/schema.php';
+        include __DIR__ . '/../legacy/migrations/data.php';
+
+        foreach ($sqls as $sql) {
+            mysqli_multi_query($link, $sql);
+        }
+
+        mysqli_close($link);
+
+        exec(__DIR__ . '/../bin/console doctrine:migrations:migrate --env=test -q');
+
+        include_once(__DIR__ . '/../init/init.php');
+        include_once(__DIR__ . '/../init/init_templates.php');
+    }
+
 }
