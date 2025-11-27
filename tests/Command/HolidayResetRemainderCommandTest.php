@@ -81,6 +81,8 @@ class HolidayResetRemainderCommandTest extends PLBWebTestCase
             $agent->getRemainder(),
             ''
         );
+        
+        $this->restore();
     }
 
     private function execute(): void

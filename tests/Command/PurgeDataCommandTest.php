@@ -162,6 +162,8 @@ class PurgeDataCommandTest extends PLBWebTestCase
         $this->assertSame(6, $countAfterPosition                      , '6 should be founded');
         $this->assertSame(6, $countAfterSkill                         , '6 should be founded');
         $this->assertSame(6, $countAfterRecurringAbsence              , '6 should be founded');
+        
+        $this->restore();
     }
 
     private function execute(): void

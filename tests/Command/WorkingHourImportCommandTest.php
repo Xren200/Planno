@@ -121,7 +121,8 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
         $output = $commandTester->getDisplay();
 
         $this->assertStringContainsString('CSV weekly planning import completed: new/updated schedules inserted and obsolete ones purged.', $output);
-
+        
+        $this->restore();
     }
 
     private function addConfig($key, $value) {

@@ -66,6 +66,8 @@ class WorkingHourDailyCommandTest extends PLBWebTestCase
         $this->assertEquals(0, $wh11->isCurrent(), '');
         $this->assertEquals(0, $wh22->isCurrent(), '');
         $this->assertEquals(1, $wh33->isCurrent(), '');
+        
+        $this->restore();
     }
 
     private function execute(): void

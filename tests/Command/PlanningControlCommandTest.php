@@ -123,6 +123,8 @@ class PlanningControlCommandTest extends PLBWebTestCase
         );
 
         $this->execute();
+        
+        $this->restore();
     }
 
     private function execute(): void

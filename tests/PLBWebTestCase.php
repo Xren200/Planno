@@ -164,6 +164,15 @@ class PLBWebTestCase extends PantherTestCase
         $dbport = preg_replace($pattern, '\4', $database_url);
         $dbname = preg_replace($pattern, '\5', $database_url);
 
+        $config = [
+            'dbuser'   => $dbuser,
+            'dbpass'   => $dbpass,
+            'dbhost'   => $dbhost,
+            'dbport'   => $dbport,
+            'dbname'   => $dbname,
+            'dbprefix' => $_ENV['DATABASE_PREFIX'] ?? '',
+        ];
+
         $link = mysqli_init();
         mysqli_real_connect($link, $dbhost, $dbuser, $dbpass, 'mysql');
 
@@ -171,9 +180,11 @@ class PLBWebTestCase extends PantherTestCase
         $sqls[] = "DROP DATABASE IF EXISTS `$dbname`;";
         $sqls[] = "CREATE DATABASE `$dbname` CHARACTER SET utf8 COLLATE utf8_bin;";
         $sqls[] = "USE `$dbname`;";
-
+        $entityManager = $this->entityManager;
         include __DIR__ . '/../legacy/migrations/schema.php';
         include __DIR__ . '/../legacy/migrations/data.php';
+        include(__DIR__ . '/../init/init.php');
+        include(__DIR__ . '/../init/init_templates.php');
 
         foreach ($sqls as $sql) {
             mysqli_multi_query($link, $sql);
@@ -183,8 +194,7 @@ class PLBWebTestCase extends PantherTestCase
 
         exec(__DIR__ . '/../bin/console doctrine:migrations:migrate --env=test -q');
 
-        include_once(__DIR__ . '/../init/init.php');
-        include_once(__DIR__ . '/../init/init_templates.php');
+
     }
 
 }

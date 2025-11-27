@@ -28,6 +28,8 @@ class PurgeLogTableCommandTest extends PLBWebTestCase
         $countAfter = $this->entityManager->getConnection()->fetchOne("SELECT COUNT(*) FROM log");
 
         $this->assertSame(4, (int)$countAfter, '1 log should be founded');
+        
+        $this->restore();
     }
 
     private function execute(): void

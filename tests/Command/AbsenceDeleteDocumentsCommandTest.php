@@ -130,6 +130,8 @@ class AbsenceDeleteDocumentsCommandTest extends PLBWebTestCase
         $deleted = $this->entityManager->getRepository(AbsenceDocument::class)
             ->findAll();
         $this->assertEmpty($deleted, 'Old doc should be deleted by cron');
+        
+        $this->restore();
     }
 
     private function execute(): void

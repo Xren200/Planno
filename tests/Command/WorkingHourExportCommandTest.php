@@ -83,6 +83,8 @@ class WorkingHourExportCommandTest extends PLBWebTestCase
         $this->assertFileExists('/tmp/test-export.csv');
         $contents = file_get_contents('/tmp/test-export.csv');
         $this->assertStringContainsString('0000000ff040', $contents);
+        
+        $this->restore();
     }
 
     private function execute(): void

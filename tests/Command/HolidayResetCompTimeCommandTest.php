@@ -33,6 +33,8 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
         $agentAfter = $repo->findOneBy(['login' => 'jduponttt']);
         $this->assertNotNull($agentAfter, 'Agent should still exist after cron');
         $this->assertEquals(0.0, (float)$agentAfter->getCompTime(), 'After the command comp_time should be 0');
+        
+        $this->restore();
     }
 
     private function execute(): void

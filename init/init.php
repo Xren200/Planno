@@ -5,9 +5,19 @@ require_once __DIR__.'/../vendor/autoload.php';
 use App\Entity\Agent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 
-$session = new Session();
-$session->start();
+if (PHP_SAPI === 'cli') {
+    // CLI / PHPUnit → use mock session
+    $session = new Session(new MockArraySessionStorage());
+    $session->start();   // important
+} else {
+    // Web
+    $session = new Session();
+    if (!$session->isStarted()) {
+        $session->start();
+    }
+}
 
 $loginId = $session->get('loginId') ?? '';
 
@@ -36,7 +46,7 @@ require_once(__DIR__.'/init_plugins.php');
 
 // Vérification de la version de la base de données
 // Si la version est différente, mise à jour de la base de données
-if ($version!=$config['Version'] && $version != 'ajax') {
+if ($version != ($config['Version'] ?? '') && $version != 'ajax') {
     require_once(__DIR__.'/../legacy/migrations/update.php');
 }
 
@@ -61,12 +71,12 @@ $logged_in = $entityManager->find(Agent::class, $loginId);
 $droits = $logged_in ? $logged_in->getACL() : array();
 $_SESSION['droits'] = array_merge($droits, array(99));
 
-$theme=$config['Affichage-theme']?$config['Affichage-theme']:"default";
+$theme=$config['Affichage-theme'] ?? "default";
 if (!file_exists("themes/$theme/$theme.css")) {
     $theme="default";
 }
 
-$themeJQuery = $config['Affichage-theme'] ?$config['Affichage-theme'] : "default";
+$themeJQuery = $config['Affichage-theme'] ?? "default";
 if (!file_exists("themes/$themeJQuery/jquery-ui.min.css")) {
     $themeJQuery="default";
 }

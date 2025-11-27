@@ -63,6 +63,8 @@ class AbsenceImportICSCommandTest extends PLBWebTestCase
 
         $abs = $this->entityManager->getRepository(Absence::class)->findOneBy(["perso_id"=> $alice->getId()]);
         $this->assertNull( $abs, '');
+        
+        $this->restore();
     }
 
     private function execute(): void

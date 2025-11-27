@@ -6,12 +6,12 @@ use App\Entity\Config;
 use App\Entity\Holiday;
 use App\Entity\Manager;
 use Symfony\Bundle\FrameworkBundle\Console\Application;
-use Tests\CommandTestCase;
+use Tests\PLBWebTestCase;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Tester\CommandTester;
 use Tests\FixtureBuilder;
 
-class HolidayReminderCommandTest extends CommandTestCase
+class HolidayReminderCommandTest extends PLBWebTestCase
 {
     private $config = [
             'Absences-notifications-agent-par-agent' => 0,
@@ -261,16 +261,8 @@ class HolidayReminderCommandTest extends CommandTestCase
         ];
 
         $this->execute($result, 1, 1);
-
-        $this->cleanAll();
-    }
-
-    private function cleanAll() 
-    {
-        $builder = new FixtureBuilder();
-        $builder->delete(Manager::class);
-        $builder->delete(Agent::class);
-        $builder->delete(Holiday::class);
+        
+        $this->restore();
     }
 
     private function execute($result, $level1 = 0, $level2 = 0): void
