@@ -13,6 +13,17 @@ use Tests\PLBWebTestCase;
 
 class WorkingHourImportCommandTest extends PLBWebTestCase
 {
+    private string $lockFile;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->lockFile = sys_get_temp_dir() . '/plannoCSV.lock';
+        if (file_exists($this->lockFile)) {
+            @unlink($this->lockFile);
+        }
+    }
 
     public function testLogin(): void
     {
@@ -42,10 +53,13 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
+        
+        $this->restore();
     }
+
     public function testMail(): void
     {
-        $this->setParam('PlanningHebdo-ImportAgentId', 'mail');
+        $this->addConfig('PlanningHebdo-ImportAgentId', 'mail');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_mail.csv');
         $this->setParam('Multisites-nombre', 1);
         
@@ -71,11 +85,13 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
+
+        $this->restore();
     }
 
     public function testMatricule(): void
     {
-        $this->setParam('PlanningHebdo-ImportAgentId', 'matricule');
+        $this->addConfig('PlanningHebdo-ImportAgentId', 'matricule');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_matricule.csv');
         $this->setParam('Multisites-nombre', 1);
         
@@ -101,6 +117,8 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
         $this->assertNotNull( $whAlex, '');
         $this->assertNotNull( $whAurelie, '');
+
+        $this->restore();
     }
 
     private function execute(): void
@@ -121,8 +139,6 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
         $output = $commandTester->getDisplay();
 
         $this->assertStringContainsString('CSV weekly planning import completed: new/updated schedules inserted and obsolete ones purged.', $output);
-        
-        $this->restore();
     }
 
     private function addConfig($key, $value) {

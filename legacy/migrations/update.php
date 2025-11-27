@@ -20,7 +20,7 @@ if (!$cli) {
     echo "<!DOCTYPE html><html><head><title>Planno - Maintenance</title></head>\n";
     echo "<body><h1>Planno - Maintenance</h1><p>\n";
 }
-$config['Version'] = $version;
+
 if ($cli) {
     echo "\033[33mMise à jour de la base de données version {$config['Version']} --> $version\e[0m\n";
 } else {

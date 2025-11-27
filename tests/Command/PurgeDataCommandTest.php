@@ -108,9 +108,9 @@ class PurgeDataCommandTest extends PLBWebTestCase
         $this->assertSame(11, $countBeforeWorkingHour                   , '11 should be founded');
         $this->assertSame(11, $countBeforeAbsence                       , '11 should be founded');
         $this->assertSame(15, $countBeforeAgent                         , '15 should be founded');//Administrateur, Tout le monde and 2 whose supprime != 2
-        $this->assertSame(11, $countBeforePlanningPositionTab           , '11 should be founded');
-        $this->assertSame(11, $countBeforePosition                      , '11 should be founded');
-        $this->assertSame(11, $countBeforeSkill                         , '11 should be founded');
+        $this->assertSame(12, $countBeforePlanningPositionTab           , '12 should be founded');
+        $this->assertSame(43, $countBeforePosition                      , '43 position should be founded');
+        $this->assertSame(23, $countBeforeSkill                         , '23 should be founded');
         $this->assertSame(11, $countBeforeRecurringAbsence              , '11 should be founded');
 
 
@@ -158,9 +158,9 @@ class PurgeDataCommandTest extends PLBWebTestCase
         $this->assertSame(6, $countAfterWorkingHour                   , '6 should be founded');
         $this->assertSame(6, $countAfterAbsence                       , '6 should be founded');
         $this->assertSame(4, $countAfterAgent                         , '4 should be founded');
-        $this->assertSame(6, $countAfterPlanningPositionTab           , '6 should be founded');
-        $this->assertSame(6, $countAfterPosition                      , '6 should be founded');
-        $this->assertSame(6, $countAfterSkill                         , '6 should be founded');
+        $this->assertSame(7, $countAfterPlanningPositionTab           , '7 should be founded');
+        $this->assertSame(38, $countAfterPosition                      , '38 should be founded');
+        $this->assertSame(18, $countAfterSkill                         , '18 should be founded');
         $this->assertSame(6, $countAfterRecurringAbsence              , '6 should be founded');
         
         $this->restore();

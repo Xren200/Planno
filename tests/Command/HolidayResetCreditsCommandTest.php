@@ -51,6 +51,8 @@ class HolidayResetCreditsCommandTest extends PLBWebTestCase
         $this->assertEquals(0, $congeAfter->getActualCompTime(), 'After Holiday recup_actuel');
         $this->assertEquals(55, $congeAfter->getActualRemainder(), 'After Holiday reliquat_actuel');
         $this->assertEquals(0, $congeAfter->getActualAnticipation(), 'After Holiday anticipation_actuel');
+        
+        $this->restore();
     }
 
     public function testConfigOff(): void
