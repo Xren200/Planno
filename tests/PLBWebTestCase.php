@@ -147,7 +147,8 @@ class PLBWebTestCase extends PantherTestCase
 
     protected function restore()
     {
-        include __DIR__ . '/bootstrap.php';
+        // include __DIR__ . '/bootstrap.php';
+        include 'init_db.php';
     }
 
 }
