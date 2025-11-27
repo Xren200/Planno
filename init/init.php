@@ -5,7 +5,6 @@ require_once __DIR__.'/../vendor/autoload.php';
 use App\Entity\Agent;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
-use Symfony\Component\HttpFoundation\Session\Storage\MockArraySessionStorage;
 
 $session = new Session();
 $session->start();
