@@ -3,13 +3,13 @@
 namespace App\Command;
 
 use App\Entity\Agent;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Doctrine\ORM\EntityManagerInterface;
 
 require_once __DIR__ . '/../../public/include/function.php';
 require_once(__DIR__ . '/../../legacy/Class/class.conges.php');
@@ -78,11 +78,8 @@ class HolidayResetRemainderCommand extends Command
         }
 
         // Modifie les crédits
-        $personnel = $this->entityManager->getRepository(Agent::class)->findAll();
-        foreach ($personnel as $p) {
-            $p->setRemainder(0.00);
-        }
-        
+        $this->entityManager->getRepository(Agent::class)->holidayResetRemainders();
+
         $this->entityManager->flush();
 
         if ($output->isVerbose()) {
