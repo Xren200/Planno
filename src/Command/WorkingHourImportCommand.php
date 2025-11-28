@@ -216,6 +216,7 @@ class WorkingHourImportCommand extends Command
             }
         }
 
+
         // $cles_db : tableau contenant les clé des éléments de la base de données pour comparaison avec le fichier
         $cles_db = array();
 
