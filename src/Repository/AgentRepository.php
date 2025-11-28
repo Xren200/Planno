@@ -407,4 +407,38 @@ class AgentRepository extends EntityRepository
 
         $result = $query->execute();
     }
+
+    public function holidayCreditAndCompTimeToRemainder()
+    {
+        $builder = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $builder->update(Agent::class, 'a')
+            ->set('a.conges_reliquat', 'a.conges_credit + a.comp_time')
+            ->getQuery();
+
+        $result = $query->execute();
+    }
+
+    public function holidayCreditToRemainder()
+    {
+        $builder = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $builder->update(Agent::class, 'a')
+            ->set('a.conges_reliquat', 'a.conges_credit')
+            ->getQuery();
+
+        $result = $query->execute();
+    }
+
+    public function holidayResetCredit()
+    {
+        $builder = $this->getEntityManager()->createQueryBuilder();
+
+        $query = $builder->update(Agent::class, 'a')
+            ->set('a.conges_credit', 'a.conges_annuel - a.conges_anticipation')
+            ->set('a.conges_anticipation', '0')
+            ->getQuery();
+
+        $result = $query->execute();
+    }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Command;
 
-use App\Entity\Config;
 use App\Entity\Agent;
+use App\Entity\Config;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -87,33 +87,19 @@ class HolidayResetCreditsCommand extends Command
         }
 
         // Modifie les crédits
-        $personnel = $this->entityManager->getRepository(Agent::class)->findAll();
+        $agents = $this->entityManager->getRepository(Agent::class);
 
         if ($transferCompTime) {
-            foreach ($personnel as $p) {
-                $congesReliquatNew = $p->getHolidayCredit()+$p->getCompTime();
-                $p->setRemainder($congesReliquatNew);
-                $this->entityManager->persist($p);
-            }
+            $agents->holidayCreditAndCompTimeToRemainder();
         } else {
-            foreach ($personnel as $p) {
-                $congesReliquatNew = $p->getHolidayCredit();
-                $p->setRemainder($congesReliquatNew);
-                $this->entityManager->persist($p);
-            }
+            $agents->holidayCreditToRemainder();
         }
 
         if ($transferCompTime) {
-            foreach ($personnel as $p) {
-                $p->setCompTime(0.00);
-            }
+            $agents->holidayResetCompTime();
         }
 
-        foreach ($personnel as $p) {
-            $congesCreditNew = $p->getAnnualCredit() - $p->getAnticipation();
-            $p->setHolidayCredit($congesCreditNew);
-            $p->setAnticipation(0.00);
-        }
+        $agents->holidayResetCredit();
 
         $this->entityManager->flush();
 
