@@ -1,0 +1,1102 @@
+[33mb330ab5d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mMT50832_merge[m[33m)[m HEAD@{0}: commit (amend): MT50832: pr for HolidayResetCreditsCommand
+[33m3952b815[m[33m ([m[1;31morigin/MT50832_merge[m[33m)[m HEAD@{1}: commit: MT50832: pr for class HolidayResetCreditsCommand extends Command
+[33m9bf9ef2b[m HEAD@{2}: commit: MT50832: pr for HolidayResetCompTimeCommand
+[33md8efad80[m HEAD@{3}: commit: MT50832: some fix in case there is an InputOption
+[33m9324c088[m HEAD@{4}: commit (cherry-pick): MT50258: test Command
+[33ma72994fd[m HEAD@{5}: revert: Revert "changes in test unitaire"
+[33m7a66e1ea[m HEAD@{6}: rebase (finish): returning to refs/heads/MT50832_merge
+[33m7a66e1ea[m HEAD@{7}: rebase (squash): changes in test unitaire
+[33mca867c4a[m HEAD@{8}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33ma06ff908[m HEAD@{9}: rebase (start): checkout HEAD~3
+[33m3d1a446f[m HEAD@{10}: checkout: moving from MT50258-test-all to MT50832_merge
+[33m936402ef[m[33m ([m[1;31morigin/MT50258-test-all[m[33m, [m[1;32mMT50258-test-all[m[33m)[m HEAD@{11}: rebase (finish): returning to refs/heads/MT50258-test-all
+[33m936402ef[m[33m ([m[1;31morigin/MT50258-test-all[m[33m, [m[1;32mMT50258-test-all[m[33m)[m HEAD@{12}: rebase (squash): MT50258: test Command
+[33m399f8d44[m HEAD@{13}: rebase (squash): # Ceci est la combinaison de 31 commits.
+[33m30378b15[m HEAD@{14}: rebase (squash): # Ceci est la combinaison de 30 commits.
+[33mbc3a6ff7[m HEAD@{15}: rebase (squash): # Ceci est la combinaison de 29 commits.
+[33m50ce18db[m HEAD@{16}: rebase (squash): # Ceci est la combinaison de 28 commits.
+[33mde4a10bb[m HEAD@{17}: rebase (squash): # Ceci est la combinaison de 27 commits.
+[33m3c8b463e[m HEAD@{18}: rebase (squash): # Ceci est la combinaison de 26 commits.
+[33md62b08cc[m HEAD@{19}: rebase (squash): # Ceci est la combinaison de 25 commits.
+[33m5f2a2d72[m HEAD@{20}: rebase (squash): # Ceci est la combinaison de 24 commits.
+[33m06566cee[m HEAD@{21}: rebase (squash): # Ceci est la combinaison de 23 commits.
+[33m8f571661[m HEAD@{22}: rebase (squash): # Ceci est la combinaison de 22 commits.
+[33m4a8f4369[m HEAD@{23}: rebase (squash): # Ceci est la combinaison de 21 commits.
+[33mb2ab29ff[m HEAD@{24}: rebase (squash): # Ceci est la combinaison de 20 commits.
+[33mfa465463[m HEAD@{25}: rebase (squash): # Ceci est la combinaison de 19 commits.
+[33m2a3b0f23[m HEAD@{26}: rebase (squash): # Ceci est la combinaison de 18 commits.
+[33mdfa6b252[m HEAD@{27}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33m9a7ff12e[m HEAD@{28}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33m3d12842b[m HEAD@{29}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33mcb6906c6[m HEAD@{30}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33mc4fe61d9[m HEAD@{31}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33m23e76edb[m HEAD@{32}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33mbb8cdeb3[m HEAD@{33}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33m6d9fbd5f[m HEAD@{34}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33maa2b962f[m HEAD@{35}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m03c91818[m HEAD@{36}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33mb9dbc1d1[m HEAD@{37}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m9ab84e18[m HEAD@{38}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m8fc9ef94[m HEAD@{39}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m2008b868[m HEAD@{40}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33mee0d2aa7[m HEAD@{41}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mbe84a58a[m HEAD@{42}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mba37a25b[m HEAD@{43}: rebase (start): checkout HEAD~32
+[33me3beae23[m[33m ([m[1;31morigin/MT50258_test[m[33m, [m[1;32mMT50258_test[m[33m)[m HEAD@{44}: checkout: moving from MT50258_test to MT50258-test-all
+[33me3beae23[m[33m ([m[1;31morigin/MT50258_test[m[33m, [m[1;32mMT50258_test[m[33m)[m HEAD@{45}: commit: MT50258: test Command- move addConfig to PLBWebTestCase and add control in setParam
+[33m76dc7fd7[m HEAD@{46}: revert: Revert "MT50258: test command- init_db.php marche pas"
+[33m8d044dcf[m HEAD@{47}: rebase (finish): returning to refs/heads/MT50258_test
+[33m8d044dcf[m HEAD@{48}: rebase (squash): MT50258: test command- init_db.php marche pas
+[33m48f75379[m HEAD@{49}: rebase (start): checkout HEAD~2
+[33m7ba71140[m HEAD@{50}: commit: MT50258: test command- init_db.php marche pas
+[33m48f75379[m HEAD@{51}: cherry-pick: tests/init_db.php
+[33m273f2fc2[m HEAD@{52}: checkout: moving from MT50258-test-all to MT50258_test
+[33m273f2fc2[m HEAD@{53}: checkout: moving from MT50258_test to MT50258-test-all
+[33m273f2fc2[m HEAD@{54}: commit: MT50258: test command- small revert
+[33m0cb0a3c8[m HEAD@{55}: commit (amend): MT50258: test command-some revert changes
+[33mdd471a4d[m HEAD@{56}: commit: MT50258: test command-
+[33m8fd074a9[m HEAD@{57}: commit: MT50258: test Command- debugger restore, block
+[33m0f5b823c[m HEAD@{58}: commit: MT50258: test Command- delete tests/CommandTestCase.php
+[33m2bbb5a23[m HEAD@{59}: commit: Revert "use tests/CommandTestCase.php"
+[33mf7ed6e43[m HEAD@{60}: commit: MT50258: test- abandon delete,use backup and restore instead.to be continued
+[33m970c2c5e[m HEAD@{61}: revert: Revert "install zenstruck/foundry"
+[33m741c51d2[m HEAD@{62}: cherry-pick: use tests/CommandTestCase.php
+[33mb85fd306[m HEAD@{63}: checkout: moving from MT50832_merge to MT50258_test
+[33m3d1a446f[m HEAD@{64}: commit: use tests/CommandTestCase.php
+[33m634839dc[m HEAD@{65}: cherry-pick: install zenstruck/foundry
+[33ma06ff908[m HEAD@{66}: checkout: moving from MT50258_test to MT50832_merge
+[33mb85fd306[m HEAD@{67}: commit: install zenstruck/foundry
+[33m04d01a10[m HEAD@{68}: checkout: moving from MT50832_merge to MT50258_test
+[33ma06ff908[m HEAD@{69}: commit (cherry-pick): MT50258: test command- add tests
+[33m61c0ae90[m HEAD@{70}: checkout: moving from MT50258_test to MT50832_merge
+[33m04d01a10[m HEAD@{71}: checkout: moving from MT50258_test_all to MT50258_test
+[33m445873e3[m HEAD@{72}: checkout: moving from MT50258_test to MT50258_test_all
+[33m04d01a10[m HEAD@{73}: checkout: moving from MT50258_test_all to MT50258_test
+[33m445873e3[m HEAD@{74}: commit (amend): MT50258: test command- add tests
+[33mf5113d00[m HEAD@{75}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33mf5113d00[m HEAD@{76}: rebase (squash): MT50258: test command- add PurgeDataCommandTest and PurgeLogTableCommandTest
+[33mf9cc2260[m HEAD@{77}: rebase (squash): # Ceci est la combinaison de 19 commits.
+[33m16b0d452[m HEAD@{78}: rebase (squash): # Ceci est la combinaison de 18 commits.
+[33mf9075373[m HEAD@{79}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33m7d3e9c62[m HEAD@{80}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33m9f161fd4[m HEAD@{81}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33m9ce81dd3[m HEAD@{82}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33m56f65b8e[m HEAD@{83}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33md8f95f05[m HEAD@{84}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33m35cbcba8[m HEAD@{85}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33m3c4bd351[m HEAD@{86}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33m412f841d[m HEAD@{87}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m795dfd17[m HEAD@{88}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33ma23f7995[m HEAD@{89}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m5afc92e5[m HEAD@{90}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m04f076e4[m HEAD@{91}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m696429c9[m HEAD@{92}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m3bcfe9dd[m HEAD@{93}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m9dfe5c23[m HEAD@{94}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mba37a25b[m HEAD@{95}: rebase (start): checkout HEAD~20
+[33m04d01a10[m HEAD@{96}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{97}: rebase (start): checkout HEAD~20
+[33m04d01a10[m HEAD@{98}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{99}: rebase (start): checkout HEAD~21
+[33m04d01a10[m HEAD@{100}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{101}: rebase (start): checkout HEAD~20
+[33m04d01a10[m HEAD@{102}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{103}: rebase (start): checkout HEAD~19
+[33m04d01a10[m HEAD@{104}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{105}: rebase (start): checkout HEAD~26
+[33m04d01a10[m HEAD@{106}: rebase (finish): returning to refs/heads/MT50258_test_all
+[33m04d01a10[m HEAD@{107}: rebase (start): checkout HEAD~30
+[33m04d01a10[m HEAD@{108}: checkout: moving from MT50258_test to MT50258_test_all
+[33m04d01a10[m HEAD@{109}: checkout: moving from MT50258-test to MT50258_test
+[33md8e8265f[m[33m ([m[1;31morigin/MT50258-test[m[33m, [m[1;32mMT50258-test[m[33m)[m HEAD@{110}: checkout: moving from MT50832_merge to MT50258-test
+[33m61c0ae90[m HEAD@{111}: cherry-pick: MT50832: workinghour_import_command- use entitymanager
+[33mbb03489f[m HEAD@{112}: cherry-pick: MT50832: use entitymanager in WorkingHourDailyCommand
+[33m94c47b5c[m HEAD@{113}: cherry-pick: MT50832: planning_control_command- use entitymanager
+[33mae5746e7[m HEAD@{114}: commit (cherry-pick): MT50832: holiday_reset_remainder- use entitymanager
+[33mc4ee52b1[m HEAD@{115}: cherry-pick: MT50832: holiday_reset_remainder_command- add persist and flush
+[33m3f1aaa04[m HEAD@{116}: cherry-pick: MT50832: holiday_reset_remainder- use entitymanager
+[33m066a28eb[m HEAD@{117}: cherry-pick: MT50832: holiday_reset_credits_command- use entitymanager
+[33mf0dec550[m HEAD@{118}: cherry-pick: MT50832: holiday_reset_comp_time_command- add persist and flush
+[33m31845e23[m HEAD@{119}: cherry-pick: MT50832: holiday_reset_comp_time_command- use entitymanager
+[33meaf216e2[m HEAD@{120}: cherry-pick: MT50832: absence_import_csv_command- use entitymanager tested
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{121}: checkout: moving from master to MT50832_merge
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{122}: checkout: moving from M to master
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{123}: checkout: moving from master to M
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{124}: checkout: moving from MT50258_test to master
+[33m04d01a10[m HEAD@{125}: commit: MT50258: test command- add PurgeDataCommandTest and PurgeLogTableCommandTest
+[33mb747acab[m HEAD@{126}: checkout: moving from MT50832_AbsenceController to MT50258_test
+[33me4fb8365[m[33m ([m[1;31morigin/MT50832_AbsenceController[m[33m, [m[1;32mMT50832_AbsenceController[m[33m)[m HEAD@{127}: commit: MT50832: AbsenceController- use entitymanager,to be continued
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{128}: checkout: moving from MT50258_test to MT50832_AbsenceController
+[33mb747acab[m HEAD@{129}: commit: MT50258: complete the entity’s getters and setters(in Agent and holiday)
+[33m6572f965[m HEAD@{130}: checkout: moving from MT50258_test to MT50258_test
+[33m6572f965[m HEAD@{131}: checkout: moving from MT50832_planning_control_command to MT50258_test
+[33mf9ad11b2[m[33m ([m[1;31morigin/MT50832_planning_control_command[m[33m, [m[1;32mMT50832_planning_control_command[m[33m)[m HEAD@{132}: reset: moving to f9ad11b2beffae1d56a0d4dadd7c70131bde2067
+[33mf9ad11b2[m[33m ([m[1;31morigin/MT50832_planning_control_command[m[33m, [m[1;32mMT50832_planning_control_command[m[33m)[m HEAD@{133}: checkout: moving from MT50258-test to MT50832_planning_control_command
+[33md8e8265f[m[33m ([m[1;31morigin/MT50258-test[m[33m, [m[1;32mMT50258-test[m[33m)[m HEAD@{134}: rebase (finish): returning to refs/heads/MT50258-test
+[33md8e8265f[m[33m ([m[1;31morigin/MT50258-test[m[33m, [m[1;32mMT50258-test[m[33m)[m HEAD@{135}: rebase (squash): MT50258: test command- add test
+[33mebe5c5cd[m HEAD@{136}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33mc7d0bf42[m HEAD@{137}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33m631296d9[m HEAD@{138}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33m576c014b[m HEAD@{139}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33mb5e9f3bd[m HEAD@{140}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33m62a1c637[m HEAD@{141}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33m6d90196e[m HEAD@{142}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33mad13ea87[m HEAD@{143}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33m945a927d[m HEAD@{144}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m2eb700fe[m HEAD@{145}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33mc0d14532[m HEAD@{146}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m0f460b1b[m HEAD@{147}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m21eef7cb[m HEAD@{148}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33mb7ef30cb[m HEAD@{149}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m18b4d95a[m HEAD@{150}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m8168fe0e[m HEAD@{151}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mba37a25b[m HEAD@{152}: rebase (start): checkout HEAD~18
+[33m6572f965[m HEAD@{153}: checkout: moving from MT50258_test to MT50258-test
+[33m6572f965[m HEAD@{154}: checkout: moving from MT50258_test_ver1 to MT50258_test
+[33m6572f965[m HEAD@{155}: checkout: moving from MT50258_test to MT50258_test_ver1
+[33m6572f965[m HEAD@{156}: reset: moving to HEAD@{21}
+[33m926b0eeb[m HEAD@{157}: rebase (finish): returning to refs/heads/MT50258_test
+[33m926b0eeb[m HEAD@{158}: rebase (start): checkout HEAD~19
+[33m926b0eeb[m HEAD@{159}: rebase (finish): returning to refs/heads/MT50258_test
+[33m926b0eeb[m HEAD@{160}: rebase (squash): MT50258: test command- add test
+[33m8005355b[m HEAD@{161}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33m801d3f7b[m HEAD@{162}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33m2165f6a4[m HEAD@{163}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33md087fd03[m HEAD@{164}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33m616a319f[m HEAD@{165}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33m162fbdea[m HEAD@{166}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33m255b9f29[m HEAD@{167}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33mbf911cf6[m HEAD@{168}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33m79a04eda[m HEAD@{169}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m74a717db[m HEAD@{170}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33mb51c8fd5[m HEAD@{171}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m68360d8f[m HEAD@{172}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m4389df24[m HEAD@{173}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m6ad99f8c[m HEAD@{174}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33mee661705[m HEAD@{175}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m3148f07f[m HEAD@{176}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mba37a25b[m HEAD@{177}: rebase (start): checkout HEAD~18
+[33m6572f965[m HEAD@{178}: reset: moving to HEAD@{22}
+[33m1b52b863[m HEAD@{179}: checkout: moving from MT50258_test_ver1 to MT50258_test
+[33m1b52b863[m HEAD@{180}: checkout: moving from MT50258_test to MT50258_test_ver1
+[33m1b52b863[m HEAD@{181}: commit (amend): MT50258: test command- add test
+[33m1ea7086c[m HEAD@{182}: rebase (finish): returning to refs/heads/MT50258_test
+[33m1ea7086c[m HEAD@{183}: rebase (squash): MT50258: test Command- create AbsenceDeleteDocumentsCommandTest, AbsenceDeleteDocumentsCommand, AbsenceDeleteDocumentsCommand,AbsenceImportCSVCommandTest, HolidayResetCreditsCommandTest
+[33m438f2916[m HEAD@{184}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33m9fe39120[m HEAD@{185}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33m60f82a0a[m HEAD@{186}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33md37446c8[m HEAD@{187}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33m7d83cb73[m HEAD@{188}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33ma8a1b653[m HEAD@{189}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33m0da60446[m HEAD@{190}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33mebeeee32[m HEAD@{191}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33me97b5f23[m HEAD@{192}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m54a03606[m HEAD@{193}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33m69cd05e8[m HEAD@{194}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m4dcdf7d8[m HEAD@{195}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m6ad4e694[m HEAD@{196}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m9ec9c7ac[m HEAD@{197}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m515aa5b8[m HEAD@{198}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m25c26c87[m HEAD@{199}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mba37a25b[m HEAD@{200}: rebase (start): checkout HEAD~18
+[33m6572f965[m HEAD@{201}: checkout: moving from MT50832_absence_import_csv_command to MT50258_test
+[33ma32137ce[m[33m ([m[1;31morigin/MT50832_absence_import_csv_command[m[33m, [m[1;32mMT50832_absence_import_csv_command[m[33m)[m HEAD@{202}: checkout: moving from MT50832_AbsenceController to MT50832_absence_import_csv_command
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{203}: checkout: moving from MT50258_test to MT50832_AbsenceController
+[33m6572f965[m HEAD@{204}: checkout: moving from MT50734-web to MT50258_test
+[33m5b06a746[m[33m ([m[1;31morigin/MT50734-web[m[33m, [m[1;32mMT50734-web[m[33m)[m HEAD@{205}: commit: MT50734: crontab web- Correct cron disabled field behavior in controller and templates
+[33m334734ff[m HEAD@{206}: rebase (finish): returning to refs/heads/MT50734-web
+[33m334734ff[m HEAD@{207}: rebase (squash): MT50734: web crontab- pr
+[33m2a04ad95[m HEAD@{208}: rebase (start): checkout HEAD~2
+[33m06a8e831[m HEAD@{209}: commit: MT
+[33m2a04ad95[m HEAD@{210}: reset: moving to HEAD
+[33m2a04ad95[m HEAD@{211}: commit: MT50734: web crontab- pr to line 239 and 241 in src/Controller/CrontabController.php
+[33mb4cfaf0a[m HEAD@{212}: checkout: moving from MT50258_test to MT50734-web
+[33m6572f965[m HEAD@{213}: rebase (finish): returning to refs/heads/MT50258_test
+[33m6572f965[m HEAD@{214}: rebase (squash): MT50258: test command- add test using diffrent parameters in WorkingHourImportCommandTest
+[33md970d4ce[m HEAD@{215}: rebase (start): checkout HEAD~2
+[33m53dd2fbd[m HEAD@{216}: commit: 11
+[33md970d4ce[m HEAD@{217}: commit: MT50258: test command- add test using diffrent parameters in WorkingHourImportCommandTest
+[33madfdc66f[m HEAD@{218}: commit: MT50258: test Command- finish debugging WorkingHourImportCommandTest
+[33ma0656b99[m HEAD@{219}: commit: MT50258: test command- finish debugging AbsenceImportICSCommandTest
+[33mef994704[m HEAD@{220}: rebase (finish): returning to refs/heads/MT50258_test
+[33mef994704[m HEAD@{221}: rebase (squash): MT50258: test Command- finish debugging AbsenceImportICSCommand
+[33m90684d00[m HEAD@{222}: rebase (start): checkout HEAD~2
+[33m245c83b8[m HEAD@{223}: rebase (finish): returning to refs/heads/MT50258_test
+[33m245c83b8[m HEAD@{224}: rebase (start): checkout HEAD~2
+[33m245c83b8[m HEAD@{225}: commit: MT50258: test Command- finish debugging AbsenceImportICSCommand
+[33m90684d00[m HEAD@{226}: commit: MT50258: test command- AbsenceImportICSCommand to be continued
+[33mcfd93959[m HEAD@{227}: checkout: moving from MT50832_AbsenceController to MT50258_test
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{228}: checkout: moving from master to MT50832_AbsenceController
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{229}: checkout: moving from MT50258_test to master
+[33mcfd93959[m HEAD@{230}: commit: MT50258: test command- AbsenceImportICSCommandTest to be continued
+[33m4182bafb[m HEAD@{231}: commit: MT50258: test Command- finish debug HolidayResetCreditsCommandTest
+[33ma0ea2e72[m HEAD@{232}: commit: MT50258: test command- HolidayResetCreditsCommandTest block,finish debug WorkingHourDailyCommandTest
+[33m28a7eebc[m HEAD@{233}: checkout: moving from MT50641 to MT50258_test
+[33m82a63135[m[33m ([m[1;32mMT50641[m[33m)[m HEAD@{234}: revert: Revert "MT50641: delete some unused files"
+[33mb374d8f1[m[33m ([m[1;31morigin/MT50641[m[33m)[m HEAD@{235}: checkout: moving from MT50258_test to MT50641
+[33m28a7eebc[m HEAD@{236}: commit: MT50258: test command- finish debug WorkingHourExportCommandTest
+[33mb25e60d8[m HEAD@{237}: commit: MT50258: test command- add WorkingHourExportCommandTest
+[33mf5c18461[m HEAD@{238}: commit: MT50258: test Command- add and finish debug HolidayResetRemainderCommandTest
+[33ma01af94c[m HEAD@{239}: commit: MT50258: test Command- finish debug PlanningControlCommandTest
+[33m71bb6111[m HEAD@{240}: commit: MT50258: test- add AbsenceImportICSCommandTest but haven't started yet,PlanningControlCommandTest block:Undefined array key 37
+[33me7f825df[m HEAD@{241}: commit: MT50258: test command-add PlanningControlCommandTest
+[33m10f20044[m HEAD@{242}: checkout: moving from MT50832_workinghour_daily_command to MT50258_test
+[33m7b9de894[m[33m ([m[1;31morigin/MT50832_workinghour_daily_command[m[33m, [m[1;32mMT50832_workinghour_daily_command[m[33m)[m HEAD@{243}: rebase (finish): returning to refs/heads/MT50832_workinghour_daily_command
+[33m7b9de894[m[33m ([m[1;31morigin/MT50832_workinghour_daily_command[m[33m, [m[1;32mMT50832_workinghour_daily_command[m[33m)[m HEAD@{244}: rebase (squash): MT50832: use entitymanager in WorkingHourDailyCommand
+[33m7eff6d3f[m HEAD@{245}: rebase (start): checkout HEAD~2
+[33m007405c6[m HEAD@{246}: commit: 1
+[33m7eff6d3f[m HEAD@{247}: rebase (finish): returning to refs/heads/MT50832_workinghour_daily_command
+[33m7eff6d3f[m HEAD@{248}: rebase (squash): MT50832: use entitymanager in WorkingHourDailyCommand
+[33ma68d08e3[m HEAD@{249}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mf11623e2[m HEAD@{250}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m6c0c186b[m HEAD@{251}: rebase (start): checkout HEAD~4
+[33me983691f[m HEAD@{252}: commit: 111
+[33m1c769299[m HEAD@{253}: checkout: moving from MT50258_test to MT50832_workinghour_daily_command
+[33m10f20044[m HEAD@{254}: commit: MT50258: test- add WorkingHourDailyCommandTest
+[33m42f27e96[m HEAD@{255}: checkout: moving from MT50832_planning_control_command to MT50258_test
+[33mf9ad11b2[m[33m ([m[1;31morigin/MT50832_planning_control_command[m[33m, [m[1;32mMT50832_planning_control_command[m[33m)[m HEAD@{256}: rebase (finish): returning to refs/heads/MT50832_planning_control_command
+[33mf9ad11b2[m[33m ([m[1;31morigin/MT50832_planning_control_command[m[33m, [m[1;32mMT50832_planning_control_command[m[33m)[m HEAD@{257}: rebase (squash): MT50832: planning_control_command- use entitymanager
+[33mdbf2b597[m HEAD@{258}: rebase (start): checkout HEAD~2
+[33m4b017f23[m HEAD@{259}: commit: 11
+[33mdbf2b597[m HEAD@{260}: checkout: moving from MT50832_absence_import_csv_command to MT50832_planning_control_command
+[33ma32137ce[m[33m ([m[1;31morigin/MT50832_absence_import_csv_command[m[33m, [m[1;32mMT50832_absence_import_csv_command[m[33m)[m HEAD@{261}: rebase (finish): returning to refs/heads/MT50832_absence_import_csv_command
+[33ma32137ce[m[33m ([m[1;31morigin/MT50832_absence_import_csv_command[m[33m, [m[1;32mMT50832_absence_import_csv_command[m[33m)[m HEAD@{262}: rebase (squash): MT50832: absence_import_csv_command- use entitymanager tested
+[33me10bade8[m HEAD@{263}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m19a2dc98[m HEAD@{264}: rebase (start): checkout HEAD~3
+[33mb85356c1[m HEAD@{265}: commit: MT50832: absence_import_csv_command- tested
+[33mfbb65ffe[m HEAD@{266}: checkout: moving from MT50258_test to MT50832_absence_import_csv_command
+[33m42f27e96[m HEAD@{267}: commit: MT50258: test command- debug AbsenceImportCSVCommandTest
+[33m5dc8c58e[m HEAD@{268}: checkout: moving from MT50832_absence_import_csv_command to MT50258_test
+[33mfbb65ffe[m HEAD@{269}: checkout: moving from MT50258_test to MT50832_absence_import_csv_command
+[33m5dc8c58e[m HEAD@{270}: checkout: moving from MT50832_absence_import_csv_command to MT50258_test
+[33mfbb65ffe[m HEAD@{271}: commit: MT50832: absence_import_csv_command- to be tested
+[33m19a2dc98[m HEAD@{272}: checkout: moving from MT51053 to MT50832_absence_import_csv_command
+[33m622dec1a[m[33m ([m[1;31morigin/MT51053[m[33m, [m[1;32mMT51053[m[33m)[m HEAD@{273}: rebase (finish): returning to refs/heads/MT51053
+[33m622dec1a[m[33m ([m[1;31morigin/MT51053[m[33m, [m[1;32mMT51053[m[33m)[m HEAD@{274}: rebase (squash): MT51053: Move public/statistiques/export.php to StatisticController
+[33mf293d709[m HEAD@{275}: rebase (start): checkout HEAD~2
+[33mda2235d7[m HEAD@{276}: commit: MTqqqq
+[33mf293d709[m HEAD@{277}: cherry-pick: MT51053: Move public/statistiques/export.php to StatisticController
+[33m27786eb7[m HEAD@{278}: commit: MT51053: Move verif_select() to statistics.js and include it in statistics templates if it isn't included
+[33m4bbec8ce[m HEAD@{279}: rebase (finish): returning to refs/heads/MT51053
+[33m4bbec8ce[m HEAD@{280}: rebase (squash): MT51053: remove AJAX export, use Symfony routes
+[33mff1e59ff[m HEAD@{281}: rebase (start): checkout HEAD~2
+[33m62f6be10[m HEAD@{282}: commit: 11
+[33mff1e59ff[m HEAD@{283}: commit: MT51053: remove AJAX export, use Symfony routes
+[33m978e56a1[m HEAD@{284}: rebase (finish): returning to refs/heads/MT51053
+[33m978e56a1[m HEAD@{285}: rebase (squash): MT51053: Move public/statistiques/export.php to StatisticController
+[33m7b206cb9[m HEAD@{286}: rebase (start): checkout HEAD~2
+[33m502725e5[m HEAD@{287}: commit: 111
+[33m7b206cb9[m HEAD@{288}: rebase (finish): returning to refs/heads/MT51053
+[33m7b206cb9[m HEAD@{289}: rebase (squash): MT51053: Move public/statistiques/export.php to StatisticController
+[33m75b09e24[m HEAD@{290}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m9fe6c9eb[m HEAD@{291}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m279d41f1[m HEAD@{292}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m714e1a90[m HEAD@{293}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33maadd0fa0[m HEAD@{294}: rebase (start): checkout HEAD~6
+[33m3116dfac[m HEAD@{295}: commit: MT51053: use response,rather than binaryfileresponse
+[33m9cf75dcc[m HEAD@{296}: checkout: moving from MT51055 to MT51053
+[33m0d232bfc[m[33m ([m[1;31morigin/MT51055[m[33m, [m[1;32mMT51055[m[33m)[m HEAD@{297}: rebase (finish): returning to refs/heads/MT51055
+[33m0d232bfc[m[33m ([m[1;31morigin/MT51055[m[33m, [m[1;32mMT51055[m[33m)[m HEAD@{298}: rebase (squash): MT51055: Move public/include to legacy/Common
+[33m96ae4a6b[m HEAD@{299}: rebase (start): checkout HEAD~2
+[33me1eb48f1[m HEAD@{300}: commit: MT51055: 111
+[33m96ae4a6b[m HEAD@{301}: checkout: moving from MT51052 to MT51055
+[33m5f2b9731[m[33m ([m[1;31morigin/MT51052[m[33m, [m[1;32mMT51052[m[33m)[m HEAD@{302}: rebase (finish): returning to refs/heads/MT51052
+[33m5f2b9731[m[33m ([m[1;31morigin/MT51052[m[33m, [m[1;32mMT51052[m[33m)[m HEAD@{303}: rebase (squash): MT51052: Rename src/PlanningBiblio to src/Planno
+[33m04669f77[m HEAD@{304}: rebase (start): checkout HEAD~2
+[33m58d340dc[m HEAD@{305}: commit: MT51052: Rename PlanningBiblio to Planno in composer.json
+[33m04669f77[m HEAD@{306}: commit: MT51052: Renommer le dossier src/PlanningBiblio en src/Planno
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{307}: checkout: moving from master to MT51052
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{308}: checkout: moving from MT51055 to master
+[33m96ae4a6b[m HEAD@{309}: commit: MT51055: Move public/include to legacy/Common
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{310}: checkout: moving from master to MT51055
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{311}: checkout: moving from MT51054 to master
+[33mb90b382a[m[33m ([m[1;31morigin/MT51054[m[33m, [m[1;32mMT51054[m[33m)[m HEAD@{312}: commit: MT51054: Move public/lang to legacy/Lang
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{313}: checkout: moving from master to MT51054
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{314}: checkout: moving from MT51053 to master
+[33m9cf75dcc[m HEAD@{315}: commit: MT51053: use BinaryFileResponse and temporary directory
+[33m08304c1b[m HEAD@{316}: checkout: moving from master to MT51053
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{317}: checkout: moving from MT51053 to master
+[33m08304c1b[m HEAD@{318}: commit: MT51053: delete public/statistiques/export.php
+[33mbff625d4[m HEAD@{319}: commit: MT51053: revert changes in src/Entity/PlanningPosition.php
+[33m5db57799[m HEAD@{320}: commit: MT51053: generate CSV/XLS export using Symfony Response instead of direct file output
+[33maadd0fa0[m HEAD@{321}: commit: MT51053: Move public/statistiques/export.php to StatisticController,block
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{322}: reset: moving to HEAD
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{323}: checkout: moving from master to MT51053
+[33m4e16a545[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m HEAD@{324}: pull: Fast-forward
+[33m42acc47a[m HEAD@{325}: checkout: moving from MT50832_absence_import_csv_command to master
+[33m19a2dc98[m HEAD@{326}: commit: MT50832: absence_import_csv_command- to be continued
+[33m42acc47a[m HEAD@{327}: checkout: moving from master to MT50832_absence_import_csv_command
+[33m42acc47a[m HEAD@{328}: checkout: moving from MT50832_planning_control_command to master
+[33mdbf2b597[m HEAD@{329}: checkout: moving from MT50832_workinghour_import_command to MT50832_planning_control_command
+[33m349ae639[m[33m ([m[1;31morigin/MT50832_workinghour_import_command[m[33m, [m[1;32mMT50832_workinghour_import_command[m[33m)[m HEAD@{330}: commit: MT50832: workinghour_import_command- use entitymanager
+[33m42acc47a[m HEAD@{331}: Branch: renamed refs/heads/MT50832_workinghour_import__command to refs/heads/MT50832_workinghour_import_command
+[33m42acc47a[m HEAD@{333}: checkout: moving from master to MT50832_workinghour_import__command
+[33m42acc47a[m HEAD@{334}: checkout: moving from MT50832_planning_control_command to master
+[33mdbf2b597[m HEAD@{335}: commit: MT50832: planning_control_command- use entitymanager
+[33m42acc47a[m HEAD@{336}: checkout: moving from MT50832_workinghour_daily_command to MT50832_planning_control_command
+[33m1c769299[m HEAD@{337}: checkout: moving from MT50832_planning_control_command to MT50832_workinghour_daily_command
+[33m42acc47a[m HEAD@{338}: checkout: moving from master to MT50832_planning_control_command
+[33m42acc47a[m HEAD@{339}: checkout: moving from MT50832_holiday_reset_credits_command to master
+[33m3467cfb0[m[33m ([m[1;31morigin/MT50832_holiday_reset_credits_command[m[33m, [m[1;32mMT50832_holiday_reset_credits_command[m[33m)[m HEAD@{340}: checkout: moving from MT50832_holiday_reset_remainder_command to MT50832_holiday_reset_credits_command
+[33m3c0be235[m[33m ([m[1;31morigin/MT50832_holiday_reset_remainder_command[m[33m, [m[1;32mMT50832_holiday_reset_remainder_command[m[33m)[m HEAD@{341}: commit: MT50832: holiday_reset_remainder_command- add persist and flush
+[33m8e0ae508[m[33m ([m[1;31morigin/MT50832_holiday_reset_remainder[m[33m)[m HEAD@{342}: checkout: moving from MT50832_holiday_reset_comp_time_command to MT50832_holiday_reset_remainder_command
+[33m74a79dad[m[33m ([m[1;31morigin/MT50832_holiday_reset_comp_time_command[m[33m, [m[1;32mMT50832_holiday_reset_comp_time_command[m[33m)[m HEAD@{343}: commit: MT50832: holiday_reset_comp_time_command- add persist and flush
+[33mf91f122b[m HEAD@{344}: checkout: moving from MT50832_holiday_reset_credits_command to MT50832_holiday_reset_comp_time_command
+[33m3467cfb0[m[33m ([m[1;31morigin/MT50832_holiday_reset_credits_command[m[33m, [m[1;32mMT50832_holiday_reset_credits_command[m[33m)[m HEAD@{345}: commit: MT50832: holiday_reset_credits_command- use entitymanager
+[33m42acc47a[m HEAD@{346}: checkout: moving from master to MT50832_holiday_reset_credits_command
+[33m42acc47a[m HEAD@{347}: checkout: moving from MT50832_holiday_reset_comp_time_command to master
+[33mf91f122b[m HEAD@{348}: commit: MT50832: holiday_reset_comp_time_command- use entitymanager
+[33m42acc47a[m HEAD@{349}: checkout: moving from master to MT50832_holiday_reset_comp_time_command
+[33m42acc47a[m HEAD@{350}: checkout: moving from MT50832_holiday_reset_remainder_command to master
+[33m8e0ae508[m[33m ([m[1;31morigin/MT50832_holiday_reset_remainder[m[33m)[m HEAD@{351}: Branch: renamed refs/heads/MT50832_holiday_reset_remainder to refs/heads/MT50832_holiday_reset_remainder_command
+[33m8e0ae508[m[33m ([m[1;31morigin/MT50832_holiday_reset_remainder[m[33m)[m HEAD@{353}: checkout: moving from MT50832_workinghour_daily_command to MT50832_holiday_reset_remainder
+[33m1c769299[m HEAD@{354}: Branch: renamed refs/heads/MT50832_workinghour_daily to refs/heads/MT50832_workinghour_daily_command
+[33m1c769299[m HEAD@{356}: checkout: moving from master to MT50832_workinghour_daily
+[33m42acc47a[m HEAD@{357}: checkout: moving from MT50832_workinghour_daily to master
+[33m1c769299[m HEAD@{358}: checkout: moving from MT50832_holiday_reset_remainder to MT50832_workinghour_daily
+[33m8e0ae508[m[33m ([m[1;31morigin/MT50832_holiday_reset_remainder[m[33m)[m HEAD@{359}: commit: MT50832: holiday_reset_remainder- use entitymanager
+[33m42acc47a[m HEAD@{360}: checkout: moving from master to MT50832_holiday_reset_remainder
+[33m42acc47a[m HEAD@{361}: checkout: moving from MT50832_workinghour_daily to master
+[33m1c769299[m HEAD@{362}: Branch: renamed refs/heads/MT50832 to refs/heads/MT50832_workinghour_daily
+[33m1c769299[m HEAD@{364}: commit: MT50832: add WorkingHourDailyCommandTest，block
+[33m62c2dc86[m HEAD@{365}: commit: MT50832: use entitymanager in WorkingHourDailyCommand
+[33m6c0c186b[m HEAD@{366}: checkout: moving from MT50641 to MT50832
+[33mb374d8f1[m[33m ([m[1;31morigin/MT50641[m[33m)[m HEAD@{367}: reset: moving to HEAD
+[33mb374d8f1[m[33m ([m[1;31morigin/MT50641[m[33m)[m HEAD@{368}: checkout: moving from MT50832 to MT50641
+[33m6c0c186b[m HEAD@{369}: commit: MT50832: to be continued
+[33m42acc47a[m HEAD@{370}: checkout: moving from master to MT50832
+[33m42acc47a[m HEAD@{371}: checkout: moving from MT50641 to master
+[33mb374d8f1[m[33m ([m[1;31morigin/MT50641[m[33m)[m HEAD@{372}: commit: MT50641: delete some unused files
+[33m42acc47a[m HEAD@{373}: checkout: moving from MT50734-web to MT50641
+[33mb4cfaf0a[m HEAD@{374}: commit: MT50734: web- simplify controller and templates by using unified cron object
+[33mf32fe247[m HEAD@{375}: commit: MT50734: web- Add a function for verification.
+[33m35ca9467[m HEAD@{376}: commit: MT50734: web- delete these: button ajouter in page index, button supprimer in page edit, function delete
+[33m83a77e68[m HEAD@{377}: checkout: moving from MT50641 to MT50734-web
+[33m42acc47a[m HEAD@{378}: checkout: moving from master to MT50641
+[33m42acc47a[m HEAD@{379}: pull: Fast-forward
+[33ma9eb2f99[m HEAD@{380}: checkout: moving from MT50258_test to master
+[33m5dc8c58e[m HEAD@{381}: commit: MT50258: test command- tests/Command/AbsenceImportCSVCommandTest.php and tests/Command/HolidayResetCreditsCommandTest.php block
+[33m394a7234[m HEAD@{382}: checkout: moving from MT50258_AJAX_planningHebdo to MT50258_test
+[33me2743e60[m[33m ([m[1;31morigin/MT50258_AJAX_planningHebdo[m[33m, [m[1;32mMT50258_AJAX_planningHebdo[m[33m)[m HEAD@{383}: commit: MT50258: move ajax- add comments TODO
+[33m2a4327f9[m HEAD@{384}: checkout: moving from MT50734-web to MT50258_AJAX_planningHebdo
+[33m83a77e68[m HEAD@{385}: commit: MT50734: web- change more columns from varchar(2) to varchar(32),add process of number-number for dow
+[33m09f9d7db[m HEAD@{386}: checkout: moving from MT50258_AJAX_planningHebdo to MT50734-web
+[33m2a4327f9[m HEAD@{387}: commit: MT50258: move ajax- add variable perso_id in index.html.twig
+[33m3fa4a446[m HEAD@{388}: checkout: moving from MT50258_AJAX_personnel to MT50258_AJAX_planningHebdo
+[33mdbdfc4c1[m[33m ([m[1;31morigin/MT50258_AJAX_personnel[m[33m, [m[1;32mMT50258_AJAX_personnel[m[33m)[m HEAD@{389}: commit: MT50258: move ajax- bulkDelete changed methods from post to delete
+[33m48f09687[m HEAD@{390}: checkout: moving from MT50258_AJAX_planning_part1 to MT50258_AJAX_personnel
+[33ma03d0336[m[33m ([m[1;31morigin/MT50258_AJAX_planning_part1[m[33m, [m[1;32mMT50258_AJAX_planning_part1[m[33m)[m HEAD@{391}: commit: MT50258: move ajax- Delete the comment after ajaxGetHiddenTables
+[33mbabdd55b[m HEAD@{392}: checkout: moving from MT50258_test to MT50258_AJAX_planning_part1
+[33m394a7234[m HEAD@{393}: checkout: moving from MT50258_testCommand to MT50258_test
+[33m5c1fa048[m HEAD@{394}: checkout: moving from MT50734-web to MT50258_testCommand
+[33m09f9d7db[m HEAD@{395}: commit: MT50734: web- Add AJAX-based enable/disable feature and info endpoint
+[33m908debc1[m HEAD@{396}: commit: MT50734: create web- add template edit for ajouter and modifier
+[33m03748314[m HEAD@{397}: commit: MT50734: create web
+[33m1e935533[m[33m ([m[1;31morigin/MT50734[m[33m, [m[1;32mMT50734[m[33m)[m HEAD@{398}: checkout: moving from MT50734 to MT50734-web
+[33m1e935533[m[33m ([m[1;31morigin/MT50734[m[33m, [m[1;32mMT50734[m[33m)[m HEAD@{399}: checkout: moving from MT50258_AJAX_personnel to MT50734
+[33m48f09687[m HEAD@{400}: rebase (finish): returning to refs/heads/MT50258_AJAX_personnel
+[33m48f09687[m HEAD@{401}: rebase (squash): MT50258: move ajax- Refactor AgentController and CSRF handling + fix JS token usage
+[33m543aea34[m HEAD@{402}: rebase (start): checkout HEAD~2
+[33m7076af2f[m HEAD@{403}: commit: MT50258: move ajax- use [] instead of ->get() in function bulkUpdate
+[33m543aea34[m HEAD@{404}: commit: MT50258: move ajax- bulkUpdate() block
+[33mc8764527[m HEAD@{405}: checkout: moving from MT50258_AJAX_planning_part1 to MT50258_AJAX_personnel
+[33mbabdd55b[m HEAD@{406}: commit: MT50258: move ajax- Fix some 403 bugs
+[33m712b30cc[m HEAD@{407}: commit: MT50258: move ajax- Refactor PlanningController routes and JS integration
+[33mf1f1f357[m HEAD@{408}: checkout: moving from MT50258_AJAX_planningHebdo to MT50258_AJAX_planning_part1
+[33m3fa4a446[m HEAD@{409}: commit: MT50258: move ajax- Renamed route from /workinghour/check-planning to /workinghour/check,improved parameter validation in WorkingHourController::check(),replaced direct usage with Symfony Session service,updated permissions.yaml
+[33m8db5886a[m HEAD@{410}: checkout: moving from MT50258_AJAX_personnel to MT50258_AJAX_planningHebdo
+[33mc8764527[m HEAD@{411}: commit: MT50258: move ajax- Change some names of routes and functions,sort alphabetically
+[33mdc7f66f6[m HEAD@{412}: checkout: moving from MT50258_test to MT50258_AJAX_personnel
+[33m394a7234[m HEAD@{413}: commit: MT50258: test Command- to be continue
+[33mba37a25b[m HEAD@{414}: commit (cherry-pick): MT50258: test Command- create AbsenceDeleteDocumentsCommandTest, AbsenceDeleteDocumentsCommand, AbsenceDeleteDocumentsCommand,AbsenceImportCSVCommandTest, HolidayResetCreditsCommandTest
+[33ma9eb2f99[m HEAD@{415}: checkout: moving from MT50258_testCommand to MT50258_test
+[33m5c1fa048[m HEAD@{416}: rebase (finish): returning to refs/heads/MT50258_testCommand
+[33m5c1fa048[m HEAD@{417}: rebase (squash): MT50258: test Command- create AbsenceDeleteDocumentsCommandTest, AbsenceDeleteDocumentsCommand, AbsenceDeleteDocumentsCommand,AbsenceImportCSVCommandTest, HolidayResetCreditsCommandTest
+[33m1f9d780a[m HEAD@{418}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m44b1d116[m HEAD@{419}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33ma6b1ae5d[m HEAD@{420}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m92633305[m HEAD@{421}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33mb633f59f[m HEAD@{422}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m025f2a12[m HEAD@{423}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m8e765844[m HEAD@{424}: rebase (start): checkout HEAD~8
+[33m3c475a11[m HEAD@{425}: checkout: moving from MT50258_test to MT50258_testCommand
+[33ma9eb2f99[m HEAD@{426}: checkout: moving from master to MT50258_test
+[33ma9eb2f99[m HEAD@{427}: checkout: moving from MT50258_test to master
+[33ma3e677a0[m HEAD@{428}: checkout: moving from MT50258_testCommand to MT50258_test
+[33m3c475a11[m HEAD@{429}: commit: MT50258: test Command- HolidayResetCreditsCommandTest
+[33m3cbe4a68[m HEAD@{430}: checkout: moving from MT50734 to MT50258_testCommand
+[33m1e935533[m[33m ([m[1;31morigin/MT50734[m[33m, [m[1;32mMT50734[m[33m)[m HEAD@{431}: commit: MT50734: Add descriptions in migrations which xinying created.delete update query in the new migration.crontab tested
+[33m8c72b6c6[m HEAD@{432}: checkout: moving from MT50732 to MT50734
+[33m469d2305[m[33m ([m[1;31morigin/MT50732[m[33m, [m[1;32mMT50732[m[33m)[m HEAD@{433}: pull: Fast-forward
+[33mdd9a63b6[m HEAD@{434}: checkout: moving from MT50734 to MT50732
+[33m8c72b6c6[m HEAD@{435}: checkout: moving from master to MT50734
+[33ma9eb2f99[m HEAD@{436}: checkout: moving from MT50258_testCommand to master
+[33m3cbe4a68[m HEAD@{437}: checkout: moving from MT50734 to MT50258_testCommand
+[33m8c72b6c6[m HEAD@{438}: commit: MT50734: Complete Crontab
+[33m2450d910[m HEAD@{439}: commit: MT50734: Complete the migration
+[33mfe306149[m HEAD@{440}: checkout: moving from MT50735 to MT50734
+[33m881c05a3[m[33m ([m[1;31morigin/MT50735[m[33m, [m[1;32mMT50735[m[33m)[m HEAD@{441}: rebase (finish): returning to refs/heads/MT50735
+[33m881c05a3[m[33m ([m[1;31morigin/MT50735[m[33m, [m[1;32mMT50735[m[33m)[m HEAD@{442}: rebase (squash): MT50735: Replace logger in folder src/PlanningBiblio and src/Command
+[33m781484c0[m HEAD@{443}: rebase (start): checkout HEAD~2
+[33mf60c6385[m HEAD@{444}: commit: 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+[33m781484c0[m HEAD@{445}: reset: moving to HEAD@{1}
+[33m81b290ba[m HEAD@{446}: pull: Merge made by the 'ort' strategy.
+[33m781484c0[m HEAD@{447}: rebase (finish): returning to refs/heads/MT50735
+[33m781484c0[m HEAD@{448}: rebase (squash): MT50735: Replace logger in folder src/PlanningBiblio and src/Command
+[33m8ccf80e5[m HEAD@{449}: rebase (start): checkout HEAD~2
+[33mbdc53d94[m HEAD@{450}: pull: Fast-forward
+[33ma9eb2f99[m HEAD@{451}: reset: moving to a9eb2f990912a0d14b8ab2e12a8e1bdcf3a2d5f5
+[33m7f430d0e[m HEAD@{452}: reset: moving to 7f430d0e56b5bbb1ef2af0578e71473636c7f1f5
+[33ma20710a7[m HEAD@{453}: commit (merge): Merge branch 'MT50735' of https://github.com/xren200/planno into MT50735
+[33m7f430d0e[m HEAD@{454}: reset: moving to 7f430d0e56b5bbb1ef2af0578e71473636c7f1f5
+[33ma61a9e20[m HEAD@{455}: reset: moving to a61a9e206160b89122a3ce254e803d95b5a862c2
+[33ma61a9e20[m HEAD@{456}: rebase (abort): returning to refs/heads/MT50735
+[33md98d8003[m HEAD@{457}: rebase (continue): MT50258: move all commands in the src/Command folder
+[33mfb5ebd57[m HEAD@{458}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mb7fe2ec4[m HEAD@{459}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m4465d17b[m HEAD@{460}: rebase (start): checkout HEAD~4
+[33ma61a9e20[m HEAD@{461}: commit (merge): 111
+[33m7f430d0e[m HEAD@{462}: rebase (finish): returning to refs/heads/MT50735
+[33m7f430d0e[m HEAD@{463}: rebase (squash): MT50735: Replace logger in folder src/PlanningBiblio and src/Command
+[33ma14bd91c[m HEAD@{464}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m8ccf80e5[m HEAD@{465}: rebase (start): checkout HEAD~3
+[33m1e3cb039[m HEAD@{466}: commit: add space
+[33mbdc53d94[m HEAD@{467}: checkout: moving from MT50734 to MT50735
+[33mfe306149[m HEAD@{468}: commit: MT50734: migrations errors to be fixed
+[33ma9eb2f99[m HEAD@{469}: checkout: moving from master to MT50734
+[33ma9eb2f99[m HEAD@{470}: checkout: moving from MT50258_testCommand to master
+[33m3cbe4a68[m HEAD@{471}: commit: MT50258: test Command- AbsenceImportCSVCommandTest bloquer
+[33mef5406bf[m HEAD@{472}: checkout: moving from MT50735 to MT50258_testCommand
+[33mbdc53d94[m HEAD@{473}: commit: MT50735: Replace logger in folder src/Command
+[33m8ccf80e5[m HEAD@{474}: commit: MT50735: Replace logger in folder src/PlanningBiblio
+[33ma9eb2f99[m HEAD@{475}: checkout: moving from MT50258_testCommand to MT50735
+[33mef5406bf[m HEAD@{476}: commit: MT50258: test Command- bloquer
+[33mb278e626[m HEAD@{477}: checkout: moving from MT50735 to MT50258_testCommand
+[33ma9eb2f99[m HEAD@{478}: checkout: moving from master to MT50735
+[33ma9eb2f99[m HEAD@{479}: checkout: moving from MT50734 to master
+[33ma9eb2f99[m HEAD@{480}: checkout: moving from master to MT50734
+[33ma9eb2f99[m HEAD@{481}: checkout: moving from MT50732 to master
+[33mdd9a63b6[m HEAD@{482}: commit: MT50732: Ask for confirmation before deleting credits
+[33ma9eb2f99[m HEAD@{483}: checkout: moving from master to MT50732
+[33ma9eb2f99[m HEAD@{484}: pull: Fast-forward
+[33m4465d17b[m HEAD@{485}: checkout: moving from MT50258_testCommand to master
+[33mb278e626[m HEAD@{486}: commit: MT50258: test Command- to be continued
+[33m25fdc605[m HEAD@{487}: checkout: moving from MT50258_AJAX_conges to MT50258_testCommand
+[33m4663a51d[m[33m ([m[1;32mMT50258_AJAX_conges[m[33m)[m HEAD@{488}: commit: MT50258: move ajax- Delete migrations/2025/Version20251013130108.php
+[33m2f4b6ec9[m HEAD@{489}: checkout: moving from MT50258_AJAX_conges to MT50258_AJAX_conges
+[33m2f4b6ec9[m HEAD@{490}: checkout: moving from master to MT50258_AJAX_conges
+[33m4465d17b[m HEAD@{491}: pull: Fast-forward
+[33mae8fb218[m HEAD@{492}: checkout: moving from MT50258_AJAX_conges to master
+[33m2f4b6ec9[m HEAD@{493}: checkout: moving from MT50258_AJAX_absence to MT50258_AJAX_conges
+[33m7dddeb69[m[33m ([m[1;31morigin/MT50258_AJAX_absence[m[33m, [m[1;32mMT50258_AJAX_absence[m[33m)[m HEAD@{494}: checkout: moving from MT50258_AJAX_conges to MT50258_AJAX_absence
+[33m2f4b6ec9[m HEAD@{495}: commit: MT50258: move ajax- Modifications according to pull request
+[33m4233ec70[m HEAD@{496}: checkout: moving from MT50258_AJAX_absence to MT50258_AJAX_conges
+[33m7dddeb69[m[33m ([m[1;31morigin/MT50258_AJAX_absence[m[33m, [m[1;32mMT50258_AJAX_absence[m[33m)[m HEAD@{497}: commit: MT50258: move ajax- small modification according to pull request
+[33me673a315[m HEAD@{498}: checkout: moving from MT50258_testCommand to MT50258_AJAX_absence
+[33m25fdc605[m HEAD@{499}: commit: MT50258: test Command- AbsenceDeleteDocumentsCommand to debug
+[33m226264c9[m HEAD@{500}: commit: MT50258: test Command- AbsenceDeleteDocumentsCommand to be continued
+[33m0c4a5db2[m HEAD@{501}: checkout: moving from MT50258_Command_Clean_XYS to MT50258_testCommand
+[33m26fbdda5[m[33m ([m[1;31morigin/MT50258_Command_Clean_XYS[m[33m, [m[1;32mMT50258_Command_Clean_XYS[m[33m)[m HEAD@{502}: commit: MT50258: move Command- string needed,small modification
+[33m6c93fc07[m[33m ([m[1;32mMT50258_Command_Clean_JC[m[33m)[m HEAD@{503}: checkout: moving from MT50258_testCommand to MT50258_Command_Clean_XYS
+[33m0c4a5db2[m HEAD@{504}: commit: to be continued
+[33m8e765844[m HEAD@{505}: checkout: moving from master to MT50258_testCommand
+[33mae8fb218[m HEAD@{506}: reset: moving to HEAD~1
+[33m8e765844[m HEAD@{507}: checkout: moving from MT50258_testCommand to master
+[33m8e765844[m HEAD@{508}: checkout: moving from master to MT50258_testCommand
+[33m8e765844[m HEAD@{509}: checkout: moving from MT50258_test to master
+[33ma3e677a0[m HEAD@{510}: checkout: moving from master to MT50258_test
+[33m8e765844[m HEAD@{511}: commit: MT50258: test Command- create AbsenceDeleteDocumentsCommandTest
+[33mae8fb218[m HEAD@{512}: checkout: moving from MT50258_test to master
+[33ma3e677a0[m HEAD@{513}: checkout: moving from MT50258_Command_Clean_XYS to MT50258_test
+[33m6c93fc07[m[33m ([m[1;32mMT50258_Command_Clean_JC[m[33m)[m HEAD@{514}: checkout: moving from MT50258_Command_Clean_JC to MT50258_Command_Clean_XYS
+[33m6c93fc07[m[33m ([m[1;32mMT50258_Command_Clean_JC[m[33m)[m HEAD@{515}: commit: MT50258: move Command- use Logger, add or delete public/include/function.php,add or delete ,and small modification
+[33mc4935d66[m[33m ([m[1;31msource/MT50258_Command_Clean_JC[m[33m)[m HEAD@{516}: checkout: moving from master to MT50258_Command_Clean_JC
+[33mae8fb218[m HEAD@{517}: checkout: moving from MT50258_test to master
+[33ma3e677a0[m HEAD@{518}: rebase (finish): returning to refs/heads/MT50258_test
+[33ma3e677a0[m HEAD@{519}: rebase (pick): MT50258: move Command unit test- to be continue
+[33me2d766aa[m HEAD@{520}: rebase (pick): MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33mae8fb218[m HEAD@{521}: rebase (start): checkout master
+[33m618af7d5[m HEAD@{522}: checkout: moving from master to MT50258_test
+[33mae8fb218[m HEAD@{523}: pull: Fast-forward
+[33m7c76e137[m HEAD@{524}: checkout: moving from MT50258_test to master
+[33m618af7d5[m HEAD@{525}: commit: MT50258: move Command unit test- to be continue
+[33m5142e35f[m[33m ([m[1;31morigin/MT50258_Command_Clean_v3[m[33m, [m[1;32mMT50258_Command_Clean_v3[m[33m)[m HEAD@{526}: checkout: moving from MT50258_Command_Clean_v3 to MT50258_test
+[33m5142e35f[m[33m ([m[1;31morigin/MT50258_Command_Clean_v3[m[33m, [m[1;32mMT50258_Command_Clean_v3[m[33m)[m HEAD@{527}: rebase (finish): returning to refs/heads/MT50258_Command_Clean_v3
+[33m5142e35f[m[33m ([m[1;31morigin/MT50258_Command_Clean_v3[m[33m, [m[1;32mMT50258_Command_Clean_v3[m[33m)[m HEAD@{528}: rebase (squash): MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33mf1fe0cb3[m HEAD@{529}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m3e16d5bc[m HEAD@{530}: rebase (start): checkout HEAD~3
+[33m0adabe6d[m[33m ([m[1;32mMT50258_Command_Clean[m[33m)[m HEAD@{531}: checkout: moving from MT50258_Command_Clean to MT50258_Command_Clean_v3
+[33m0adabe6d[m[33m ([m[1;32mMT50258_Command_Clean[m[33m)[m HEAD@{532}: commit: MT50258: move Command- Fix small bugs
+[33m49bdcc57[m[33m ([m[1;31morigin/MT50258_Command_Clean[m[33m)[m HEAD@{533}: checkout: moving from MT50258_Command_Clean_v2 to MT50258_Command_Clean
+[33m11b8c09c[m[33m ([m[1;31morigin/MT50258_Command_Clean_v2[m[33m, [m[1;32mMT50258_Command_Clean_v2[m[33m)[m HEAD@{534}: rebase (abort): returning to refs/heads/MT50258_Command_Clean_v2
+[33m06026bd4[m HEAD@{535}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m049b15fd[m HEAD@{536}: rebase (start): checkout HEAD~3
+[33m11b8c09c[m[33m ([m[1;31morigin/MT50258_Command_Clean_v2[m[33m, [m[1;32mMT50258_Command_Clean_v2[m[33m)[m HEAD@{537}: commit (merge): Merge branch 'MT50258_Command_Clean_v2' of https://github.com/xren200/planno into MT50258_Command_Clean_v2
+[33m936edbaa[m HEAD@{538}: rebase (finish): returning to refs/heads/MT50258_Command_Clean_v2
+[33m936edbaa[m HEAD@{539}: rebase (squash): MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33m4b0ad469[m HEAD@{540}: rebase (start): checkout HEAD~2
+[33m1be8497e[m HEAD@{541}: commit: MT50258: move Command- Fix small bugs
+[33m4b0ad469[m HEAD@{542}: checkout: moving from MT50258_test to MT50258_Command_Clean_v2
+[33m1e32ec63[m HEAD@{543}: cherry-pick: MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33m7c76e137[m HEAD@{544}: checkout: moving from master to MT50258_test
+[33m7c76e137[m HEAD@{545}: checkout: moving from MT50258_AJAX_include to master
+[33m471c3d9a[m[33m ([m[1;31morigin/MT50258_AJAX_include[m[33m, [m[1;32mMT50258_AJAX_include[m[33m)[m HEAD@{546}: commit: MT50258: move ajax- Delete ajax from include
+[33mc0f0aae1[m HEAD@{547}: commit: MT50258: move ajax- Move ajax from include to AjaxController,tested
+[33m7c76e137[m HEAD@{548}: checkout: moving from master to MT50258_AJAX_include
+[33m7c76e137[m HEAD@{549}: checkout: moving from MT50258_AJAX_planning_part2 to master
+[33mf16fa432[m[33m ([m[1;31morigin/MT50258_AJAX_planning_part2[m[33m, [m[1;32mMT50258_AJAX_planning_part2[m[33m)[m HEAD@{550}: commit: MT50258: move ajax- Fix bugs and all ajax tested
+[33me499da4e[m HEAD@{551}: commit: MT50258: move ajax- Fix little bugs in src/EventListener/ControllerAuthorizationListener.php
+[33m20975307[m HEAD@{552}: checkout: moving from MT50258_AJAX_planning_part1 to MT50258_AJAX_planning_part2
+[33mf1f1f357[m HEAD@{553}: checkout: moving from MT50258_AJAX_planning_part2 to MT50258_AJAX_planning_part1
+[33m20975307[m HEAD@{554}: checkout: moving from MT50258_AJAX_planning_part1 to MT50258_AJAX_planning_part2
+[33mf1f1f357[m HEAD@{555}: checkout: moving from MT50258_AJAX_planning_part2 to MT50258_AJAX_planning_part1
+[33m20975307[m HEAD@{556}: commit: MT50258: move ajax- finish naming,some adaptations,to be tested
+[33m5592eed3[m HEAD@{557}: checkout: moving from MT50258_AJAX_planning_part1 to MT50258_AJAX_planning_part2
+[33mf1f1f357[m HEAD@{558}: commit: MT50258: move ajax- fix bugs,partly tested
+[33m33d9cb94[m HEAD@{559}: commit: MT50258: move ajax- Abandon window and use url instead
+[33m9f3bffde[m HEAD@{560}: checkout: moving from MT50258_AJAX_planningHebdo to MT50258_AJAX_planning_part1
+[33m8db5886a[m HEAD@{561}: commit: MT50258: move ajax- Abandon window and use url instead
+[33m13a9c050[m HEAD@{562}: checkout: moving from MT50258_AJAX_ldap to MT50258_AJAX_planningHebdo
+[33m991a06ee[m[33m ([m[1;31morigin/MT50258_AJAX_ldap[m[33m, [m[1;32mMT50258_AJAX_ldap[m[33m)[m HEAD@{563}: commit: MT50258: move ajax- Abandon window and use url instead,fix the bug when errors
+[33m3c537b25[m HEAD@{564}: checkout: moving from MT50258_AJAX_ics to MT50258_AJAX_ldap
+[33m62a18f62[m[33m ([m[1;31morigin/MT50258_AJAX_ics[m[33m, [m[1;32mMT50258_AJAX_ics[m[33m)[m HEAD@{565}: commit: MT50258: move ajax- Abandon window and use url instead
+[33m49dddd88[m HEAD@{566}: checkout: moving from MT50258_AJAX_conges to MT50258_AJAX_ics
+[33m4233ec70[m HEAD@{567}: commit: MT50258: move ajax- Abandon window and use url instead
+[33m6f6e3ed8[m HEAD@{568}: checkout: moving from MT50258_AJAX_absence to MT50258_AJAX_conges
+[33me673a315[m HEAD@{569}: commit: MT50258: move ajax- Abandon window and use url instead
+[33mc17e1f18[m HEAD@{570}: checkout: moving from MT50258_AJAX_personnel to MT50258_AJAX_absence
+[33mdc7f66f6[m HEAD@{571}: commit: MT50258: move ajax- Abandon window and use url instead
+[33m60993ee6[m HEAD@{572}: checkout: moving from MT50258_AJAX_planning_part2 to MT50258_AJAX_personnel
+[33m5592eed3[m HEAD@{573}: commit: MT50258: move ajax- Move part of ajax from planning to PlanningController,not finish yet,to be continued
+[33m7c76e137[m HEAD@{574}: checkout: moving from master to MT50258_AJAX_planning_part2
+[33m7c76e137[m HEAD@{575}: checkout: moving from MT50258_AJAX_planning_part1 to master
+[33m9f3bffde[m HEAD@{576}: commit: MT50258: move ajax- Move part of ajax from planning to PlanningController,to be tested
+[33m7c76e137[m HEAD@{577}: checkout: moving from master to MT50258_AJAX_planning_part1
+[33m7c76e137[m HEAD@{578}: checkout: moving from MT50258_AJAX_planning to master
+[33m7c76e137[m HEAD@{579}: checkout: moving from master to MT50258_AJAX_planning
+[33m7c76e137[m HEAD@{580}: checkout: moving from MT50258_AJAX_planningHebdo to master
+[33m13a9c050[m HEAD@{581}: commit: Fix bugs after moving planninghebdo AJAX to controller,tested
+[33mb1d09a1a[m HEAD@{582}: cherry-pick: try to fix the bug appears in the page workinghour
+[33m4300a4c0[m HEAD@{583}: commit: MT50258: move ajax- Move ajax from planningHebdo to WorkingHourController,to be tested
+[33m7c76e137[m HEAD@{584}: checkout: moving from master to MT50258_AJAX_planningHebdo
+[33m7c76e137[m HEAD@{585}: checkout: moving from MT50258_AJAX_ldap to master
+[33m3c537b25[m HEAD@{586}: commit: MT50258: move ajax- Delete ajax from ldap
+[33m30582c1e[m HEAD@{587}: commit: MT50258: move ajax- Move ajax from ldap to ConfigController,to be tested
+[33m7c76e137[m HEAD@{588}: checkout: moving from master to MT50258_AJAX_ldap
+[33m7c76e137[m HEAD@{589}: checkout: moving from MT50258_AJAX_ics to master
+[33m49dddd88[m HEAD@{590}: commit: MT50258: move ajax- Add window in templates/forbidden.html.twig
+[33m3c075686[m HEAD@{591}: checkout: moving from MT50258_Command_Clean_v2 to MT50258_AJAX_ics
+[33m4b0ad469[m HEAD@{592}: rebase (finish): returning to refs/heads/MT50258_Command_Clean_v2
+[33m4b0ad469[m HEAD@{593}: rebase (squash): MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33m3e16d5bc[m HEAD@{594}: rebase (start): checkout HEAD~2
+[33m49bdcc57[m[33m ([m[1;31morigin/MT50258_Command_Clean[m[33m)[m HEAD@{595}: checkout: moving from MT50258_Command_Clean to MT50258_Command_Clean_v2
+[33m49bdcc57[m[33m ([m[1;31morigin/MT50258_Command_Clean[m[33m)[m HEAD@{596}: commit: MT50258: move Command- Add if to avoid errors when custom_options.php does not exist
+[33m3e16d5bc[m HEAD@{597}: checkout: moving from MT50258_AJAX_personnel to MT50258_Command_Clean
+[33m60993ee6[m HEAD@{598}: commit: MT50258: move ajax- Delete ajax files in personnel, move hours_tables.php to legacy/Agent
+[33m4c891a4b[m HEAD@{599}: commit: MT50258: move ajax- Move ajax from personnel to AgentController
+[33m7c76e137[m HEAD@{600}: checkout: moving from master to MT50258_AJAX_personnel
+[33m7c76e137[m HEAD@{601}: checkout: moving from MT50258_AJAX_ics to master
+[33m3c075686[m HEAD@{602}: commit: MT50258: move ajax- Fix bugs and tested
+[33m6b8305bf[m HEAD@{603}: commit: MT50258: move ajax- Move ajax from ics to AgentController
+[33m7c76e137[m HEAD@{604}: checkout: moving from master to MT50258_AJAX_ics
+[33m7c76e137[m HEAD@{605}: checkout: moving from MT50258_AJAX_conges to master
+[33m6f6e3ed8[m HEAD@{606}: commit: MT50258: move ajax- Rename properly and in english, delete some unused window ,add some comments, all tested except updateCell
+[33m2722bdf6[m HEAD@{607}: checkout: moving from MT50258_AJAX_absence to MT50258_AJAX_conges
+[33mc17e1f18[m HEAD@{608}: pull: Merge made by the 'ort' strategy.
+[33m08fd69ad[m HEAD@{609}: commit: MT50258: move ajax- Pass route URL to JS via window and restrict route method to POST,tested.
+[33md1d63406[m HEAD@{610}: checkout: moving from MT50258_AJAX_conges to MT50258_AJAX_absence
+[33m2722bdf6[m HEAD@{611}: checkout: moving from master to MT50258_AJAX_conges
+[33m7c76e137[m HEAD@{612}: checkout: moving from MT50258_AJAX_conges to master
+[33m2722bdf6[m HEAD@{613}: commit: MT50258: move ajax- Move ajax from conges to HolidayController,to be tested
+[33m7c76e137[m HEAD@{614}: checkout: moving from master to MT50258_AJAX_conges
+[33m7c76e137[m HEAD@{615}: checkout: moving from MT50258_AJAX_absence to master
+[33md1d63406[m HEAD@{616}: rebase (finish): returning to refs/heads/MT50258_AJAX_absence
+[33md1d63406[m HEAD@{617}: rebase (squash): MT50258: move ajax- Déplacer ajax.piecesJustif.php
+[33me1862971[m HEAD@{618}: rebase (start): checkout HEAD~2
+[33m1765eb5c[m HEAD@{619}: rebase (finish): returning to refs/heads/MT50258_AJAX_absence
+[33m1765eb5c[m HEAD@{620}: rebase (start): checkout HEAD~2
+[33m1765eb5c[m HEAD@{621}: rebase (abort): returning to refs/heads/MT50258_AJAX_absence
+[33m1765eb5c[m HEAD@{622}: rebase (abort): returning to refs/heads/MT50258_AJAX_absence
+[33m1765eb5c[m HEAD@{623}: cherry-pick: MT50258: move AJAX-fini de déplacer ajax.piecesJustif.php
+[33me1862971[m HEAD@{624}: cherry-pick: MT50258_AJAX: essai de déplacer ajax.piecesJustif.php
+[33m7c76e137[m HEAD@{625}: checkout: moving from master to MT50258_AJAX_absence
+[33m7c76e137[m HEAD@{626}: checkout: moving from MT50258_AJAX to master
+[33mcc5f67ad[m[33m ([m[1;31morigin/MT50258_AJAX[m[33m, [m[1;32mMT50258_AJAX[m[33m)[m HEAD@{627}: checkout: moving from MT50258_Command_HolidayReminder to MT50258_AJAX
+[33m926bd752[m[33m ([m[1;31morigin/MT50258_Command_HolidayReminder[m[33m, [m[1;32mMT50258_Command_HolidayReminder[m[33m)[m HEAD@{628}: commit: MT50258: HolidayReminderCommand- No need to use reference
+[33m44dc5509[m HEAD@{629}: checkout: moving from MT50258_AJAX to MT50258_Command_HolidayReminder
+[33mcc5f67ad[m[33m ([m[1;31morigin/MT50258_AJAX[m[33m, [m[1;32mMT50258_AJAX[m[33m)[m HEAD@{630}: checkout: moving from MT50258_Command_Clean to MT50258_AJAX
+[33m3e16d5bc[m HEAD@{631}: rebase (finish): returning to refs/heads/MT50258_Command_Clean
+[33m3e16d5bc[m HEAD@{632}: rebase (squash): MT50258: move Command- Move all cron scripts from /public and /src/cron to /src/Command as Symfony commands
+[33ma8d008f9[m HEAD@{633}: rebase (squash): # Ceci est la combinaison de 31 commits.
+[33mb7f78ae4[m HEAD@{634}: rebase (squash): # Ceci est la combinaison de 30 commits.
+[33m1301572d[m HEAD@{635}: rebase (squash): # Ceci est la combinaison de 29 commits.
+[33md71cda69[m HEAD@{636}: rebase (squash): # Ceci est la combinaison de 28 commits.
+[33m2d118913[m HEAD@{637}: rebase (squash): # Ceci est la combinaison de 27 commits.
+[33m56400138[m HEAD@{638}: rebase (squash): # Ceci est la combinaison de 26 commits.
+[33m2162ff61[m HEAD@{639}: rebase (squash): # Ceci est la combinaison de 25 commits.
+[33m9fba5cb0[m HEAD@{640}: rebase (squash): # Ceci est la combinaison de 24 commits.
+[33m05fcfa55[m HEAD@{641}: rebase (squash): # Ceci est la combinaison de 23 commits.
+[33me76f5430[m HEAD@{642}: rebase (squash): # Ceci est la combinaison de 22 commits.
+[33mce3f6501[m HEAD@{643}: rebase (squash): # Ceci est la combinaison de 21 commits.
+[33m15302edc[m HEAD@{644}: rebase (squash): # Ceci est la combinaison de 20 commits.
+[33m00585d0b[m HEAD@{645}: rebase (squash): # Ceci est la combinaison de 19 commits.
+[33m45ba2ead[m HEAD@{646}: rebase (squash): # Ceci est la combinaison de 18 commits.
+[33m5cad106b[m HEAD@{647}: rebase (squash): # Ceci est la combinaison de 17 commits.
+[33m2e20aaa9[m HEAD@{648}: rebase (squash): # Ceci est la combinaison de 16 commits.
+[33mc569db6f[m HEAD@{649}: rebase (squash): # Ceci est la combinaison de 15 commits.
+[33m9abca27b[m HEAD@{650}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33m67e107ee[m HEAD@{651}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33mc472d87c[m HEAD@{652}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33mb97baeab[m HEAD@{653}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33mdb799092[m HEAD@{654}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33md922de10[m HEAD@{655}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m2c2edcdd[m HEAD@{656}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33mebeb9987[m HEAD@{657}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m5e606e48[m HEAD@{658}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m1b3f04d4[m HEAD@{659}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33mf2d61887[m HEAD@{660}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33md3dbf95a[m HEAD@{661}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mb926cba3[m HEAD@{662}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m047a04f7[m HEAD@{663}: rebase (start): checkout HEAD~32
+[33ma0b5ab32[m[33m ([m[1;31morigin/MT50258_Command[m[33m, [m[1;32mMT50258_Command[m[33m)[m HEAD@{664}: checkout: moving from MT50258_Command to MT50258_Command_Clean
+[33ma0b5ab32[m[33m ([m[1;31morigin/MT50258_Command[m[33m, [m[1;32mMT50258_Command[m[33m)[m HEAD@{665}: commit: MT50258: move Command- Declare and assign the private variable in CronListener
+[33m574d4837[m HEAD@{666}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33mcc5f67ad[m[33m ([m[1;31morigin/MT50258_AJAX[m[33m, [m[1;32mMT50258_AJAX[m[33m)[m HEAD@{667}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33m574d4837[m HEAD@{668}: checkout: moving from master to MT50258_Command
+[33m7c76e137[m HEAD@{669}: pull: Fast-forward
+[33m047a04f7[m HEAD@{670}: checkout: moving from MT50258_Command to master
+[33m574d4837[m HEAD@{671}: commit: MT50258: move Command- Fix previous issues in PlanningControlCommand and finalize testing in PlanningControlCommand and WorkingHourDailyCommand
+[33m7ee30b97[m HEAD@{672}: checkout: moving from MT50258_Command_HolidayReminder to MT50258_Command
+[33m44dc5509[m HEAD@{673}: commit: MT50258: move Command- Avoid dynamic property creation
+[33m7ee30b97[m HEAD@{674}: checkout: moving from MT50258_Command to MT50258_Command_HolidayReminder
+[33m7ee30b97[m HEAD@{675}: commit: MT50258: move Command- AbsenceImportCSVCommand and WorkingHourExportCommand tested, some small modifications in HolidayReminderCommand amdAbsenceImportICSCommand
+[33me3b2740c[m HEAD@{676}: commit: MT50258: move Command- modifications selon the comments in pull request
+[33md0f820dc[m HEAD@{677}: commit: MT50258: move Command- little changement in crontab and migration
+[33me2fd44af[m HEAD@{678}: commit: MR50258: move Command- Complete the migration file and fix the bugs in Crontab
+[33m3f14b22c[m HEAD@{679}: commit: MT50258: move Commond-Corriger les points 16-21
+[33m1e28c16d[m HEAD@{680}: commit: MT50258: move Command- try to fix the bug in CronTabCommand and CronListener
+[33ma8b1a8fa[m HEAD@{681}: cherry-pick: MT50258: Get dbprefix from Config::getAll
+[33m2e3fdb3e[m HEAD@{682}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33mcc5f67ad[m[33m ([m[1;31morigin/MT50258_AJAX[m[33m, [m[1;32mMT50258_AJAX[m[33m)[m HEAD@{683}: pull --rebase (finish): returning to refs/heads/MT50258_AJAX
+[33mcc5f67ad[m[33m ([m[1;31morigin/MT50258_AJAX[m[33m, [m[1;32mMT50258_AJAX[m[33m)[m HEAD@{684}: pull --rebase (pick): MT50258: move ajax- Fix bugs after moving planninghebdo AJAX to controller.
+[33ma00f8f87[m HEAD@{685}: pull --rebase (start): checkout a00f8f8796d83e41b113c6f06a63bdd47221c72e
+[33ma6b2a886[m HEAD@{686}: commit: MT50258: move ajax- Fix bugs after moving planninghebdo AJAX to controller.
+[33m7579f472[m HEAD@{687}: checkout: moving from MT50258 to MT50258_AJAX
+[33m6593f1b6[m[33m ([m[1;31morigin/MT50258[m[33m, [m[1;32mMT50258[m[33m)[m HEAD@{688}: checkout: moving from master to MT50258
+[33m047a04f7[m HEAD@{689}: checkout: moving from MT50258_AJAX to master
+[33m7579f472[m HEAD@{690}: reset: moving to HEAD
+[33m7579f472[m HEAD@{691}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33m2e3fdb3e[m HEAD@{692}: pull --rebase (finish): returning to refs/heads/MT50258_Command
+[33m2e3fdb3e[m HEAD@{693}: pull --rebase (pick): MT50258: move Command- src/Command/AbsenceDeleteDocumentsCommand.php
+[33m425c2927[m HEAD@{694}: pull --rebase (start): checkout 425c29274d53f4ae2b3fb3b3ca0453901ed065d4
+[33mc8f2be59[m HEAD@{695}: commit: MT50258: move Command- src/Command/AbsenceDeleteDocumentsCommand.php
+[33mea3a07d4[m HEAD@{696}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33m7579f472[m HEAD@{697}: reset: moving to HEAD
+[33m7579f472[m HEAD@{698}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33mea3a07d4[m HEAD@{699}: commit: MT50258: move Command- fix bug in CronTabCommand.php
+[33me0ccd807[m HEAD@{700}: commit: MT50258: move Command- Refactor command classes and fix code style consistency
+[33m9b481828[m HEAD@{701}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33m7579f472[m HEAD@{702}: commit: try to fix the bug appears in the page workinghour
+[33m99692ab4[m HEAD@{703}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33m9b481828[m HEAD@{704}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33m99692ab4[m HEAD@{705}: commit: MT50258: move ajax- Move ajax from planningHebdo
+[33mf9aa3aed[m HEAD@{706}: commit: MT50258: move ajax- Fix bugs after moving personnel AJAX to controller.
+[33m820b9cb8[m HEAD@{707}: checkout: moving from master to MT50258_AJAX
+[33m047a04f7[m HEAD@{708}: checkout: moving from MT50258_AJAX to master
+[33m820b9cb8[m HEAD@{709}: reset: moving to HEAD
+[33m820b9cb8[m HEAD@{710}: commit: MT50258: move ajax- Fix bugs after moving conges AJAX to controller.
+[33md730bbeb[m HEAD@{711}: checkout: moving from master to MT50258_AJAX
+[33m047a04f7[m HEAD@{712}: checkout: moving from MT50258_AJAX to master
+[33md730bbeb[m HEAD@{713}: commit: MT50258: move ajax- Move ajax from personnel
+[33m8a030519[m HEAD@{714}: commit: MT50258: move ajax- Move ajax from conges and ics
+[33m8a9c0eed[m HEAD@{715}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33m9b481828[m HEAD@{716}: commit: MT50258: move Command- Move all the cron,to be tested
+[33me7d9f181[m HEAD@{717}: checkout: moving from master to MT50258_Command
+[33m047a04f7[m HEAD@{718}: checkout: moving from MT50258_Command to master
+[33me7d9f181[m HEAD@{719}: commit: MT50258: move Command- Continue to add and use ConfigRepository
+[33mcee40fd8[m HEAD@{720}: checkout: moving from MT50258_bootstrap to MT50258_Command
+[33mfb5c71f1[m[33m ([m[1;31morigin/MT50258_bootstrap[m[33m, [m[1;32mMT50258_bootstrap[m[33m)[m HEAD@{721}: checkout: moving from MT50258_Command to MT50258_bootstrap
+[33mcee40fd8[m HEAD@{722}: commit: MT50258: move Command-corriger error petit
+[33mf67afe4b[m HEAD@{723}: commit (cherry-pick): MT50258: Add and use ConfigRepository
+[33m9b8b33ce[m HEAD@{724}: cherry-pick: MT50258: Rename Entity ConfigParam to Config
+[33m7eaa0d6e[m HEAD@{725}: checkout: moving from MT50258_bootstrap to MT50258_Command
+[33mfb5c71f1[m[33m ([m[1;31morigin/MT50258_bootstrap[m[33m, [m[1;32mMT50258_bootstrap[m[33m)[m HEAD@{726}: checkout: moving from MT50258_Command to MT50258_bootstrap
+[33m7eaa0d6e[m HEAD@{727}: revert: Revert "MT50258: move Command-Corriger le bug sur notification"
+[33maeb9920c[m HEAD@{728}: checkout: moving from MT50258_bootstrap to MT50258_Command
+[33mfb5c71f1[m[33m ([m[1;31morigin/MT50258_bootstrap[m[33m, [m[1;32mMT50258_bootstrap[m[33m)[m HEAD@{729}: cherry-pick: MT50258: move Command-Corriger le bug sur notification
+[33m047a04f7[m HEAD@{730}: checkout: moving from master to MT50258_bootstrap
+[33m047a04f7[m HEAD@{731}: reset: moving to HEAD~1
+[33m5cf8a27d[m HEAD@{732}: cherry-pick: MT50258: move Command-Corriger le bug sur notification
+[33m047a04f7[m HEAD@{733}: checkout: moving from MT50258_Command to master
+[33maeb9920c[m HEAD@{734}: checkout: moving from MT50258_AJAX to MT50258_Command
+[33m8a9c0eed[m HEAD@{735}: commit: MT50258: move AJAX-fini de déplacer ajax.piecesJustif.php
+[33m34f038ac[m HEAD@{736}: checkout: moving from master to MT50258_AJAX
+[33m047a04f7[m HEAD@{737}: checkout: moving from MT50258_AJAX to master
+[33m34f038ac[m HEAD@{738}: reset: moving to HEAD
+[33m34f038ac[m HEAD@{739}: reset: moving to HEAD
+[33m34f038ac[m HEAD@{740}: checkout: moving from MT50258_Command to MT50258_AJAX
+[33maeb9920c[m HEAD@{741}: commit: MT50258: move Commond-Corriger les points 5 et 6
+[33m5b3aa031[m HEAD@{742}: commit: MT50258: move Command-Corriger le bug sur notification
+[33m1d87e68e[m HEAD@{743}: checkout: moving from MT48762_CLEAN to MT50258_Command
+[33m44e8f549[m[33m ([m[1;31morigin/MT48762_CLEAN[m[33m, [m[1;32mMT48762_CLEAN[m[33m)[m HEAD@{744}: checkout: moving from master to MT48762_CLEAN
+[33m047a04f7[m HEAD@{745}: checkout: moving from MT48761 to master
+[33m7f868e4e[m[33m ([m[1;32mMT48761[m[33m)[m HEAD@{746}: checkout: moving from master to MT48761
+[33m047a04f7[m HEAD@{747}: checkout: moving from MT50258_AJAX to master
+[33m34f038ac[m HEAD@{748}: commit: MT50258_AJAX: essai de déplacer ajax.piecesJustif.php
+[33m047a04f7[m HEAD@{749}: checkout: moving from master to MT50258_AJAX
+[33m047a04f7[m HEAD@{750}: checkout: moving from MT50258_Command to master
+[33m1d87e68e[m HEAD@{751}: commit: Migration des anciens scripts cron en commandes Symfony :
+[33m95271272[m HEAD@{752}: checkout: moving from master to MT50258_Command
+[33m047a04f7[m HEAD@{753}: checkout: moving from MT50258_Command to master
+[33m95271272[m HEAD@{754}: reset: moving to HEAD
+[33m95271272[m HEAD@{755}: revert: Reapply "MT50258_Command:essai de déplacer cron.holiday_reset_comp_time.php"
+[33m820d3504[m HEAD@{756}: commit: Revert "MT50258_Command:essai de déplacer cron.holiday_reset_comp_time.php"
+[33md1844902[m HEAD@{757}: commit: MT50258_Command: essai de deplacer cron.planning_hebdo.export.php
+[33m8af4ce64[m HEAD@{758}: commit: MT50258_Command: fini de déplacer cron.holiday_reset_credits.php,essai de déplacer cron.ctrlPlanning.php(pas fini)
+[33m0c9a572d[m HEAD@{759}: commit: MT50258_Command: fini de déplacer cron.holiday_reset_comp_time.php
+[33m184ba6f7[m HEAD@{760}: commit: MT50258_Command: modifications sur la messages
+[33m8086a362[m HEAD@{761}: checkout: moving from MT48761_v3 to MT50258_Command
+[33m6193683f[m[33m ([m[1;32mMT48761_v3[m[33m)[m HEAD@{762}: commit: MT48761_v3: première version fonctionnelle
+[33md79e557b[m HEAD@{763}: checkout: moving from MT50258_Command to MT48761_v3
+[33m8086a362[m HEAD@{764}: commit: MT50258_Command:essai de déplacer cron.holiday_reset_comp_time.php
+[33mf85d1bda[m HEAD@{765}: commit: MT50258_Command: Correction initiale du fichier AbsenceDeleteDocumentsCommand.php, mais la suppression des fichiers ne fonctionne pas.
+[33mbdc1c9be[m[33m ([m[1;32mMT50258_CRON_AJAX[m[33m)[m HEAD@{766}: checkout: moving from MT48761_v3 to MT50258_Command
+[33md79e557b[m HEAD@{767}: commit: MT48761_v3: en train de deboguer
+[33mc77acace[m[33m ([m[1;31morigin/MT48761_v3[m[33m)[m HEAD@{768}: checkout: moving from MT50258_Command to MT48761_v3
+[33mbdc1c9be[m[33m ([m[1;32mMT50258_CRON_AJAX[m[33m)[m HEAD@{769}: checkout: moving from MT50258_CRON_AJAX to MT50258_Command
+[33mbdc1c9be[m[33m ([m[1;32mMT50258_CRON_AJAX[m[33m)[m HEAD@{770}: commit: MT50258_Command: déplacer public/absences/cron.deleteOldDocuments.php,à déboguer
+[33m047a04f7[m HEAD@{771}: checkout: moving from master to MT50258_CRON_AJAX
+[33m047a04f7[m HEAD@{772}: pull: Fast-forward
+[33m049b15fd[m HEAD@{773}: checkout: moving from MT50258_functions to master
+[33md6e5383e[m[33m ([m[1;31morigin/MT50258_functions[m[33m, [m[1;32mMT50258_functions[m[33m)[m HEAD@{774}: checkout: moving from master to MT50258_functions
+[33m049b15fd[m HEAD@{775}: checkout: moving from MT50258_functions to master
+[33md6e5383e[m[33m ([m[1;31morigin/MT50258_functions[m[33m, [m[1;32mMT50258_functions[m[33m)[m HEAD@{776}: commit: MT50258_fonctions: remove and rename the file public/planning/poste/fonctions.php
+[33m049b15fd[m HEAD@{777}: checkout: moving from master to MT50258_functions
+[33m049b15fd[m HEAD@{778}: checkout: moving from MT50258_CRON to master
+[33m049b15fd[m HEAD@{779}: checkout: moving from master to MT50258_CRON
+[33m049b15fd[m HEAD@{780}: pull: Fast-forward
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{781}: checkout: moving from MT50258_JS to master
+[33m71c04aea[m[33m ([m[1;31morigin/MT50258_JS[m[33m, [m[1;32mMT50258_JS[m[33m)[m HEAD@{782}: checkout: moving from MT48761_v3 to MT50258_JS
+[33mc77acace[m[33m ([m[1;31morigin/MT48761_v3[m[33m)[m HEAD@{783}: commit: MT48761_v3: trouvé le problem,à résoudre
+[33m2cb60a35[m HEAD@{784}: checkout: moving from MT50258_JS to MT48761_v3
+[33m71c04aea[m[33m ([m[1;31morigin/MT50258_JS[m[33m, [m[1;32mMT50258_JS[m[33m)[m HEAD@{785}: checkout: moving from MT46629_DataTables to MT50258_JS
+[33mef89ea93[m[33m ([m[1;31morigin/MT46629_DataTables[m[33m, [m[1;32mMT46629_DataTables[m[33m)[m HEAD@{786}: checkout: moving from MT48761_v3 to MT46629_DataTables
+[33m2cb60a35[m HEAD@{787}: reset: moving to HEAD
+[33m2cb60a35[m HEAD@{788}: checkout: moving from MT48761 to MT48761_v3
+[33m7f868e4e[m[33m ([m[1;32mMT48761[m[33m)[m HEAD@{789}: checkout: moving from MT46629_DataTables to MT48761
+[33mef89ea93[m[33m ([m[1;31morigin/MT46629_DataTables[m[33m, [m[1;32mMT46629_DataTables[m[33m)[m HEAD@{790}: checkout: moving from MT46629 to MT46629_DataTables
+[33m30442551[m[33m ([m[1;31morigin/MT46629[m[33m, [m[1;32mMT46629[m[33m)[m HEAD@{791}: checkout: moving from MT50258_JS to MT46629
+[33m71c04aea[m[33m ([m[1;31morigin/MT50258_JS[m[33m, [m[1;32mMT50258_JS[m[33m)[m HEAD@{792}: commit: MT50258_JS: fini des points 1-9
+[33m0abf1007[m HEAD@{793}: commit: MT50258_JS: fini points 1,2,3
+[33m2dd0f9bd[m HEAD@{794}: checkout: moving from MT48761_v3 to MT50258_JS
+[33m2cb60a35[m HEAD@{795}: checkout: moving from MT50258_JS to MT48761_v3
+[33m2dd0f9bd[m HEAD@{796}: commit: MT50258_JS: renommé,fusionné,déplacé,modifié les références
+[33m5942c6fe[m HEAD@{797}: checkout: moving from MT48761_v3 to MT50258_JS
+[33m2cb60a35[m HEAD@{798}: checkout: moving from MT50258_JS to MT48761_v3
+[33m5942c6fe[m HEAD@{799}: commit: MT50258_JS: à verifier
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{800}: checkout: moving from master to MT50258_JS
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{801}: checkout: moving from MT48761_v3 to master
+[33m2cb60a35[m HEAD@{802}: commit: MT48761_v3:ya un problem sur l'état au table
+[33m8983a550[m HEAD@{803}: checkout: moving from MT50258_CLEAN to MT48761_v3
+[33m27097c7d[m[33m ([m[1;31morigin/MT50258_CLEAN[m[33m, [m[1;32mMT50258_CLEAN[m[33m)[m HEAD@{804}: rebase (finish): returning to refs/heads/MT50258_CLEAN
+[33m27097c7d[m[33m ([m[1;31morigin/MT50258_CLEAN[m[33m, [m[1;32mMT50258_CLEAN[m[33m)[m HEAD@{805}: rebase (squash): MT50258: Move PHP classes from /public to /legacy
+[33m8d4871b2[m HEAD@{806}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m40346b25[m HEAD@{807}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33m4074c224[m HEAD@{808}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m3323abc6[m HEAD@{809}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33me81f2fc8[m HEAD@{810}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m210d316f[m HEAD@{811}: rebase (start): checkout HEAD~7
+[33m6593f1b6[m[33m ([m[1;31morigin/MT50258[m[33m, [m[1;32mMT50258[m[33m)[m HEAD@{812}: checkout: moving from MT50258 to MT50258_CLEAN
+[33m6593f1b6[m[33m ([m[1;31morigin/MT50258[m[33m, [m[1;32mMT50258[m[33m)[m HEAD@{813}: commit: MT50258: fini
+[33m53a23902[m HEAD@{814}: commit: MT50258:fini des points 1,2,3
+[33m1579fcef[m HEAD@{815}: checkout: moving from MT48761_v3 to MT50258
+[33m8983a550[m HEAD@{816}: commit: MT48761_v3: à debug
+[33m55d7c9d9[m HEAD@{817}: commit: MT48761: try to use lang
+[33m7f868e4e[m[33m ([m[1;32mMT48761[m[33m)[m HEAD@{818}: checkout: moving from MT48761 to MT48761_v3
+[33m7f868e4e[m[33m ([m[1;32mMT48761[m[33m)[m HEAD@{819}: commit: MT48761_v2: there are two ways to print validation
+[33mc80e672b[m HEAD@{820}: checkout: moving from master to MT48761
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{821}: checkout: moving from MT48761 to master
+[33mc80e672b[m HEAD@{822}: commit: MT48761v2: à continuer
+[33md6af9ae0[m HEAD@{823}: checkout: moving from master to MT48761
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{824}: checkout: moving from MT48761 to master
+[33md6af9ae0[m HEAD@{825}: reset: moving to HEAD
+[33md6af9ae0[m HEAD@{826}: checkout: moving from MT50258 to MT48761
+[33m1579fcef[m HEAD@{827}: commit: MT50258: marqué des fonctions inutiles
+[33m430f7b3b[m HEAD@{828}: checkout: moving from MT48761 to MT50258
+[33md6af9ae0[m HEAD@{829}: commit: MT48761: à debug
+[33m2a2c6787[m HEAD@{830}: cherry-pick: MT48761: Use absence entity
+[33m189adce1[m[33m ([m[1;31morigin/MT48761[m[33m)[m HEAD@{831}: checkout: moving from MT50258 to MT48761
+[33m430f7b3b[m HEAD@{832}: commit: MT50258: bien testé,marche bien
+[33m66938824[m HEAD@{833}: checkout: moving from MT49322_CLEAN to MT50258
+[33m73ecf395[m[33m ([m[1;31morigin/MT49322_CLEAN[m[33m, [m[1;32mMT49322_CLEAN[m[33m)[m HEAD@{834}: Branch: renamed refs/heads/MT49322 to refs/heads/MT49322_CLEAN
+[33m73ecf395[m[33m ([m[1;31morigin/MT49322_CLEAN[m[33m, [m[1;32mMT49322_CLEAN[m[33m)[m HEAD@{836}: rebase (finish): returning to refs/heads/MT49322
+[33m73ecf395[m[33m ([m[1;31morigin/MT49322_CLEAN[m[33m, [m[1;32mMT49322_CLEAN[m[33m)[m HEAD@{837}: rebase (squash): MT49322: Replacement of the deprecated marquee tag, use sanitizer
+[33mc89a7736[m HEAD@{838}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33mbc8bdfb2[m HEAD@{839}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mf246f478[m HEAD@{840}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33me7e9019b[m HEAD@{841}: rebase (start): checkout HEAD~5
+[33m0e87acf6[m[33m ([m[1;31morigin/MT49322[m[33m)[m HEAD@{842}: rebase (abort): returning to refs/heads/MT49322
+[33mf3bb5ef2[m HEAD@{843}: rebase (start): checkout HEAD~5
+[33m0e87acf6[m[33m ([m[1;31morigin/MT49322[m[33m)[m HEAD@{844}: checkout: moving from MT40038 to MT49322
+[33mdfb37881[m[33m ([m[1;31morigin/MT40038[m[33m, [m[1;32mMT40038[m[33m)[m HEAD@{845}: checkout: moving from MT48761_v2 to MT40038
+[33m01d64b41[m[33m ([m[1;32mMT48761_v2[m[33m)[m HEAD@{846}: cherry-pick: MT48761: Use absence entity
+[33m318c8d45[m[33m ([m[1;31morigin/MT48761_v2[m[33m)[m HEAD@{847}: checkout: moving from MT50258 to MT48761_v2
+[33m66938824[m HEAD@{848}: checkout: moving from MT48761_v2 to MT50258
+[33m318c8d45[m[33m ([m[1;31morigin/MT48761_v2[m[33m)[m HEAD@{849}: checkout: moving from MT48761 to MT48761_v2
+[33m189adce1[m[33m ([m[1;31morigin/MT48761[m[33m)[m HEAD@{850}: checkout: moving from MT49322 to MT48761
+[33m0e87acf6[m[33m ([m[1;31morigin/MT49322[m[33m)[m HEAD@{851}: commit: MT49322: ajouter une pause à la fin du dernier message,utilise sanitizer
+[33m52648c36[m HEAD@{852}: checkout: moving from MT49322_htmlpurifier to MT49322
+[33m0f39a3ae[m HEAD@{853}: reset: moving to HEAD
+[33m0f39a3ae[m HEAD@{854}: commit: MT49322_htmlpurifier: utilise htmlpurifier
+[33mbb229ebd[m HEAD@{855}: checkout: moving from MT49322 to MT49322_htmlpurifier
+[33m52648c36[m HEAD@{856}: checkout: moving from master to MT49322
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{857}: checkout: moving from MT50258 to master
+[33m66938824[m HEAD@{858}: commit: MT50258: petit modification
+[33mf5845c80[m HEAD@{859}: commit: MT50258: modifier des liens,à tester
+[33m210d316f[m HEAD@{860}: commit: MT50258: supprimer les entete et déplacer les class à legacy/class
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{861}: checkout: moving from master to MT50258
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{862}: checkout: moving from MT50258 to master
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{863}: checkout: moving from master to MT50258
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{864}: checkout: moving from MT50258 to master
+[33mb67495fc[m HEAD@{865}: checkout: moving from master to MT50258
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{866}: checkout: moving from MT50258 to master
+[33mb67495fc[m HEAD@{867}: commit: a continuer
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{868}: checkout: moving from master to MT50258
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{869}: checkout: moving from MT40038 to master
+[33mdfb37881[m[33m ([m[1;31morigin/MT40038[m[33m, [m[1;32mMT40038[m[33m)[m HEAD@{870}: commit: MT40038: essaye de remplacer l'ancien champ recup
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{871}: checkout: moving from master to MT40038
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{872}: checkout: moving from MT50247 to master
+[33m0dba9856[m[33m ([m[1;31morigin/MT50247[m[33m, [m[1;32mMT50247[m[33m)[m HEAD@{873}: commit: MT50247: Attribuer la date à demand,sans utilise variable
+[33m2220cd0c[m HEAD@{874}: checkout: moving from MT49322 to MT50247
+[33m52648c36[m HEAD@{875}: commit: "MT49322_v2: modifier CJInfo"
+[33mbb229ebd[m HEAD@{876}: checkout: moving from MT48761_v2 to MT49322
+[33m318c8d45[m[33m ([m[1;31morigin/MT48761_v2[m[33m)[m HEAD@{877}: commit: MT48761_v2: Bloqué,admin ne peut pas être identifié
+[33me44cb2b2[m HEAD@{878}: commit: MT48761_v2: to be continue
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{879}: checkout: moving from master to MT48761_v2
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{880}: checkout: moving from MT48761 to master
+[33m189adce1[m[33m ([m[1;31morigin/MT48761[m[33m)[m HEAD@{881}: checkout: moving from MT49322 to MT48761
+[33mbb229ebd[m HEAD@{882}: checkout: moving from MT50258 to MT49322
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{883}: checkout: moving from master to MT50258
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{884}: checkout: moving from MT46629_DataTables to master
+[33mef89ea93[m[33m ([m[1;31morigin/MT46629_DataTables[m[33m, [m[1;32mMT46629_DataTables[m[33m)[m HEAD@{885}: commit: MT46629: supprimer les fichiers inutiles
+[33ma013c6e6[m HEAD@{886}: checkout: moving from MT49322 to MT46629_DataTables
+[33mbb229ebd[m HEAD@{887}: commit: MT49322: Boucle d'infos avec CJInfo
+[33m6e19743e[m HEAD@{888}: checkout: moving from MT46629_DataTables to MT49322
+[33ma013c6e6[m HEAD@{889}: checkout: moving from MT49322 to MT46629_DataTables
+[33m6e19743e[m HEAD@{890}: checkout: moving from MT49322 to MT49322
+[33m6e19743e[m HEAD@{891}: checkout: moving from MT46629_DataTables to MT49322
+[33ma013c6e6[m HEAD@{892}: commit: MT46629:petit modification sur " et '
+[33m75e52354[m HEAD@{893}: commit: MT46629: move jquery-ui to public/vendor
+[33m921d5d1a[m HEAD@{894}: commit: MT46629_DataTables: supprimer DataTables in js
+[33m59db3735[m HEAD@{895}: commit: MT46629_DataTables: move DataTables to public/vendor
+[33mee7bd7f3[m HEAD@{896}: checkout: moving from MT46629_DataTables to MT46629_DataTables
+[33mee7bd7f3[m HEAD@{897}: checkout: moving from MT49322 to MT46629_DataTables
+[33m6e19743e[m HEAD@{898}: checkout: moving from MT46629_DataTables to MT49322
+[33mee7bd7f3[m HEAD@{899}: checkout: moving from MT49322 to MT46629_DataTables
+[33m6e19743e[m HEAD@{900}: checkout: moving from MT46629_DataTables to MT49322
+[33mee7bd7f3[m HEAD@{901}: checkout: moving from MT49322 to MT46629_DataTables
+[33m6e19743e[m HEAD@{902}: checkout: moving from MT46629_DataTables to MT49322
+[33mee7bd7f3[m HEAD@{903}: commit: MT46629_DataTables: Essaye la nouvelle version de DataTables
+[33m30442551[m[33m ([m[1;31morigin/MT46629[m[33m, [m[1;32mMT46629[m[33m)[m HEAD@{904}: checkout: moving from MT46629 to MT46629_DataTables
+[33m30442551[m[33m ([m[1;31morigin/MT46629[m[33m, [m[1;32mMT46629[m[33m)[m HEAD@{905}: rebase (finish): returning to refs/heads/MT46629
+[33m30442551[m[33m ([m[1;31morigin/MT46629[m[33m, [m[1;32mMT46629[m[33m)[m HEAD@{906}: rebase (squash): MT46629: Créer public/vendor et des petits modification
+[33m5f5c41a4[m HEAD@{907}: commit (amend): MT46629: Créer public/vendor et des petits modification
+[33m5a108bf1[m HEAD@{908}: rebase (start): checkout HEAD~2
+[33m077273f9[m HEAD@{909}: commit: MT46629: Garder l'ancienne lib
+[33m5a108bf1[m HEAD@{910}: checkout: moving from master to MT46629
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{911}: checkout: moving from MT46629 to master
+[33m5a108bf1[m HEAD@{912}: checkout: moving from master to MT46629
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{913}: checkout: moving from MT46629 to master
+[33m5a108bf1[m HEAD@{914}: commit: MT46629: Créer public/vendor et des petits modification
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{915}: checkout: moving from master to MT46629
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{916}: checkout: moving from MT46629OLD to master
+[33m0e99ea0f[m[33m ([m[1;32mMT46629OLD[m[33m)[m HEAD@{917}: checkout: moving from master to MT46629OLD
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{918}: checkout: moving from MT46629 to master
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{919}: checkout: moving from master to MT46629
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{920}: checkout: moving from MT46629 to master
+[33m0e99ea0f[m[33m ([m[1;32mMT46629OLD[m[33m)[m HEAD@{921}: checkout: moving from master to MT46629
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{922}: reset: moving to 4bdc8e22ca33f6a53ac82b4ee99210a93a943530
+[33me4f2abd4[m HEAD@{923}: rebase (finish): returning to refs/heads/master
+[33me4f2abd4[m HEAD@{924}: rebase (squash): MT46629: Créer public/vendor
+[33m5b27ea67[m HEAD@{925}: rebase (start): checkout HEAD~2
+[33m7d1b2e1b[m HEAD@{926}: rebase (finish): returning to refs/heads/master
+[33m7d1b2e1b[m HEAD@{927}: rebase (squash): MT46629: Créer public/vendor
+[33m514260d0[m HEAD@{928}: rebase (continue): MT46629_Bootstrap: supprimer ancienne lib dans public/js
+[33m9bda8c45[m HEAD@{929}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33mea5f5313[m HEAD@{930}: commit: MT46629
+[33m5b27ea67[m HEAD@{931}: rebase (start): checkout HEAD~5
+[33mff53628e[m HEAD@{932}: rebase (abort): returning to refs/heads/master
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{933}: rebase (start): checkout HEAD~5
+[33mff53628e[m HEAD@{934}: reset: moving to HEAD@{7}
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{935}: checkout: moving from MT46629 to master
+[33m0e99ea0f[m[33m ([m[1;32mMT46629OLD[m[33m)[m HEAD@{936}: rebase (finish): returning to refs/heads/MT46629
+[33m0e99ea0f[m[33m ([m[1;32mMT46629OLD[m[33m)[m HEAD@{937}: rebase (squash): MT46629: Créer public/vendor
+[33mc3f59dfe[m HEAD@{938}: rebase (continue): MT46629: garder l'ancienne lib
+[33md6dcbddf[m HEAD@{939}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m2841c38b[m HEAD@{940}: commit (amend): MT46229_Bootstrap: update to new version
+[33m5b27ea67[m HEAD@{941}: rebase (start): checkout HEAD~5
+[33mff53628e[m HEAD@{942}: commit: MT46629: Créer public/vendor
+[33mf745df04[m[33m ([m[1;31morigin/MT46629_Bootstrap[m[33m, [m[1;32mMT46629_Bootstrap[m[33m)[m HEAD@{943}: checkout: moving from MT46629_Bootstrap to MT46629
+[33mf745df04[m[33m ([m[1;31morigin/MT46629_Bootstrap[m[33m, [m[1;32mMT46629_Bootstrap[m[33m)[m HEAD@{944}: commit (amend): MT46629_Bootstrap: Modifications sur les " et '
+[33mc540e0f7[m HEAD@{945}: commit: MT46629_Bootstrap: Modifications sur les " et \'
+[33mecaa5bc9[m HEAD@{946}: commit: MT46629_Bootstrap: supprimer ancienne lib dans public/js
+[33m3cd19cf9[m HEAD@{947}: commit: MT46629: garder l'ancienne lib
+[33m5b27ea67[m HEAD@{948}: Branch: renamed refs/heads/MT46629_Bootsrap to refs/heads/MT46629_Bootstrap
+[33m5b27ea67[m HEAD@{950}: commit: MT46229_Bootstrap: update to new version
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{951}: checkout: moving from master to MT46629_Bootsrap
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{952}: checkout: moving from MT50247 to master
+[33m2220cd0c[m HEAD@{953}: commit: MT50247: supprimer la ligne useless
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{954}: checkout: moving from master to MT50247
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{955}: checkout: moving from MT50247 to master
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{956}: checkout: moving from master to MT50247
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{957}: checkout: moving from MT50234 to master
+[33m04d3165c[m[33m ([m[1;31morigin/MT50234[m[33m, [m[1;32mMT50234[m[33m)[m HEAD@{958}: commit: MT50234: Ajouter un traitement lorsque working_hours est vide
+[33m3187541e[m HEAD@{959}: revert: Revert "MT50234: to find the error"
+[33m7831bdc7[m HEAD@{960}: revert: Revert "MT50243: Commenter une ligne de filter"
+[33m96b19a30[m HEAD@{961}: checkout: moving from master to MT50234
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{962}: checkout: moving from MT50234 to master
+[33m73f05087[m HEAD@{963}: revert: Reapply "MT50243: Commenter une ligne de filter"
+[33m70047d96[m HEAD@{964}: revert: Revert "MT50243: Commenter une ligne de filter"
+[33m96b19a30[m HEAD@{965}: commit: MT50243: Commenter une ligne de filter
+[33m6772b977[m HEAD@{966}: commit: MT50234: to find the error
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{967}: checkout: moving from master to MT50234
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{968}: checkout: moving from MT49421_absences to master
+[33m354821bb[m[33m ([m[1;31morigin/MT49421_absences[m[33m, [m[1;32mMT49421_absences[m[33m)[m HEAD@{969}: commit: MT49421_absences: petit modofication structure
+[33m8c758ec9[m HEAD@{970}: commit: MT49421_absences: à continuer
+[33m8097f6fc[m HEAD@{971}: commit (amend): MT49421_absences: supprimer marche pas
+[33m0fcf746a[m HEAD@{972}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{973}: checkout: moving from MT49421_absences to master
+[33m0fcf746a[m HEAD@{974}: reset: moving to HEAD
+[33m0fcf746a[m HEAD@{975}: checkout: moving from MT49322 to MT49421_absences
+[33m6e19743e[m HEAD@{976}: commit: MT49322: bien testé,marche bien
+[33me7e9019b[m HEAD@{977}: checkout: moving from MT49421_absences to MT49322
+[33m0fcf746a[m HEAD@{978}: commit: MT49421_absences: edit et add fonctionnent normalement
+[33m21f5e5e0[m HEAD@{979}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{980}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{981}: reset: moving to HEAD
+[33m21f5e5e0[m HEAD@{982}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{983}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{984}: reset: moving to HEAD
+[33m21f5e5e0[m HEAD@{985}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{986}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{987}: reset: moving to HEAD
+[33m21f5e5e0[m HEAD@{988}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{989}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{990}: reset: moving to HEAD
+[33m21f5e5e0[m HEAD@{991}: checkout: moving from MT48762_CLEAN to MT49421_absences
+[33m44e8f549[m[33m ([m[1;31morigin/MT48762_CLEAN[m[33m, [m[1;32mMT48762_CLEAN[m[33m)[m HEAD@{992}: commit (amend): MT48762: Remove the background color from printing
+[33m8f92bbe5[m HEAD@{993}: rebase (finish): returning to refs/heads/MT48762_CLEAN
+[33m8f92bbe5[m HEAD@{994}: rebase (squash): MT48762: Remove the background color from printing
+[33m9095263f[m HEAD@{995}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33m627562f5[m HEAD@{996}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33me7df6ab7[m HEAD@{997}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33mef4608f5[m HEAD@{998}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m9bce9b64[m HEAD@{999}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m384453ac[m HEAD@{1000}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mc1a9848b[m HEAD@{1001}: rebase (continue): MT48762: Remove the background color from printing
+[33mf93577b1[m HEAD@{1002}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33me48982ce[m HEAD@{1003}: rebase (continue): to be continued
+[33mfbca3f65[m HEAD@{1004}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33md5b9feff[m HEAD@{1005}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33md4a9683a[m HEAD@{1006}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m7ac7ece1[m HEAD@{1007}: rebase (continue): MT48762:test
+[33m1ae7fdd8[m HEAD@{1008}: rebase (start): checkout HEAD~15
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1009}: checkout: moving from MT48762 to MT48762_CLEAN
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1010}: checkout: moving from MT48762_CLEAN to MT48762
+[33m48869e66[m HEAD@{1011}: rebase (finish): returning to refs/heads/MT48762_CLEAN
+[33m48869e66[m HEAD@{1012}: rebase (squash): MT48762: Remove the yellow background of connected agent cell when print
+[33m5fe7ad62[m HEAD@{1013}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m6e287246[m HEAD@{1014}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mea9ed4ce[m HEAD@{1015}: rebase (continue): MT48762: Remove the yellow background of connected agent cell when print
+[33m01da2359[m HEAD@{1016}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33md02d59d7[m HEAD@{1017}: rebase (continue): MT48762: Remove the yellow background of connected agent cell when print
+[33me6082834[m HEAD@{1018}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m69361911[m HEAD@{1019}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m2cdd48bd[m HEAD@{1020}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m49dcaa7c[m HEAD@{1021}: rebase (continue): MT48762: Remove the yellow background of connected agent cell when print
+[33medd50f21[m HEAD@{1022}: rebase (continue): MT48762: Remove the yellow background of connected agent cell when print
+[33mbf6f6f27[m HEAD@{1023}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m1fff5f0a[m HEAD@{1024}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m71e24150[m HEAD@{1025}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m0c6fe01d[m HEAD@{1026}: rebase (continue): MT48762: Remove the yellow background of connected agent cell when print
+[33mf3bb5ef2[m HEAD@{1027}: rebase (start): checkout HEAD~15
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1028}: rebase (abort): returning to refs/heads/MT48762_CLEAN
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1029}: reset: moving to HEAD@{26}
+[33md8b2a80a[m HEAD@{1030}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m698ca14c[m HEAD@{1031}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33mb5788d56[m HEAD@{1032}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m74ca9190[m HEAD@{1033}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m266b663c[m HEAD@{1034}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33m1ae7fdd8[m HEAD@{1035}: rebase (start): checkout HEAD~14
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1036}: reset: moving to HEAD@{19}
+[33m713bf784[m HEAD@{1037}: rebase (finish): returning to refs/heads/MT48762_CLEAN
+[33m713bf784[m HEAD@{1038}: rebase (squash): MT45367: Migrate from annotations to php attributes
+[33mcaf75cc2[m HEAD@{1039}: rebase (squash): # Ceci est la combinaison de 14 commits.
+[33ma07a1ceb[m HEAD@{1040}: rebase (squash): # Ceci est la combinaison de 13 commits.
+[33mfb32a06d[m HEAD@{1041}: rebase (squash): # Ceci est la combinaison de 12 commits.
+[33mf95f9d66[m HEAD@{1042}: rebase (squash): # Ceci est la combinaison de 11 commits.
+[33m36edca4c[m HEAD@{1043}: rebase (squash): # Ceci est la combinaison de 10 commits.
+[33m89da1b18[m HEAD@{1044}: rebase (squash): # Ceci est la combinaison de 9 commits.
+[33m9720f908[m HEAD@{1045}: rebase (squash): # Ceci est la combinaison de 8 commits.
+[33m492f10bd[m HEAD@{1046}: rebase (squash): # Ceci est la combinaison de 7 commits.
+[33mfa3f7dcc[m HEAD@{1047}: rebase (squash): # Ceci est la combinaison de 6 commits.
+[33m4673bf7e[m HEAD@{1048}: rebase (squash): # Ceci est la combinaison de 5 commits.
+[33mac6c787a[m HEAD@{1049}: rebase (squash): # Ceci est la combinaison de 4 commits.
+[33m54cfa6dc[m HEAD@{1050}: rebase (squash): # Ceci est la combinaison de 3 commits.
+[33m6c1264fd[m HEAD@{1051}: rebase (squash): # Ceci est la combinaison de 2 commits.
+[33mf3bb5ef2[m HEAD@{1052}: rebase (start): checkout HEAD~15
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1053}: rebase (finish): returning to refs/heads/MT48762_CLEAN
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1054}: rebase (start): checkout HEAD~15
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1055}: checkout: moving from MT48762 to MT48762_CLEAN
+[33m5e49335a[m[33m ([m[1;32mMT48762[m[33m)[m HEAD@{1056}: commit: MT48762: Remove the yellow background of connected agent cell when print
+[33m01a48d86[m[33m ([m[1;31morigin/MT48762[m[33m)[m HEAD@{1057}: checkout: moving from MT49421_absences to MT48762
+[33m21f5e5e0[m HEAD@{1058}: checkout: moving from MT48762 to MT49421_absences
+[33m01a48d86[m[33m ([m[1;31morigin/MT48762[m[33m)[m HEAD@{1059}: commit: MT48762 : supprimer cellDiv
+[33mb8452df9[m HEAD@{1060}: commit: MT48762 : des petit erreur et modofication,à continuer
+[33m7c9a5c49[m HEAD@{1061}: checkout: moving from MT49421_absences to MT48762
+[33m21f5e5e0[m HEAD@{1062}: checkout: moving from MT48762 to MT49421_absences
+[33m7c9a5c49[m HEAD@{1063}: checkout: moving from master to MT48762
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1064}: checkout: moving from MT48762 to master
+[33m7c9a5c49[m HEAD@{1065}: checkout: moving from master to MT48762
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1066}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{1067}: checkout: moving from MT48762 to MT49421_absences
+[33m7c9a5c49[m HEAD@{1068}: commit: MT48762 : bien testé,c'est bon,mais y a petit problem que je pense on peux négliger
+[33m7bf07443[m HEAD@{1069}: checkout: moving from master to MT48762
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1070}: checkout: moving from MT48762NEW to master
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1071}: checkout: moving from master to MT48762NEW
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1072}: checkout: moving from MT48762 to master
+[33m7bf07443[m HEAD@{1073}: reset: moving to HEAD
+[33m7bf07443[m HEAD@{1074}: checkout: moving from MT48761 to MT48762
+[33m189adce1[m[33m ([m[1;31morigin/MT48761[m[33m)[m HEAD@{1075}: checkout: moving from master to MT48761
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1076}: checkout: moving from MT48761 to master
+[33m189adce1[m[33m ([m[1;31morigin/MT48761[m[33m)[m HEAD@{1077}: commit: MT48761 : fini,test en attente
+[33mc48a919d[m HEAD@{1078}: revert: Reapply "MT48761 : fini de modification,test en attente"
+[33mc9df1f36[m HEAD@{1079}: revert: Revert "MT48761 : fini de modification,test en attente"
+[33m26d871b0[m HEAD@{1080}: checkout: moving from master to MT48761
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1081}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{1082}: checkout: moving from MT49421_conges to MT49421_absences
+[33mfb593fd7[m[33m ([m[1;32mMT49421_conges[m[33m)[m HEAD@{1083}: checkout: moving from MT48761 to MT49421_conges
+[33m26d871b0[m HEAD@{1084}: commit: MT48761 : fini de modification,test en attente
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1085}: checkout: moving from MT49421_conges to MT48761
+[33mfb593fd7[m[33m ([m[1;32mMT49421_conges[m[33m)[m HEAD@{1086}: commit: MT49421_conges : petit modification
+[33m0e00fb17[m[33m ([m[1;31morigin/MT49421_conges[m[33m)[m HEAD@{1087}: checkout: moving from master to MT49421_conges
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1088}: checkout: moving from MT49421_conges to master
+[33m0e00fb17[m[33m ([m[1;31morigin/MT49421_conges[m[33m)[m HEAD@{1089}: checkout: moving from MT48761 to MT49421_conges
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1090}: checkout: moving from master to MT48761
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1091}: checkout: moving from MT49421_conges to master
+[33m0e00fb17[m[33m ([m[1;31morigin/MT49421_conges[m[33m)[m HEAD@{1092}: commit: MT49421_conges : fusion initial,test en attente
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1093}: checkout: moving from master to MT49421_conges
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1094}: checkout: moving from MT49421_absences to master
+[33m21f5e5e0[m HEAD@{1095}: commit: MT49421_absences : fini,à tester
+[33ma25c2c0f[m HEAD@{1096}: commit: MT49421 : bug sur l'ajouter des agents sur page add
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1097}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1098}: checkout: moving from MT49421_absences to master
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1099}: checkout: moving from MT49421 to MT49421_absences
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1100}: checkout: moving from master to MT49421
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1101}: checkout: moving from MT49421 to master
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1102}: checkout: moving from MT49421_absences to MT49421
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1103}: checkout: moving from master to MT49421_absences
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1104}: checkout: moving from MT49421 to master
+[33m91bdf9da[m[33m ([m[1;31morigin/MT49421[m[33m, [m[1;32mMT49421[m[33m)[m HEAD@{1105}: checkout: moving from 25.04.xx to MT49421
+[33mdb64a1d5[m[33m ([m[1;33mtag: [m[1;33mv25.04.05[m[33m, [m[1;32m25.04.xx[m[33m)[m HEAD@{1106}: checkout: moving from master to 25.04.xx
+[33m4bdc8e22[m[33m ([m[1;32mMT48762NEW[m[33m)[m HEAD@{1107}: clone: from https://github.com/PlanningBiblio/PlanningBiblio

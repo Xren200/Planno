@@ -221,29 +221,21 @@ class WorkingHourImportCommand extends Command
 
         // Recherche des éléments déjà importés
         $tab_db=array();
-        $plh_tab=array();
-        $planningHebdo = $this->entityManager->getRepository(Workinghour::class)->findAll();
-        foreach ($planningHebdo as $plh) {
-            if ((int)$plh->getKey() > 0) {
-                $plh_tab[] = $plh;
-            }
-        }
-        if (!empty($plh_tab)) {
-            foreach ($plh_tab as $elem) {
-                $tab_db[$elem->getKey()] = $elem;
-                $cles_db[] = $elem->getKey();
-            }
-        }
 
+        $workingHours = $this->entityManager->getRepository(Workinghour::class)->findBy(['cle' => 0]);
+        foreach ($workingHours as $wh) {
+            $tab_db[$wh->getKey()] = $wh;
+            $cles_db[] = $wh->getKey();
+        }
 
         // Insertion des nouvelles valeurs ou valeurs modifiées
         $insert = array();
         foreach ($tab as $elem) {
             if (!in_array($elem["cle"], $cles_db)) {
                 if ($elem['debut'] <= date('Y-m-d') and $elem['fin'] >= date('Y-m-d')) {
-                    $elem['actuel'] = "1";
+                    $elem['actuel'] = '1';
                 } else {
-                    $elem['actuel'] = "0";
+                    $elem['actuel'] = '0';
                 }
                 $elem['saisie'] = new \DateTime();
                 $elem['valide'] = 99999;
@@ -260,7 +252,16 @@ class WorkingHourImportCommand extends Command
             try {
                 foreach ($insert as $elem) {
                     $WorkingHour= new WorkingHour();
-                    $WorkingHour->setAll($elem);
+                    $WorkingHour->setUser($elem['perso_id']);
+                    $WorkingHour->setStart($elem['debut']);
+                    $WorkingHour->setEnd($elem['fin']);
+                    $WorkingHour->setTime($elem['temps']);
+                    $WorkingHour->setEntry($elem['saisie']);
+                    $WorkingHour->setValideLevel2($elem['valide']);
+                    $WorkingHour->setDateValideLevel2($elem['validation']);
+                    $WorkingHour->setCurrent($elem['actuel']);
+                    $WorkingHour->setKey($elem['cle']);
+                    $WorkingHour->setWeekCount($elem['nb_semaine']);
                     $this->entityManager->persist($WorkingHour);
                 }
                 $this->log("$nb éléments importés", 'WorkingHourImport');
@@ -275,7 +276,7 @@ class WorkingHourImportCommand extends Command
         $delete = array();
         foreach ($cles_db as $elem) {
             if (!in_array($elem, $cles)) {
-                $delete[]=array("cle"=>$elem);
+                $delete[] = ["cle" => $elem];
             }
         }
 
