@@ -27,7 +27,7 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
     public function testLogin(): void
     {
-        $this->addConfig('PlanningHebdo-ImportAgentId', 'login');
+        $this->setParam('PlanningHebdo-ImportAgentId', 'login');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_login.csv');
         $this->setParam('Multisites-nombre', 1);
 
@@ -59,7 +59,7 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
     public function testMail(): void
     {
-        $this->addConfig('PlanningHebdo-ImportAgentId', 'mail');
+        $this->setParam('PlanningHebdo-ImportAgentId', 'mail');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_mail.csv');
         $this->setParam('Multisites-nombre', 1);
         
@@ -91,7 +91,7 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
     public function testMatricule(): void
     {
-        $this->addConfig('PlanningHebdo-ImportAgentId', 'matricule');
+        $this->setParam('PlanningHebdo-ImportAgentId', 'matricule');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_matricule.csv');
         $this->setParam('Multisites-nombre', 1);
         
@@ -123,7 +123,6 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
 
     private function execute(): void
     {
-
         $kernel = self::bootKernel();
         $application = new Application($kernel);
  
@@ -141,16 +140,4 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
         $this->assertStringContainsString('CSV weekly planning import completed: new/updated schedules inserted and obsolete ones purged.', $output);
     }
 
-    private function addConfig($key, $value) {
-        $c = new Config();
-        $c->setName($key);
-        $c->setValue($value);
-        $c->setType('text');
-        $c->setComment('');
-        $c->setCategory('test');
-        $c->setValues('');
-        $c->setTechnical(0);
-        $c->setOrder(0);
-        $this->entityManager->persist($c);
-    }
 }

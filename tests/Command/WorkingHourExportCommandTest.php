@@ -87,7 +87,7 @@ class WorkingHourExportCommandTest extends PLBWebTestCase
         $this->restore();
     }
 
-    private function execute(): void
+    protected function execute(): void
     {
         $kernel = self::bootKernel();
         $application = new Application($kernel);
@@ -101,18 +101,5 @@ class WorkingHourExportCommandTest extends PLBWebTestCase
 
         $commandTester->assertCommandIsSuccessful();
         $output = $commandTester->getDisplay();
-    }
-
-    private function addConfig($key, $value) {
-        $c = new Config();
-        $c->setName($key);
-        $c->setValue($value);
-        $c->setType('text');
-        $c->setComment('');
-        $c->setCategory('test');
-        $c->setValues('');
-        $c->setTechnical(0);
-        $c->setOrder(0);
-        $this->entityManager->persist($c);
     }
 }
