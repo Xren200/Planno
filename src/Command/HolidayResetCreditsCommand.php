@@ -35,13 +35,19 @@ class HolidayResetCreditsCommand extends Command
         $this
             ->addOption('force', null, InputOption::VALUE_NONE, 'Force: Does not require confirmation')
         ;
+        $this->addOption(
+            'not-really',
+            null,
+            InputOption::VALUE_NONE,
+            'for testing'
+        );
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $io = new SymfonyStyle($input, $output);
 
-        if (!$input->getOption('force')) {
+        if (!$input->getOption('force') && !$input->getOption('not-really')) {
             $message_confirm='Do you really want to delete holidays credits ? All users will be affected !';
             $confirm = $io->confirm($message_confirm, false);
 
@@ -49,7 +55,7 @@ class HolidayResetCreditsCommand extends Command
                 $io->warning('Operation cancelled.');
                 return Command::SUCCESS;
             }
-	}
+	    }
 
         $config = $this->entityManager->getRepository(Config::class)->getAll();
         $transferCompTime = (bool) !empty($config['Conges-transfer-comp-time']);

@@ -45,16 +45,13 @@ class HolidayResetCompTimeCommandTest extends PLBWebTestCase
         $command = $application->find('app:holiday:reset:comp-time');
         $commandTester = new CommandTester($command);
         $commandTester->execute([
-            'command'  => $command->getName()
-        ], [
-            'verbosity' => OutputInterface::VERBOSITY_VERBOSE
+            'command' => $command->getName(),
+            '--not-really' => true
         ]);
-
         $commandTester->assertCommandIsSuccessful();
         $output = $commandTester->getDisplay();
 
         $this->assertStringContainsString('Reset the compensatory time for holiday successfully', $output);
-
     }
     
 }

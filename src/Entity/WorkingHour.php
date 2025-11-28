@@ -109,6 +109,7 @@ class WorkingHour
     public function setKey(?string $key): static
     {
         $this->cle = $key;
+        return $this;
     }
 
     public function getStart(): ?\DateTime
@@ -146,7 +147,6 @@ class WorkingHour
         return $this;
     }
 
-<<<<<<< HEAD
     public function setAll(?array $insert): static
     {
         $this->perso_id = $insert['perso_id'];
@@ -163,7 +163,6 @@ class WorkingHour
         return $this;
     }
 
-=======
     public function getEntry(): ?\DateTime
     {
         return $this->saisie;
@@ -263,5 +262,4 @@ class WorkingHour
 
         return $this;
     }
->>>>>>> 936402ef (MT50258: test Command)
 }

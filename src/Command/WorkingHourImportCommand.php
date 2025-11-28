@@ -211,11 +211,11 @@ class WorkingHourImportCommand extends Command
                 if (is_array($semaine)) {
                     $cles[] = $semaine['cle'];
                     $temps = json_encode($semaine['temps']);
-                    $tab[] =  array(":perso_id"=>$perso['perso_id'], ":debut"=>$semaine['debut'], ":fin"=>$semaine['fin'], ":temps"=>$temps,":cle"=>$semaine['cle']);
+                    $tab[] =  array("perso_id"=>$perso['perso_id'], "debut"=>$semaine['debut'], "fin"=>$semaine['fin'], "temps"=>$temps,"cle"=>$semaine['cle']);
                 }
             }
         }
-
+        echo $tab[0]['cle'];
         // $cles_db : tableau contenant les clé des éléments de la base de données pour comparaison avec le fichier
         $cles_db = array();
 

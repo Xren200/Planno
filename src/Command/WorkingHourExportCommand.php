@@ -9,6 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Console\Input\InputOption;
 
 require_once(__DIR__ . '/../../legacy/Class/class.personnel.php');
 require_once(__DIR__ . '/../../legacy/Class/class.planningHebdo.php');

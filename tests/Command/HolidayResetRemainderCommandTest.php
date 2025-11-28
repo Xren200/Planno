@@ -92,11 +92,10 @@ class HolidayResetRemainderCommandTest extends PLBWebTestCase
 
         $command = $application->find('app:holiday:reset:remainder');
         $commandTester = new CommandTester($command);
-         $commandTester->execute([
-             'command'  => $command->getName()
-         ], [
-             'verbosity' => OutputInterface::VERBOSITY_VERBOSE
-         ]);
+        $commandTester->execute([
+            'command' => $command->getName(),
+            '--not-really' => true
+        ]);
         $commandTester->assertCommandIsSuccessful();
         $output = $commandTester->getDisplay();
 
