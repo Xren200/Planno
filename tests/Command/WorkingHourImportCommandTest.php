@@ -19,27 +19,35 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
     {
         parent::setUp();
 
+        $this->restore();
+
         $this->lockFile = sys_get_temp_dir() . '/plannoCSV.lock';
         if (file_exists($this->lockFile)) {
             @unlink($this->lockFile);
         }
+
+        $this->setParam('Multisites-nombre', 1);
+
+        $this->builder->delete(Agent::class);
+
+        $this->builder->build(Agent::class, [
+            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex',
+            'supprime' => 0,'matricule' => '0000000ff040'
+        ]);
+        $this->builder->build(Agent::class, [
+            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie',
+            'supprime' => 0,'matricule' => '0000000ee490'
+        ]);
     }
 
     public function testLogin(): void
     {
         $this->setParam('PlanningHebdo-ImportAgentId', 'login');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_login.csv');
-        $this->setParam('Multisites-nombre', 1);
 
-        $alex = $this->builder->build(Agent::class, [
-            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ff040'
-        ]);
-        $aurelie = $this->builder->build(Agent::class, [
-            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ee490'
-        ]);
-        
+        $alex = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'alex']);
+        $aurelie = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'aurelie']);
+
         $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
         $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
 
@@ -61,16 +69,9 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
     {
         $this->setParam('PlanningHebdo-ImportAgentId', 'mail');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_mail.csv');
-        $this->setParam('Multisites-nombre', 1);
-        
-        $alex = $this->builder->build(Agent::class, [
-            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ff040'
-        ]);
-        $aurelie = $this->builder->build(Agent::class, [
-            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ee490'
-        ]);
+
+        $alex = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'alex']);
+        $aurelie = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'aurelie']);
         
         $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
         $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);
@@ -93,16 +94,9 @@ class WorkingHourImportCommandTest extends PLBWebTestCase
     {
         $this->setParam('PlanningHebdo-ImportAgentId', 'matricule');
         $this->setParam('PlanningHebdo-CSV', __DIR__ . '/../data/workingHourImport_matricule.csv');
-        $this->setParam('Multisites-nombre', 1);
-        
-        $alex = $this->builder->build(Agent::class, [
-            'login' => 'alex', 'mail' => 'alex@example.com', 'nom' => 'alex', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ff040'
-        ]);
-        $aurelie = $this->builder->build(Agent::class, [
-            'login' => 'aurelie', 'mail' => 'aurelie@example.com', 'nom' => 'aurelie', 'prenom' => 'Alice',
-            'supprime' => 0,'matricule' => '0000000ee490'
-        ]);
+
+        $alex = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'alex']);
+        $aurelie = $this->entityManager->getRepository(Agent::class)->findOneBy(['login' => 'aurelie']);
         
         $whAlex = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $alex->getId()]);
         $whAurelie = $this->entityManager->getRepository(WorkingHour::class)->findOneBy(["perso_id"=> $aurelie->getId()]);

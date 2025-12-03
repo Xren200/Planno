@@ -221,7 +221,7 @@ class WorkingHourImportCommand extends Command
         // Recherche des éléments déjà importés
         $tab_db=array();
 
-        $workingHours = $this->entityManager->getRepository(Workinghour::class)->findBy(['cle' => 0]);
+        $workingHours = $this->entityManager->getRepository(Workinghour::class)->findBy(['cle' => '0']);
         foreach ($workingHours as $wh) {
             $tab_db[$wh->getKey()] = $wh;
             $cles_db[] = $wh->getKey();
@@ -232,9 +232,9 @@ class WorkingHourImportCommand extends Command
         foreach ($tab as $elem) {
             if (!in_array($elem["cle"], $cles_db)) {
                 if ($elem['debut'] <= date('Y-m-d') and $elem['fin'] >= date('Y-m-d')) {
-                    $elem['actuel'] = '1';
+                    $elem['actuel'] = 1;
                 } else {
-                    $elem['actuel'] = '0';
+                    $elem['actuel'] = 0;
                 }
                 $elem['saisie'] = new \DateTime();
                 $elem['valide'] = 99999;
@@ -254,12 +254,17 @@ class WorkingHourImportCommand extends Command
                     $WorkingHour->setUser($elem['perso_id']);
                     $WorkingHour->setStart(new \DateTime($elem['debut']));
                     $WorkingHour->setEnd(new \DateTime($elem['fin']));
-                    $WorkingHour->setTime($elem['temps']);
-                    $WorkingHour->setEntry($elem['saisie']);
+                    $WorkingHour->setWorkingHours($elem['temps']);
+                    $WorkingHour->setBreaktime($elem['breaktime'] ?? []);
+                    $WorkingHour->setEntryDate($elem['saisie']);
+                    $WorkingHour->setChange($elem['modif'] ?? 0);
+                    $WorkingHour->setValideLevel1($elem['valide_n1'] ?? 1);
                     $WorkingHour->setValideLevel2($elem['valide']);
                     $WorkingHour->setDateValideLevel2($elem['validation']);
                     $WorkingHour->setCurrent($elem['actuel']);
+                    $WorkingHour->setReplace($elem['remplace'] ?? 0);
                     $WorkingHour->setKey($elem['cle']);
+                    $WorkingHour->setException($elem['exception'] ?? 0);
                     $WorkingHour->setWeekCount($elem['nb_semaine']);
                     $this->entityManager->persist($WorkingHour);
                 }

@@ -129,26 +129,27 @@ class WorkingHour
 
         return $this;
     }
-    public function getTime(): ?string
+
+    public function getWorkingHours(): ?string
     {
         return $this->temps;
     }
 
-    public function setTime(?string $time): static
+    public function setWorkingHours(?string $workingHours): static
     {
-        $this->temps = $time;
+        $this->temps = $workingHours;
 
         return $this;
     }
 
-    public function getEntry(): ?\DateTime
+    public function getEntryDate(): ?\DateTime
     {
         return $this->saisie;
     }
 
-    public function setEntry(?\DateTime $entry): static
+    public function setEntryDate(?\DateTime $entryDate): static
     {
-        $this->saisie = $entry;
+        $this->saisie = $entryDate;
 
         return $this;
     }
