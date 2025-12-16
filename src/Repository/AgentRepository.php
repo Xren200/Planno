@@ -396,4 +396,14 @@ class AgentRepository extends EntityRepository
         $sites_array = array_values($sites_array);
         return $sites_array;
     }
+
+    public function getAgentsByDeletion(array $deletion)
+    {
+        $qb = $this->createQueryBuilder('a')
+            ->select('a')
+            ->where('a.supprime IN (:deletion)')
+            ->setParameter('deletion', $deletion);
+
+        return $qb->getQuery()->getResult();
+    }
 }
